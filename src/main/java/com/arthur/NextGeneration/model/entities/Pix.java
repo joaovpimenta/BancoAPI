@@ -3,10 +3,11 @@ package com.arthur.NextGeneration.model.entities;
 import com.arthur.NextGeneration.model.enums.TipoChavePix;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Pix {
+public class Pix implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

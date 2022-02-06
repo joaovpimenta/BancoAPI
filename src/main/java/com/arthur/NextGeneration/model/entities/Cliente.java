@@ -3,11 +3,12 @@ package com.arthur.NextGeneration.model.entities;
 import com.arthur.NextGeneration.model.enums.TipoCliente;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

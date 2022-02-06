@@ -4,11 +4,12 @@ package com.arthur.NextGeneration.model.entities;
 import com.arthur.NextGeneration.model.enums.TipoConta;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Conta{
+public class Conta implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

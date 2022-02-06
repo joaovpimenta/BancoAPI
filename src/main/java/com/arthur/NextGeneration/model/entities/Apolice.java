@@ -1,12 +1,13 @@
 package com.arthur.NextGeneration.model.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Apolice {
+public class Apolice implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

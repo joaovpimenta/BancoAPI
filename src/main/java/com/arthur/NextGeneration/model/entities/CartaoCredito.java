@@ -39,12 +39,12 @@ public class CartaoCredito extends Cartao {
         this.apolices = apolices;
     }
 
-    public String getDateString() {
+    public String dateString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd");
         return sdf.format(this.dataVencimento);
     }
 
-    public Date getDateAddOneMonth() {
+    public Date dateAddOneMonth() {
         Calendar calendarAplicacaoTaxa = Calendar.getInstance();
         calendarAplicacaoTaxa.add(Calendar.MONTH, 1);
         return calendarAplicacaoTaxa.getTime();

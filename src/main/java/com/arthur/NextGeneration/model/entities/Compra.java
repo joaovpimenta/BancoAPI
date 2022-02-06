@@ -4,13 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Compra {
+public class Compra implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
