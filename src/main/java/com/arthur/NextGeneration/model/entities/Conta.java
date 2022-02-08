@@ -32,6 +32,8 @@ public class Conta implements Serializable {
     private boolean correnteBool = false;
     @Transient
     private boolean poupancaBool = false;
+    @Transient
+    private String saldoString;
 
     public Conta() {
     }
@@ -46,6 +48,14 @@ public class Conta implements Serializable {
         this.cartaoDebito = cartaoDebito;
         this.taxa = taxa;
         this.dataTaxa = dataTaxa;
+    }
+
+    public String getSaldoString() {
+        return "R$ " + String.format("%.2f", saldo);
+    }
+
+    public void setSaldoString(String saldoString) {
+        this.saldoString = "R$ " + String.format(String.valueOf(saldo), "%.2f");
     }
 
     public boolean isCorrenteBool() {
