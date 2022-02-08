@@ -68,11 +68,14 @@ public class HomeController {
     public String login(String login, String senha){
         Conta conta = contaRepository.findByClienteCpf(login);
         if(conta == null){
+            System.out.println("Dados Incorretos!");
             return "login";
         }else{
             if(conta.getSenha().equals(senha)){
+                System.out.println("Sucesso!");
                 return "home";
             }else{
+                System.out.println("Dados Incorretos!");
                 return "login";
             }
         }
