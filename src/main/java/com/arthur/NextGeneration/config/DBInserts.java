@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Profile;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 @Configuration
 @Profile("db")

@@ -4,6 +4,9 @@ import com.arthur.NextGeneration.model.enums.TipoCliente;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,6 +25,23 @@ public class Cliente implements Serializable {
     private String email;
     private String telefone;
     private TipoCliente tipo = TipoCliente.COMUM;
+
+    @Transient
+    private String dataString;
+
+    public String getDataString() {
+        return dataString;
+    }
+
+    public void setDataString(String dataString) {
+        this.dataString = dataString;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        try {
+            this.dataDeNascimento = sdf.parse(dataString);
+        } catch (ParseException e) {
+            this.dataDeNascimento = Calendar.getInstance().getTime();
+        }
+    }
 
     public Cliente(Long id, String cpf, String nome, Date dataDeNascimento, Endereco endereco, String email, String telefone, TipoCliente tipo) {
         this.id = id;
