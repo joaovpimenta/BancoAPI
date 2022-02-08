@@ -52,40 +52,40 @@ public class DBInserts implements CommandLineRunner {
         Endereco endereco1 = new Endereco(
                 null,
                 "Rua 1",
-                "Bairro 1",
-                "Cidade 1",
-                "Estado 1",
-                "Numero 1",
-                "Cep 1");
+                "Centro",
+                "Rio de Janeiro",
+                "RJ",
+                "123",
+                "12345-678");
 
         Endereco endereco2 = new Endereco(
                 null,
                 "Rua 2",
-                "Bairro 2",
-                "Cidade 2",
-                "Estado 2",
-                "Numero 2",
-                "Cep 2");
+                "Centro",
+                "Rio de Janeiro",
+                "RJ",
+                "124",
+                "12345-679");
 
         Date hoje = Calendar.getInstance().getTime();
 
         Cliente cliente1 = new ClienteService(
-                "12345678910",
+                "123.456.789-10",
                 "Arthur",
                 hoje,
                 endereco1,
                 "arthur@gmail.com",
-                "21 999999999").getCliente();
+                "+55(21)99999-9999").getCliente();
 
         Cliente cliente2 = new ClienteService(
-                "12345678911",
+                "123.456.789-11",
                 "Kimberly",
                 hoje,
                 endereco2,
                 "Kimberly@gmail.com",
-                "21 999999999").getCliente();
+                "+55(21)99999-9999").getCliente();
 
-        Conta conta1 = new ContaService("ArthurS2Kimberly", cliente1, TipoConta.CORRENTE).getConta();
+        Conta conta1 = new ContaService("1234567", cliente1, TipoConta.CORRENTE).getConta();
         Conta conta2 = new ContaService("KimberlyS2Arthur", cliente2, TipoConta.POUPANCA).getConta();
 
         CartaoCredito cc = new CartaoCredito(null, "Visa", "123456", hoje);

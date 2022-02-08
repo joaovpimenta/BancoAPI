@@ -28,6 +28,10 @@ public class Conta implements Serializable {
     private CartaoDebito cartaoDebito;
     private double taxa;
     private Date dataTaxa = new Date();
+    @Transient
+    private boolean correnteBool = false;
+    @Transient
+    private boolean poupancaBool = false;
 
     public Conta() {
     }
@@ -42,6 +46,22 @@ public class Conta implements Serializable {
         this.cartaoDebito = cartaoDebito;
         this.taxa = taxa;
         this.dataTaxa = dataTaxa;
+    }
+
+    public boolean isCorrenteBool() {
+        return correnteBool;
+    }
+
+    public void setCorrenteBool(boolean correnteBool) {
+        this.correnteBool = correnteBool;
+    }
+
+    public boolean isPoupancaBool() {
+        return poupancaBool;
+    }
+
+    public void setPoupancaBool(boolean poupancaBool) {
+        this.poupancaBool = poupancaBool;
     }
 
     public CartaoCredito getCartaoCredito() {
@@ -116,9 +136,13 @@ public class Conta implements Serializable {
         this.cliente = cliente;
     }
 
+    public Conta clone(){
+        return new Conta(this.id,this.saldo,this.senha, this.cliente,this.tipoConta,this.cartaoCredito,this.cartaoDebito,this.taxa,this.dataTaxa);
+    }
+
     @Override
     public String toString() {
-        return "Nome: " + getCliente().getNome()+
+        return "Nome: " + getCliente().getNome() +
                 " CPF: " + getCliente().getCpf() +
                 " Conta: " + getTipoConta().name();
     }

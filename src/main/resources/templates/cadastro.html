@@ -4,6 +4,8 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		  rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <title>cadastro</title>
 <style id="applicationStylesheet" type="text/css">
 	.mediaViewInfo {
@@ -5693,8 +5695,15 @@ window.application = new Application();
 			<div id="METADATA_bc">
 				<span>{"config":{},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:39.455Z","nodeName":"Button"}</span>
 			</div>
+			<div class="btn-group" role="group" aria-label="Checkbox Group do tipo Conta" style="position: relative; top: 82px; left: 00px; width: 328px; height: 48px; border-color:#00ff5f !important;">
+				<input type="checkbox" class="btn-check" id="btncheck1" name="correnteBool" autocomplete="off" th:checked="${conta.correnteBool}">
+				<label class="btn btn-outline-primary" for="btncheck1" style="color: #00ff5f; border-color:#00ff5f; border-style: solid; border-width: 2px; font-family: Bradesco Sans; font-style: normal; font-weight: bold; font-size: 16px;">Conta Corrente</label>
+
+				<input type="checkbox" class="btn-check" id="btncheck2" name="poupancaBool" autocomplete="off" th:checked="${conta.poupancaBool}">
+				<label class="btn btn-outline-primary" for="btncheck2" style="color: #00ff5f; border-color:#00ff5f;border-style: solid; border-width: 2px; font-family: Bradesco Sans; font-style: normal; font-weight: bold; font-size: 16px;">Conta Poupança</label>
+			</div>
 			<a href="/">
-				<input class="Botao" type="submit" value="Cadastrar">
+				<input class="Botao" type="submit" value="Cadastrar" onclick="if(!this.form.correnteBool.checked && !this.form.poupancaBool.checked){alert('Selecione Pelo Menos UM Tipo de Conta');return false}">
 			</a>
 			<div id="Icon_">
 				<div id="METADATA_bg">
@@ -5744,7 +5753,7 @@ window.application = new Application();
 			<div id="METADATA_bw">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.692Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoDois" type="text" placeholder="Numero" name="numero" th:value="${endereco.numero}">
+			<input class="entradaTipoDois" pattern="[0-9]*" type="text" placeholder="Numero" name="numero" th:value="${endereco.numero}">
 			<div id="Icon__bz">
 				<div id="METADATA_b">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.545Z","nodeName":"Icon"}</span>
@@ -5772,7 +5781,7 @@ window.application = new Application();
 			<div id="METADATA_ca">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.692Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoTres" type="text" placeholder="Cidade" name="cidade" th:value="${endereco.cidade}">
+			<input class="entradaTipoTres" pattern="[a-zA-Z ]*" type="text" placeholder="Cidade" name="cidade" th:value="${endereco.cidade}">
 			<div id="Icon__ca">
 				<div id="METADATA_cb">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.545Z","nodeName":"Icon"}</span>
@@ -5800,7 +5809,7 @@ window.application = new Application();
 			<div id="METADATA_ci">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.692Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoTres" type="text" placeholder="CEP" name="cep" th:value="${endereco.cep}" style="text-">
+			<input class="entradaTipoTres" pattern="[0-9]{5}-[0-9]{3}" type="text" placeholder="CEP" name="cep" th:value="${endereco.cep}" style="text-">
 			<div id="Icon__cl">
 				<div id="METADATA_cm">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.545Z","nodeName":"Icon"}</span>
@@ -5856,7 +5865,7 @@ window.application = new Application();
 			<div id="METADATA_c">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="Logradouro" name="logradouro" th:value="${endereco.logradouro}">
+			<input class="entradaTipoUm" pattern="[a-zA-Z0-9 ]*" type="text" placeholder="Logradouro" name="logradouro" th:value="${endereco.logradouro}">
 			<div id="Icon__c">
 				<div id="METADATA_da">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>
@@ -5884,7 +5893,7 @@ window.application = new Application();
 			<div id="METADATA_df">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="Bairro" name="bairro" th:value="${endereco.bairro}">
+			<input class="entradaTipoUm" pattern="[a-zA-Z ]*" type="text" placeholder="Bairro" name="bairro" th:value="${endereco.bairro}">
 			<div id="Icon__di">
 				<div id="METADATA_dj">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>
@@ -5912,7 +5921,7 @@ window.application = new Application();
 			<div id="METADATA_dq">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoDois" type="text" placeholder="Estado" name="estado" th:value="${endereco.estado}">
+			<input class="entradaTipoDois" pattern="[A-Z]{2}" type="text" placeholder="Estado" name="estado" th:value="${endereco.estado}">
 			<div id="Icon__dt">
 				<div id="METADATA_du">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>
@@ -5940,7 +5949,7 @@ window.application = new Application();
 			<div id="METADATA_d">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="CPF" name="cpf" th:value="${cliente.cpf}">
+			<input class="entradaTipoUm" pattern="[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}" type="text" placeholder="CPF" name="cpf" th:value="${cliente.cpf}">
 <!--			<input class="entradaTipoUm" type="text" placeholder="CPF" name="cpf" th:value="${cliente.CPF}">-->
 			<div id="Icon__d">
 				<div id="METADATA_ea">
@@ -5969,7 +5978,7 @@ window.application = new Application();
 			<div id="METADATA_ec">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="Telefone" name="telefone" th:value="${cliente.telefone}">
+			<input class="entradaTipoUm" pattern="[+]{1}[0-9]*[(]{1}[0-9]{2}[)]{1}[0-9]{5}-[0-9]{4}" type="text" placeholder="Telefone: +55(21)98765-4321" name="telefone" th:value="${cliente.telefone}">
 			<div id="Icon__ef">
 				<div id="METADATA_eg">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>
@@ -5997,7 +6006,9 @@ window.application = new Application();
 			<div id="METADATA_en">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="Nome Completo" name="nome" th:value="${cliente.nome}">
+			oi cla
+			oi
+			<input class="entradaTipoUm" pattern="[a-zA-Z]*( [a-zA-Z])*" type="text" placeholder="Nome Completo" name="nome" th:value="${cliente.nome}">
 			<div id="Icon__eq">
 				<div id="METADATA_er">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>
@@ -6025,7 +6036,7 @@ window.application = new Application();
 			<div id="METADATA_ey">
 				<span>{"config":{},"type":"Input","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:41.066Z","nodeName":"Input"}</span>
 			</div>
-			<input class="entradaTipoUm" type="text" placeholder="Endereço de Email" name="email" th:value="${cliente.email}">
+			<input class="entradaTipoUm" pattern="[a-zA-Z0-9_.]+[@]{1}[a-z]+[.]{1}[a-z]+[a-z.]*" type="text" placeholder="Endereço de Email" name="email" th:value="${cliente.email}">
 			<div id="Icon__e">
 				<div id="METADATA_e">
 					<span>{"config":{"STATE":"DEFAULT","ICON":"Feather/Search"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:59:40.878Z","nodeName":"Icon"}</span>

@@ -3,6 +3,7 @@ package com.arthur.NextGeneration.controller.controllers;
 import com.arthur.NextGeneration.model.entities.Cliente;
 import com.arthur.NextGeneration.model.entities.Conta;
 import com.arthur.NextGeneration.model.entities.Endereco;
+import com.arthur.NextGeneration.model.enums.TipoConta;
 import com.arthur.NextGeneration.model.repositories.ClienteRepository;
 import com.arthur.NextGeneration.model.repositories.ContaRepository;
 import com.arthur.NextGeneration.model.repositories.EnderecoRepository;
@@ -47,13 +48,38 @@ public class HomeController {
     public String insertDados(Conta conta, Cliente cliente, Endereco endereco){
         cliente.setEndereco(endereco);
         conta.setCliente(cliente);
-
+        System.out.println("Chegou aqui");
+        System.out.println(conta.isCorrenteBool());
+        System.out.println(conta.isPoupancaBool());/*
+        if(conta.isCorrenteBool() && conta.isPoupancaBool()){
+            Conta conta2 = conta.clone();
+            conta.setTipoConta(TipoConta.CORRENTE);
+            conta.setTaxa(0.0045);
+            conta2.setTipoConta(TipoConta.POUPANCA);
+            conta2.setTaxa(0.0003);
+            enderecoRepository.saveAll(Arrays.asList(endereco));
+            clienteRepository.saveAll(Arrays.asList(cliente));
+            contaRepository.saveAll(Arrays.asList(conta,conta2));
+            System.out.println("Eh nois");
+            return "home";
+        }
+        else if(conta.isCorrenteBool()){
+            conta.setTipoConta(TipoConta.CORRENTE);
+            conta.setTaxa(0.0045);
+        }else if(conta.isPoupancaBool()){
+            conta.setTipoConta(TipoConta.POUPANCA);
+            conta.setTaxa(0.0003);
+        }else{
+            System.out.println("Nenhuma Selecionada");
+            return "cadastro";
+        }
         enderecoRepository.saveAll(Arrays.asList(endereco));
         clienteRepository.saveAll(Arrays.asList(cliente));
-        contaRepository.saveAll(Arrays.asList(conta));
+        contaRepository.saveAll(Arrays.asList(conta));*/
         System.out.println("Eh nois");
         return "home";
     }
+
 
     @GetMapping(value = "/login")
     public String getLogar(Model model){
