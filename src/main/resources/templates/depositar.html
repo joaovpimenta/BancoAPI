@@ -5018,17 +5018,11 @@ window.application = new Application();
 				<div id="Tipo_de_Conta">
 					<span>Tipo de Conta:</span>
 				</div>
-				<div id="Nmero_da_Conta">
-					<span>Número da Conta:</span>
-				</div>
 				<div id="Corrente">
-					<span>Corrente</span>
-				</div>
-				<div id="n_874562">
-					<span>9874562</span>
+					<span th:text="${contasuprema.tipoConta}"></span>
 				</div>
 				<div id="Fulanoa_da_Silva">
-					<span>Fulano(a) da Silva</span>
+					<span th:text="${contasuprema.cliente.nome}"></span>
 				</div>
 			</div>
 		</div>
@@ -5436,7 +5430,7 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Grupo_21_n">
-			<a href="/menu/transacoes/">
+			<a href="/transacoes">
 				<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_o">
 					<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_o" rx="24" ry="24" x="0" y="0" width="48" height="48">
 					</rect>

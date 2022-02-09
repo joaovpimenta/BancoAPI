@@ -11,9 +11,10 @@ import com.arthur.NextGeneration.model.services.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/cadastro")
-    public String getCadastrar(Model model){
+    public String getCadastrar(ModelMap model){
         Conta conta = new Conta();
         Cliente cliente = new Cliente();
         Endereco endereco = new Endereco();
@@ -138,7 +139,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/menu")
-    public String getLogado(Model model){
+    public String getLogado(ModelMap model){
         if(contaLogada == null){
             return "redirect:/";
         }
@@ -154,8 +155,8 @@ public class HomeController {
 
     // Mapeando TRANSAÇÕES
 
-    @GetMapping(value = "/menu/transacoes/")
-    public String getTransacoes(Model model){
+    @GetMapping(value = "/transacoes")
+    public String getTransacoes(ModelMap model){
         String valorDeposito = new String();
         String cpfExterno = new String();
         Boolean corrente = false;
@@ -172,11 +173,30 @@ public class HomeController {
         return "transacoes";
     }
 
-    @GetMapping(value = "/menu/transacoes/depositar/")
-    public String getDeposito(){
+    @PostMapping (value = "/godepositar")
+    public String godepositar(Model model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "depositar";
+    }
+
+    @PostMapping (value = "/gosacar")
+    public String gosacar(Model model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "saque";
+    }
+
+    @PostMapping (value = "/gotransferir")
+    public String gotransferir(Model model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "transferir";
+    }
+
+    @GetMapping(value = "/depositare")
+    public String getDeposito(Conta contaLogadinha){
         if(contaLogada == null){
             return "redirect:/";
         }
+        System.out.println(contaLogadinha);
         return "depositar";
     }
 
@@ -205,8 +225,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/menu/transacoes/transferir/")
-    public String getTransferencia(Model model){
-        model.addAttribute(contaLogada);
+    public String getTransferencia(ModelMap model){
         if(contaLogada == null){
             return "redirect:/";
         }
@@ -254,7 +273,13 @@ public class HomeController {
     }
 
 
-    // MAPEANDO PIX
+
+
+    // -------------------------- É HORA DO PIX -------------------------------------
+
+
+
+
 
     @GetMapping(value = "/menu/pix/")
     public String getPix(){
@@ -270,6 +295,24 @@ public class HomeController {
             return "redirect:/";
         }
         return "cadastrapix";
+    }
+
+    @PostMapping(value = "/gocadastrarpix")
+    public String goCadastrarPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "cadastrapix";
+    }
+
+    @PostMapping(value = "/goconsultarpix")
+    public String goConsultarPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "consultachave";
+    }
+
+    @PostMapping(value = "/gotransferirpix")
+    public String goTransferirPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        return "tranferirpix";
     }
 
     @GetMapping(value = "/menu/pix/consultarchave/")

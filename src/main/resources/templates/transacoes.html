@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -20,7 +20,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
 	}
 	#transacoes {
 		position: absolute;
@@ -434,6 +433,32 @@
 		height: 48px;
 		left: 0px;
 		top: 0px;
+	}
+	.Botao{
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 300px;
+		height: 190px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 32px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#Label_bbs {
 		left: 57px;
@@ -4894,47 +4919,23 @@ window.application = new Application();
 			<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Our Mission","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.377Z"}</span>
 		</div>
 		<div id="Grupo_7_bay">
-			<div id="Grupo_18_baz">
-				<a href="/menu/transacoes/depositar/">
-					<div id="Grupo_5_ba">
-						<div id="Image__ba">
-							<div id="METADATA_bbn">
-								<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-							</div>
-							<svg class="Placement_Area_ASSETsmallSIZED_bba">
-								<rect id="Placement_Area_ASSETsmallSIZED_bba" rx="30" ry="30" x="0" y="0" width="300" height="190">
-								</rect>
-							</svg>
-						</div>
-						<div id="Text_ba">
-							<span></span>
-						</div>
+			<div id="Grupo_18_baz" style="top: 0px; left: 1345px;">
+				<form th:action="@{/godepositar}" method="POST">
+					<input class="Botao" type="submit" value="Deposito" style="top: 0px; left: 0px;">
+					<div id="Text_ba">
+						<span></span>
 					</div>
-					<div id="Depsito">
-						<span>Depósito</span>
-					</div>
-				</a>
+				</form>
 			</div>
 			<div id="Grupo_20_ba">
-				<a href="/menu/transacoes/sacar/">
 					<div id="Grupo_5_bba">
-						<div id="Image__bba">
-							<div id="METADATA_bbo">
-								<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
+						<form th:action="@{/gosacar}" method="POST">
+							<input class="Botao" type="submit" value="Saque" style="top: 0px; left: 0px;">
+							<div id="Text_bbb">
+								<span></span>
 							</div>
-							<svg class="Placement_Area_ASSETsmallSIZED_bbb">
-								<rect id="Placement_Area_ASSETsmallSIZED_bbb" rx="30" ry="30" x="0" y="0" width="300" height="190">
-								</rect>
-							</svg>
-						</div>
-						<div id="Text_bbb">
-							<span></span>
-						</div>
+						</form>
 					</div>
-					<div id="Saque">
-						<span>Saque</span>
-					</div>
-				</a>
 			</div>
 			<div id="Grupo_17_bbd">
 				<div id="Text_bbe">
@@ -4945,25 +4946,14 @@ window.application = new Application();
 				</div>
 			</div>
 			<div id="Grupo_22">
-				<a href="/menu/transacoes/transferir/">
 					<div id="Grupo_5_bbh">
-						<div id="Image__bbi">
-							<div id="METADATA_bbp">
-								<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
+						<form th:action="@{/gotransferir}" method="POST">
+							<input class="Botao" type="submit" value="Transfência" style="top: 0px; left: 0px;">
+							<div id="Text_bbl">
+								<span></span>
 							</div>
-							<svg class="Placement_Area_ASSETsmallSIZED_bbk">
-								<rect id="Placement_Area_ASSETsmallSIZED_bbk" rx="30" ry="30" x="0" y="0" width="300" height="190">
-								</rect>
-							</svg>
-						</div>
-						<div id="Text_bbl">
-							<span></span>
-						</div>
+						</form>
 					</div>
-					<div id="Transferncia_bbm">
-						<span>Transferência</span>
-					</div>
-				</a>
 			</div>
 		</div>
 	</div>

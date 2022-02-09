@@ -20,7 +20,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
 	}
 	#pix {
 		position: absolute;
@@ -212,6 +211,32 @@
 		stroke-linecap: butt;
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
+	}
+	.Botao{
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 300px;
+		height: 190px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 32px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	.Placement_Area_ASSETsmallSIZED_ba {
 		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
@@ -4883,7 +4908,7 @@ var Application = function() {
 
 window.application = new Application();
 </script>
-</head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="pix">
 	<div id="METADATA">
@@ -4896,59 +4921,32 @@ window.application = new Application();
 		<div id="Grupo_7">
 			<div id="Grupo_18">
 				<div id="Grupo_5">
-					<div id="Image_">
-						<div id="METADATA_">
-							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-						</div>
-						<svg class="Placement_Area_ASSETsmallSIZED">
-							<rect id="Placement_Area_ASSETsmallSIZED" rx="30" ry="30" x="0" y="0" width="300" height="190">
-							</rect>
-						</svg>
-					</div>
+					<form th:action="@{/goconsultarpix}" method="POST" xmlns:th="http://www.w3.org/1999/xhtml">
+						<input class="Botao" type="submit" value="Consultar Chaves" style="top: 0px; left: 0px;">
+					</form>
 					<div id="Text">
 						<span></span>
 					</div>
 				</div>
-				<div id="Consultar_Chaves_">
-					<span>Consultar Chaves </span>
-				</div>
 			</div>
 			<div id="Grupo_20">
 				<div id="Grupo_5_">
-					<div id="Image__">
-						<div id="METADATA_ba">
-							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-						</div>
-						<svg class="Placement_Area_ASSETsmallSIZED_ba">
-							<rect id="Placement_Area_ASSETsmallSIZED_ba" rx="30" ry="30" x="0" y="0" width="300" height="190">
-							</rect>
-						</svg>
-					</div>
+					<form th:action="@{/gocadastrarpix}" method="POST" xmlns:th="http://www.w3.org/1999/xhtml">
+						<input class="Botao" type="submit" value="Cadastrar Chave" style="top: 0px; left: 0px;">
+					</form>
 					<div id="Text_bb">
 						<span></span>
 					</div>
 				</div>
-				<div id="Cadastrar_Chave_Pix">
-					<span>Cadastrar Chave Pix</span>
-				</div>
 			</div>
 			<div id="Grupo_19">
 				<div id="Grupo_5_be">
-					<div id="Image__bf">
-						<div id="METADATA_bg">
-							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-						</div>
-						<svg class="Placement_Area_ASSETsmallSIZED_bh">
-							<rect id="Placement_Area_ASSETsmallSIZED_bh" rx="30" ry="30" x="0" y="0" width="300" height="190">
-							</rect>
-						</svg>
-					</div>
+					<form th:action="@{/gotransferirpix}" method="POST" xmlns:th="http://www.w3.org/1999/xhtml">
+						<input class="Botao" type="submit" value="Pagar com Pix" style="top: 0px; left: 0px;">
+					</form>
 					<div id="Text_bi">
 						<span></span>
 					</div>
-				</div>
-				<div id="Pagamentos_com_Pix">
-					<span>Pagamentos com Pix</span>
 				</div>
 			</div>
 			<div id="Grupo_17">
@@ -4965,6 +4963,7 @@ window.application = new Application();
 		<div id="METADATA_bo">
 			<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Header","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.118Z"}</span>
 		</div>
+		<a href="/">
 		<div id="Button_">
 			<div id="METADATA_bq">
 				<span>{"config":{},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:26.716Z","nodeName":"Button"}</span>
@@ -4992,6 +4991,8 @@ window.application = new Application();
 				</div>
 			</div>
 		</div>
+		</a>
+		<a href="/">
 		<div id="Button__by">
 			<div id="METADATA_bz">
 				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
@@ -5019,6 +5020,7 @@ window.application = new Application();
 				</div>
 			</div>
 		</div>
+		</a>
 	</div>
 	<div id="Componente_1__3" class="Componente_1___3">
 		<div id="Footer">
@@ -5217,8 +5219,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="logo.png" srcset="logo.png 1x, logo@2x.png 2x">
-		
+	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo@2x.png 2x">
 	<div id="humaaansstanding-2">
 		<div id="humaaan-8">
 			<div id="HeadFrontShort-Beard">
@@ -5361,19 +5362,21 @@ window.application = new Application();
 			</svg>
 		</div>
 	</div>
-	<div id="Grupo_21">
-		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_fc">
-			<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_fc" rx="24" ry="24" x="0" y="0" width="48" height="48">
-			</rect>
-		</svg>
-		<svg class="Caminho_5" viewBox="2.25 6.75 14 10">
-			<path id="Caminho_5" d="M 6.250000476837158 6.75 L 2.25 11.75 L 6.250000476837158 16.75 M 2.25 11.75 L 16.25000190734863 11.75">
-			</path>
-		</svg>
-		<div id="Voltar">
-			<span>Voltar</span>
+	<a href="/menu">
+		<div id="Grupo_21">
+			<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_fc">
+				<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_fc" rx="24" ry="24" x="0" y="0" width="48" height="48">
+				</rect>
+			</svg>
+			<svg class="Caminho_5" viewBox="2.25 6.75 14 10">
+				<path id="Caminho_5" d="M 6.250000476837158 6.75 L 2.25 11.75 L 6.250000476837158 16.75 M 2.25 11.75 L 16.25000190734863 11.75">
+				</path>
+			</svg>
+			<div id="Voltar">
+				<span>Voltar</span>
+			</div>
 		</div>
-	</div>
+	</a>
 </div>
-</body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6da93da1ac50602b',m:'wr7QOmF3MyIfspssj2gxmbD8RsM7Of2iNDHbqLjSyd0-1644369264-0-AaPfICgdVJpPAH8LVA+RTl2IEpDIQ/SDMLtVKQeLNuTS2iJ0Vh26CYm509dzgJMDLEewCZ7AZVrd4B1+2IwPAoAaPS0VdLx7A5rVU1F0Yb5TZ4cy3jNvsYKrgSQo7+fn6os7XM+HGTXmcaZNrB8+IMDwjwgnqBhxbA1ZaV1a/sMHcbQtDy6yjun3CqZzrtQCTg==',s:[0xdee67f8a45,0x789e72129e],}})();</script></body>
 </html>

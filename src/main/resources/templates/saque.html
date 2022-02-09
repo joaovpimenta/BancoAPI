@@ -5053,20 +5053,14 @@ window.application = new Application();
 			<div id="Tipo_de_Conta_j">
 				<span>Tipo de Conta:</span>
 			</div>
-			<div id="Nmero_da_Conta_k">
-				<span>Número da Conta:</span>
-			</div>
 			<div id="Corrente_l">
-				<span>Corrente</span>
-			</div>
-			<div id="n_874562_m">
-				<span>9874562</span>
+				<span th:text="${contasuprema.tipoConta}"></span>
 			</div>
 			<div id="R_0000_n">
-				<span>R$ 00,00</span>
+				<span th:text="${contasuprema.saldoString}"></span>
 			</div>
 			<div id="Fulanoa_da_Silva_o">
-				<span>Fulano(a) da Silva</span>
+				<span th:text="${contasuprema.cliente.nome}"></span>
 			</div>
 		</div>
 	</div>
@@ -5475,7 +5469,7 @@ window.application = new Application();
 		</div>
 	</div>
 	<div id="Grupo_21_bad">
-		<a href="/menu/transacoes/">
+		<a href="/transacoes">
 			<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_bae">
 				<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_bae" rx="24" ry="24" x="0" y="0" width="48" height="48">
 				</rect>
