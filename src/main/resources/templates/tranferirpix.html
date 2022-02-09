@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -20,7 +20,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
 	}
 	#tranferirpix {
 		position: absolute;
@@ -2405,6 +2404,60 @@
 		font-size: 13px;
 		color: rgba(61,61,61,1);
 		letter-spacing: 0.4px;
+	}
+	.Campo{
+		overflow: visible;
+		position: absolute;
+		width: 300px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+		fill: rgba(255,255,255,1);
+		stroke: rgba(62,62,62,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		text-indent: 20px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(18,18,18,1);
+		border-color: #121212;
+		border-style: solid;
+  		border-width: 2px;
+	}
+
+	.Botao{
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 200px;
+		height: 50px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#Grupo_25_wh {
 		position: absolute;
@@ -5463,6 +5516,7 @@ window.application = new Application();
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="tranferirpix">
+	<form th:action="@{/bttransferirpix}" method="POST">
 	<div id="METADATA_qz">
 		<span>{"config":{},"type":"Artboard","theme":"Base","nodeName":"About - Desktop","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:22.509Z"}</span>
 	</div>
@@ -6016,13 +6070,7 @@ window.application = new Application();
 		<div id="METADATA_v">
 			<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 		</div>
-		<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_v">
-			<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_v" rx="24" ry="24" x="0" y="0" width="144" height="48">
-			</rect>
-		</svg>
-		<div id="Label_v">
-			<span>Transferir</span>
-		</div>
+			<input type="submit" class="Botao" value="Transferir">
 		<div id="Icon__v">
 			<div id="METADATA_wa">
 				<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -6067,37 +6115,12 @@ window.application = new Application();
 		</div>
 	</div>
 	<div id="Grupo_25_wh">
-		<div id="Tipo_de_chave_wi">
-			<span>Tipo de chave:</span>
-		</div>
 		<div id="Contedo_da_chave">
 			<span>Chave:</span>
 		</div>
-		<div id="Valor_da_transferncia">
-			<span>Valor da transferência:</span>
-		</div>
-		<svg class="Area_wl">
-			<rect id="Area_wl" rx="0" ry="0" x="0" y="0" width="230" height="51">
-			</rect>
-		</svg>
-		<div id="Label_wm">
-			<span>CPF</span>
-		</div>
-		<svg class="Area_wn">
-			<rect id="Area_wn" rx="0" ry="0" x="0" y="0" width="230" height="51">
-			</rect>
-		</svg>
-		<svg class="Area_wo">
-			<rect id="Area_wo" rx="0" ry="0" x="0" y="0" width="230" height="51">
-			</rect>
-		</svg>
-		<div id="Value_wp">
-			<span>R$0,00</span>
-		</div>
-		<div id="Value_wq">
-			<span>111.111.111-11</span>
-		</div>
+		<input type="text" style="top: 73px; left:470px;" class="Campo" placeholder="Chave" name="chave" th:value="${chave}">
 	</div>
+	</form>
 </div>
 <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6da95ad6fe7acfe4',m:'6fRh3eCHcw0kva8NgPxLc0bNDlx9aRppZ_a5BpR7si0-1644370461-0-AfNW/nycfh9yUNdwxvQEVRZzGsPf+I7paxFbsCQDkgMmM+DM4MKoxv7AuKg7bM6XOm9+xdej3aZqqjYn6QreWnjsbewE0vYsDvsjHMws8X+SVvaCTmNUhYYi8+vZ0iRGryHH9Lt6TcPCTZo0F3bWJtIhtq7nv5TMIqZI8xc8wsGUi682RTrEofEKxQ0BbZTtj0D4yi0nAdWbpHTbzwQNXqw=',s:[0x2d0d22c6fd,0x47c7ea1e47],}})();</script></body>
 </html>

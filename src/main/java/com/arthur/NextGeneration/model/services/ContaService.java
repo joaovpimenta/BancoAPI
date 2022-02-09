@@ -125,8 +125,12 @@ public class ContaService {
         }
     }
 
-    public void sacar(double valor){
+    public boolean sacar(double valor){
+        if(conta.getSaldo() < valor){
+            return false;
+        }
         this.conta.setSaldo(conta.getSaldo() - valor);
+        return true;
     }
 
     public static boolean checkSenhaValida(String senha){

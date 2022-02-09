@@ -42,12 +42,14 @@ public class HomeController {
 
     @GetMapping(value = "/")
     public String getHome(){
+        contaLogada = null;
         return "home";
     }
 
     @GetMapping(value = "/cadastro")
     public String getCadastrar(ModelMap model){
         try {
+            contaLogada = null;
             Conta conta = new Conta();
             Cliente cliente = new Cliente();
             Endereco endereco = new Endereco();
@@ -103,6 +105,7 @@ public class HomeController {
     @GetMapping(value = "/login")
     public String getLogar(Model model){
         try {
+            contaLogada = null;
             String login = new String();
             String senha = new String();
             Boolean corrente = false;
@@ -345,194 +348,270 @@ public class HomeController {
     // -------------------------- É HORA DO PIX -------------------------------------
 
 
-
+    @GetMapping(value = "/menu/pix/")
+    public String pix(){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "pix";
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
 
 
     @GetMapping(value = "/menu/pix/cadastrarpix/")
     public String getCadastroPix(){
-        if(contaLogada == null){
-            return "redirect:/";
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "cadastrapix";
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "cadastrapix";
     }
 
     @PostMapping(value = "/gocadastrarpix")
     public String goCadastrarPix(ModelMap model){
-        Boolean cpf = false;
-        Boolean email = false;
-        Boolean telefone = false;
-        Boolean aleatorio = false;
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            Boolean cpf = false;
+            Boolean email = false;
+            Boolean telefone = false;
+            Boolean aleatorio = false;
 
-        model.addAttribute("valor","");
-        model.addAttribute("cpf",cpf);
-        model.addAttribute("email",email);
-        model.addAttribute("telefone",telefone);
-        model.addAttribute("aleatorio",aleatorio);
-        return "cadastrapix";
+            model.addAttribute("valor","");
+            model.addAttribute("cpf",cpf);
+            model.addAttribute("email",email);
+            model.addAttribute("telefone",telefone);
+            model.addAttribute("aleatorio",aleatorio);
+            return "cadastrapix";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping(value = "/btcadastrarpix")
     public String btCadastrarPix(String valor, Boolean cpf, Boolean email, Boolean telefone, Boolean aleatorio){
-        if(cpf == null){
-            cpf = false;
-        }
-        if(email == null){
-            email = false;
-        }
-        if(telefone == null){
-            telefone = false;
-        }
-        if(aleatorio == null){
-            aleatorio = false;
-        }
+        try {
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            if (cpf == null) {
+                cpf = false;
+            }
+            if (email == null) {
+                email = false;
+            }
+            if (telefone == null) {
+                telefone = false;
+            }
+            if (aleatorio == null) {
+                aleatorio = false;
+            }
 
-        Pix aleatoria = null;
-        ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
-        for (Pix pix: list){
-            if(pix.getChavePix().equals(TipoChavePix.ALEATORIO)){
-                aleatoria = pix;
+            Pix aleatoria = null;
+            ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
+            for (Pix pix : list) {
+                if (pix.getChavePix().equals(TipoChavePix.ALEATORIO)) {
+                    aleatoria = pix;
+                }
             }
-        }
-        System.out.println(cpf);
-        System.out.println(email);
-        System.out.println(telefone);
-        System.out.println(aleatorio);
+            System.out.println(cpf);
+            System.out.println(email);
+            System.out.println(telefone);
+            System.out.println(aleatorio);
 
-        if(cpf){
-            System.out.println("Buscando CPF");
-            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getCpf());
-            System.out.println("Buscou CPF");
-            if(pixBuscado == null){
-                System.out.println("Não Existe");
-                Pix pix = new Pix(null, TipoChavePix.CPF, Double.valueOf(valor), contaLogada.getCliente().getCpf(), true, contaLogada);
-                pixRepository.save(pix);
-                System.out.println("Salvou um novo pix - CPF");
-            }else{
-                System.out.println("Existia");
-                pixBuscado.setValor(Double.valueOf(valor));
-                pixRepository.save(pixBuscado);
-                System.out.println("Update pix - CPF");
+            if (cpf) {
+                System.out.println("Buscando CPF");
+                Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getCpf());
+                System.out.println("Buscou CPF");
+                if (pixBuscado == null) {
+                    System.out.println("Não Existe");
+                    Pix pix = new Pix(null, TipoChavePix.CPF, Double.valueOf(valor), contaLogada.getCliente().getCpf(), true, contaLogada);
+                    pixRepository.save(pix);
+                    System.out.println("Salvou um novo pix - CPF");
+                } else {
+                    System.out.println("Existia");
+                    pixBuscado.setValor(Double.valueOf(valor));
+                    pixRepository.save(pixBuscado);
+                    System.out.println("Update pix - CPF");
+                }
             }
-        }
-        if(email){
-            System.out.println("Buscando Email");
-            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getEmail());
-            System.out.println("Buscou Email");
-            if(pixBuscado == null){
-                System.out.println("Não Existe");
-                Pix pix = new Pix(null, TipoChavePix.EMAIL, Double.valueOf(valor), contaLogada.getCliente().getEmail(), true, contaLogada);
-                pixRepository.save(pix);
-                System.out.println("Salvou um novo pix - Email");
-            }else{
-                System.out.println("Existia");
-                pixBuscado.setValor(Double.valueOf(valor));
-                pixRepository.save(pixBuscado);
-                System.out.println("Update pix - Email");
+            if (email) {
+                System.out.println("Buscando Email");
+                Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getEmail());
+                System.out.println("Buscou Email");
+                if (pixBuscado == null) {
+                    System.out.println("Não Existe");
+                    Pix pix = new Pix(null, TipoChavePix.EMAIL, Double.valueOf(valor), contaLogada.getCliente().getEmail(), true, contaLogada);
+                    pixRepository.save(pix);
+                    System.out.println("Salvou um novo pix - Email");
+                } else {
+                    System.out.println("Existia");
+                    pixBuscado.setValor(Double.valueOf(valor));
+                    pixRepository.save(pixBuscado);
+                    System.out.println("Update pix - Email");
+                }
             }
-        }
-        if(telefone){
-            System.out.println("Buscando Telefone");
-            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getTelefone());
-            System.out.println("Buscou Telefone");
-            if(pixBuscado == null){
-                System.out.println("Não Existia");
-                Pix pix = new Pix(null, TipoChavePix.TELEFONE, Double.valueOf(valor), contaLogada.getCliente().getTelefone(), true, contaLogada);
-                pixRepository.save(pix);
-                System.out.println("Salvou um novo pix - Telefone");
-            }else{
-                System.out.println("Existia");
-                pixBuscado.setValor(Double.valueOf(valor));
-                pixRepository.save(pixBuscado);
-                System.out.println("Update pix - Telefone");
+            if (telefone) {
+                System.out.println("Buscando Telefone");
+                Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getTelefone());
+                System.out.println("Buscou Telefone");
+                if (pixBuscado == null) {
+                    System.out.println("Não Existia");
+                    Pix pix = new Pix(null, TipoChavePix.TELEFONE, Double.valueOf(valor), contaLogada.getCliente().getTelefone(), true, contaLogada);
+                    pixRepository.save(pix);
+                    System.out.println("Salvou um novo pix - Telefone");
+                } else {
+                    System.out.println("Existia");
+                    pixBuscado.setValor(Double.valueOf(valor));
+                    pixRepository.save(pixBuscado);
+                    System.out.println("Update pix - Telefone");
+                }
             }
-        }
-        if(aleatorio){
-            if(aleatoria == null){
-                System.out.println("Não Existia");
-                PixService pixService = new PixService();
-                Pix pix = new Pix(null, TipoChavePix.ALEATORIO, Double.valueOf(valor), pixService.gerarRandomNumber(), true, contaLogada);
-                pixRepository.save(pix);
-                System.out.println("Salvou um novo pix - Aleatorio");
-            }else{
-                System.out.println("Existia");
-                PixService pixService = new PixService();
-                aleatoria.setConteudoChave(pixService.gerarRandomNumber());
-                aleatoria.setValor(Double.valueOf(valor));
-                pixRepository.save(aleatoria);
-                System.out.println("Update pix - Aleatorio");
+            if (aleatorio) {
+                if (aleatoria == null) {
+                    System.out.println("Não Existia");
+                    PixService pixService = new PixService();
+                    Pix pix = new Pix(null, TipoChavePix.ALEATORIO, Double.valueOf(valor), pixService.gerarRandomNumber(), true, contaLogada);
+                    pixRepository.save(pix);
+                    System.out.println("Salvou um novo pix - Aleatorio");
+                } else {
+                    System.out.println("Existia");
+                    PixService pixService = new PixService();
+                    aleatoria.setConteudoChave(pixService.gerarRandomNumber());
+                    aleatoria.setValor(Double.valueOf(valor));
+                    pixRepository.save(aleatoria);
+                    System.out.println("Update pix - Aleatorio");
+                }
             }
+            return "pix";
+
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "pix";
     }
 
     @PostMapping(value = "/goconsultarpix")
     public String goConsultarPix(ModelMap model){
-        ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
-        String tipoCPF = "Não cadastrada";
-        String valorCPF = "Não cadastrado";
-        String tipoEmail = "Não cadastrada";
-        String valorEmail = "Não cadastrado";
-        String tipoTelefone = "Não cadastrada";
-        String valorTelefone = "Não cadastrado";
-        String tipoAleatorio = "Não cadastrada";
-        String valorAleatorio = "Não cadastrado";
-        for(Pix pix: list){
-            if(pix.getChavePix().equals(TipoChavePix.CPF)){
-                tipoCPF = pix.getConteudoChave();
-                valorCPF = String.valueOf(pix.getValor());
-            }else if(pix.getChavePix().equals(TipoChavePix.EMAIL)){
-                tipoEmail = pix.getConteudoChave();
-                valorEmail = String.valueOf(pix.getValor());
-            }else if(pix.getChavePix().equals(TipoChavePix.TELEFONE)){
-                tipoTelefone = pix.getConteudoChave();
-                valorTelefone = String.valueOf(pix.getValor());
-            }else if(pix.getChavePix().equals(TipoChavePix.ALEATORIO)){
-                tipoAleatorio = pix.getConteudoChave();
-                valorAleatorio = String.valueOf(pix.getValor());
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
             }
+            ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
+            String tipoCPF = "Não cadastrada";
+            String valorCPF = "Não cadastrado";
+            String tipoEmail = "Não cadastrada";
+            String valorEmail = "Não cadastrado";
+            String tipoTelefone = "Não cadastrada";
+            String valorTelefone = "Não cadastrado";
+            String tipoAleatorio = "Não cadastrada";
+            String valorAleatorio = "Não cadastrado";
+            for(Pix pix: list){
+                if(pix.getChavePix().equals(TipoChavePix.CPF)){
+                    tipoCPF = pix.getConteudoChave();
+                    valorCPF = String.valueOf(pix.getValor());
+                }else if(pix.getChavePix().equals(TipoChavePix.EMAIL)){
+                    tipoEmail = pix.getConteudoChave();
+                    valorEmail = String.valueOf(pix.getValor());
+                }else if(pix.getChavePix().equals(TipoChavePix.TELEFONE)){
+                    tipoTelefone = pix.getConteudoChave();
+                    valorTelefone = String.valueOf(pix.getValor());
+                }else if(pix.getChavePix().equals(TipoChavePix.ALEATORIO)){
+                    tipoAleatorio = pix.getConteudoChave();
+                    valorAleatorio = String.valueOf(pix.getValor());
+                }
+            }
+            model.addAttribute("contasuprema",contaLogada);
+            model.addAttribute("tipoCPF", tipoCPF);
+            model.addAttribute("valorCPF", valorCPF);
+            model.addAttribute("tipoEmail", tipoEmail);
+            model.addAttribute("valorEmail", valorEmail);
+            model.addAttribute("tipoTelefone", tipoTelefone);
+            model.addAttribute("valorTelefone", valorTelefone);
+            model.addAttribute("tipoAleatorio", tipoAleatorio);
+            model.addAttribute("valorAleatorio", valorAleatorio);
+            return "consultachave";
+
+        } catch (Exception e) {
+            return "/erro";
         }
-        model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipoCPF", tipoCPF);
-        model.addAttribute("valorCPF", valorCPF);
-        model.addAttribute("tipoEmail", tipoEmail);
-        model.addAttribute("valorEmail", valorEmail);
-        model.addAttribute("tipoTelefone", tipoTelefone);
-        model.addAttribute("valorTelefone", valorTelefone);
-        model.addAttribute("tipoAleatorio", tipoAleatorio);
-        model.addAttribute("valorAleatorio", valorAleatorio);
-        return "consultachave";
     }
 
     @PostMapping(value = "/gotransferirpix")
     public String goTransferirPix(ModelMap model){
-        model.addAttribute("contasuprema",contaLogada);
-        return "tranferirpix";
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            model.addAttribute("chave","");
+            return "tranferirpix";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping(value = "/bttransferirpix")
-    public String btTransferirPix(ModelMap model){
-        model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipo", new String());
-        model.addAttribute("valor", new String());
-        model.addAttribute("operacao","transferir");
-        return "pix";
+    public String btTransferirPix(String chave){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            Pix pix = pixRepository.findByConteudoChave(chave);
+            Conta contaPagamento = pix.getConta();
+            ContaService cs = new ContaService(contaLogada);
+            ContaService cs2 = new ContaService(contaPagamento);
+            if(!cs.sacar(pix.getValor())){
+                throw new Exception("Saldo Insuficiente");
+            }
+            cs2.depositar(pix.getValor());
+            contaRepository.saveAll(Arrays.asList(contaLogada,contaPagamento));
+
+            return "pix";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @GetMapping(value = "/menu/pix/consultarchave/")
     public String getConsultarPix(ModelMap model){
-        model.addAttribute("contasuprema",contaLogada);
-        if(contaLogada == null){
-            return "redirect:/";
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            model.addAttribute("contasuprema",contaLogada);
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "consultachave";
+
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "consultachave";
     }
 
     @GetMapping(value = "/menu/pix/transferir/")
     public String getTransferirPix(){
-        if(contaLogada == null){
-            return "redirect:/";
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "transferirpix";
+
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "transferirpix";
     }
 
 }
