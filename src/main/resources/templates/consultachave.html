@@ -129,9 +129,9 @@
 		position: absolute;
 		overflow: visible;
 		width: 901.555px;
-		height: 614.124px;
+		height: 664.124px;
 		left: 0px;
-		top: 0px;
+		top: -40px;
 	}
 	#Grupo_17_lh {
 		position: absolute;
@@ -2471,11 +2471,11 @@
 		top: 0px;
 		position: absolute;
 		overflow: visible;
-		width: 360px;
+		width: 660px;
 		height: 51px;
 		line-height: 54px;
 		margin-top: -6px;
-		text-align: right;
+		text-align: left;
 		font-family: Bradesco Sans;
 		font-style: normal;
 		font-weight: normal;
@@ -5484,7 +5484,7 @@ window.application = new Application();
 							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 						</div>
 						<svg class="Placement_Area_ASSETsmallSIZED_lg">
-							<rect id="Placement_Area_ASSETsmallSIZED_lg" rx="30" ry="30" x="0" y="0" width="883.555" height="596.124">
+							<rect id="Placement_Area_ASSETsmallSIZED_lg" rx="30" ry="30" x="0" y="0" width="883.555" height="646.124">
 							</rect>
 						</svg>
 					</div>
@@ -5858,7 +5858,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo_ou" src="logo_ou.png" srcset="logo_ou.png 1x, logo_ou@2x.png 2x">
+	<img id="logo_ou" src="/image/logo_ou.png" srcset="/image/logo_ou.png 1x, /image/logo_ou@2x.png 2x">
 		
 	<div id="humaaansstanding-2_ov">
 		<div id="humaaan-8_ow">
@@ -6021,13 +6021,6 @@ window.application = new Application();
 		<div id="METADATA_p">
 			<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 		</div>
-		<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_qa">
-			<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_qa" rx="24" ry="24" x="0" y="0" width="144" height="48">
-			</rect>
-		</svg>
-		<div id="Label_qb">
-			<span>Cadastrar</span>
-		</div>
 		<div id="Icon__qc">
 			<div id="METADATA_qd">
 				<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -6072,14 +6065,42 @@ window.application = new Application();
 		</div>
 	</div>
 	<div id="Grupo_25_qq">
-		<div id="Tipo_de_chave_qr">
-			<span>Tipo de chave:</span>
+		<div id="Tipo_de_chave_qr" style="top: -210px; left:-40px; font-size: 32px;">
+			<span style="font-size: 30px; font-weight: normal; font-family: NextBrandIcons;"></span>
+			<span>CPF:</span>
+			<span th:text="${tipoCPF}"></span>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Valor:</span>
+			<span th:text="${valorCPF}"></span>
+			<br>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Email:</span>
+			<span th:text="${tipoEmail}"></span>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Valor:</span>
+			<span th:text="${valorEmail}"></span>
+			</br>
+			</br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Telefone:</span>
+			<span th:text="${tipoTelefone}"></span>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Valor:</span>
+			<span th:text="${valorTelefone}"></span>
+			<br>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Aleatorio:</span>
+			<span th:text="${tipoAleatorio}"></span>
+			<br>
+			<span style="font-size: 30px; font-family: NextBrandIcons;"></span>
+			<span>Valor:</span>
+			<span th:text="${valorAleatorio}"></span>
 		</div>
-		<div id="Valor_da_chave_qs">
-			<span>Valor da chave:</span>
-		</div>
-		<input type="text" pattern="(cpf|CPF|telefone|Telefone|email|Email|Aleatório|aleatório|aleatorio|Aleatorio)" style="top: 0px; left:380px;" class="Campo" placeholder="Tipo da Chave" name="tipochave" th:value="${contasuprema.cliente.cpf}">
-		<input type="text" style="top: 156px; left:380px;" class="Campo" placeholder="Valor da Chave" name="valorchave" th:value="${contasuprema.cliente.cpf}">
 	</div>
 	</form>
 </div>

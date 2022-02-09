@@ -3,11 +3,15 @@ package com.arthur.NextGeneration.controller.controllers;
 import com.arthur.NextGeneration.model.entities.Cliente;
 import com.arthur.NextGeneration.model.entities.Conta;
 import com.arthur.NextGeneration.model.entities.Endereco;
+import com.arthur.NextGeneration.model.entities.Pix;
+import com.arthur.NextGeneration.model.enums.TipoChavePix;
 import com.arthur.NextGeneration.model.enums.TipoConta;
 import com.arthur.NextGeneration.model.repositories.ClienteRepository;
 import com.arthur.NextGeneration.model.repositories.ContaRepository;
 import com.arthur.NextGeneration.model.repositories.EnderecoRepository;
+import com.arthur.NextGeneration.model.repositories.PixRepository;
 import com.arthur.NextGeneration.model.services.ContaService;
+import com.arthur.NextGeneration.model.services.PixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +34,9 @@ public class HomeController {
 
     @Autowired
     EnderecoRepository enderecoRepository;
+
+    @Autowired
+    PixRepository pixRepository;
 
     Conta contaLogada;
 
@@ -283,13 +290,11 @@ public class HomeController {
 
     @GetMapping(value = "/menu/pix/")
     public String getPix(String tipo, String valor, String operacao){
-        if(operacao.equals("consultar")){
+        if(operacao == null){
 
         }else if(operacao.equals("transferir")){
 
         }else if(operacao.equals("cadastrar")){
-
-        }else{
 
         }
         if(contaLogada == null){
@@ -308,34 +313,95 @@ public class HomeController {
 
     @PostMapping(value = "/gocadastrarpix")
     public String goCadastrarPix(ModelMap model){
-        model.addAttribute("contasuprema",contaLogada);
+        Boolean cpf = false;
+        Boolean email = false;
+        Boolean telefone = false;
+        Boolean aleatorio = false;
+
+        model.addAttribute("valor","");
+        model.addAttribute("cpf",cpf);
+        model.addAttribute("email",email);
+        model.addAttribute("telefone",telefone);
+        model.addAttribute("aleatorio",aleatorio);
         return "cadastrapix";
     }
 
     @PostMapping(value = "/btcadastrarpix")
-    public String btCadastrarPix(ModelMap model){
+    public String btCadastrarPix(ModelMap model, String valor, Boolean cpf, Boolean email, Boolean telefone, Boolean aleatorio){
+        if(cpf == null){
+            cpf = false;
+        }
+        if(email == null){
+            email = false;
+        }
+        if(telefone == null){
+            telefone = false;
+        }
+        if(aleatorio == null){
+            aleatorio = false;
+        }
+
+
+
+
+        if(cpf){
+            Pix pix = new Pix(null, TipoChavePix.CPF, Double.valueOf(valor), contaLogada.getCliente().getCpf(), true, contaLogada);
+            cpf = false;
+        }
+        if(email){
+            Pix pix = new Pix(null, TipoChavePix.EMAIL, Double.valueOf(valor), contaLogada.getCliente().getEmail(), true, contaLogada);
+        }
+        if(telefone){
+            Pix pix = new Pix(null, TipoChavePix.TELEFONE, Double.valueOf(valor), contaLogada.getCliente().getTelefone(), true, contaLogada);
+        }
+        if(aleatorio){
+            PixService pixService = new PixService();
+            Pix pix = new Pix(null, TipoChavePix.ALEATORIO, Double.valueOf(valor), pixService.gerarRandomNumber(), true, contaLogada);
+        }
+
         model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipo", new String());
-        model.addAttribute("valor", new String());
+        model.addAttribute("tipo", "");
+        model.addAttribute("valor", "");
         model.addAttribute("operacao","cadastrar");
         return "pix";
     }
 
     @PostMapping(value = "/goconsultarpix")
     public String goConsultarPix(ModelMap model){
+        ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
+        String tipoCPF = "Não cadastrada";
+        String valorCPF = "Não cadastrado";
+        String tipoEmail = "Não cadastrada";
+        String valorEmail = "Não cadastrado";
+        String tipoTelefone = "Não cadastrada";
+        String valorTelefone = "Não cadastrado";
+        String tipoAleatorio = "Não cadastrada";
+        String valorAleatorio = "Não cadastrado";
+        for(Pix pix: list){
+            if(pix.getChavePix().equals(TipoChavePix.CPF)){
+                tipoCPF = pix.getConteudoChave();
+                valorCPF = String.valueOf(pix.getValor());
+            }else if(pix.getChavePix().equals(TipoChavePix.EMAIL)){
+                tipoEmail = pix.getConteudoChave();
+                valorEmail = String.valueOf(pix.getValor());
+            }else if(pix.getChavePix().equals(TipoChavePix.TELEFONE)){
+                tipoTelefone = pix.getConteudoChave();
+                valorTelefone = String.valueOf(pix.getValor());
+            }else if(pix.getChavePix().equals(TipoChavePix.ALEATORIO)){
+                tipoAleatorio = pix.getConteudoChave();
+                valorAleatorio = String.valueOf(pix.getValor());
+            }
+        }
         model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipo", new String());
-        model.addAttribute("valor", new String());
+        model.addAttribute("tipoCPF", tipoCPF);
+        model.addAttribute("valorCPF", valorCPF);
+        model.addAttribute("tipoEmail", tipoEmail);
+        model.addAttribute("valorEmail", valorEmail);
+        model.addAttribute("tipoTelefone", tipoTelefone);
+        model.addAttribute("valorTelefone", valorTelefone);
+        model.addAttribute("tipoAleatorio", tipoAleatorio);
+        model.addAttribute("valorAleatorio", valorAleatorio);
         return "consultachave";
-    }
-
-    @PostMapping(value = "/btconsultarpix")
-    public String btConsultarPix(ModelMap model){
-        model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipo", new String());
-        model.addAttribute("valor", new String());
-        model.addAttribute("operacao","consultar");
-        return "pix";
     }
 
     @PostMapping(value = "/gotransferirpix")

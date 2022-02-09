@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class PixService {
@@ -51,6 +52,11 @@ public class PixService {
         pix.setAtivado(true);
         pix.setConta(conta);
         return true;
+    }
+
+    public String gerarRandomNumber(){
+        Random random = new Random();
+        return String.valueOf(random.nextInt(99999999));
     }
 
     public Pix getPix() {
