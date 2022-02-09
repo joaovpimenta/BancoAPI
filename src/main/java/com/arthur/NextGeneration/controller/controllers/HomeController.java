@@ -47,114 +47,134 @@ public class HomeController {
 
     @GetMapping(value = "/cadastro")
     public String getCadastrar(ModelMap model){
-        Conta conta = new Conta();
-        Cliente cliente = new Cliente();
-        Endereco endereco = new Endereco();
-        model.addAttribute("conta", conta);
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("endereco", endereco);
-        return "cadastro";
+        try {
+            Conta conta = new Conta();
+            Cliente cliente = new Cliente();
+            Endereco endereco = new Endereco();
+            model.addAttribute("conta", conta);
+            model.addAttribute("cliente", cliente);
+            model.addAttribute("endereco", endereco);
+            return "cadastro";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping(value = "/cadastrar")
     public String insertDados(Conta conta, Cliente cliente, Endereco endereco){
-        cliente.setEndereco(endereco);
-        conta.setCliente(cliente);
 
+        try {
+            cliente.setEndereco(endereco);
+            conta.setCliente(cliente);
 
-        if(conta.isCorrenteBool() && conta.isPoupancaBool()){
-            Conta conta2 = conta.clone();
-            conta.setTipoConta(TipoConta.CORRENTE);
-            conta.setTaxa(0.0045);
-            conta2.setTipoConta(TipoConta.POUPANCA);
-            conta2.setTaxa(0.0003);
+            if(conta.isCorrenteBool() && conta.isPoupancaBool()){
+                Conta conta2 = conta.clone();
+                conta.setTipoConta(TipoConta.CORRENTE);
+                conta.setTaxa(0.0045);
+                conta2.setTipoConta(TipoConta.POUPANCA);
+                conta2.setTaxa(0.0003);
+                enderecoRepository.saveAll(Arrays.asList(endereco));
+                clienteRepository.saveAll(Arrays.asList(cliente));
+                contaRepository.saveAll(Arrays.asList(conta,conta2));
+                System.out.println("Eh nois");
+                return "home";
+            }
+            else if(conta.isCorrenteBool()){
+                conta.setTipoConta(TipoConta.CORRENTE);
+                conta.setTaxa(0.0045);
+            }else if(conta.isPoupancaBool()){
+                conta.setTipoConta(TipoConta.POUPANCA);
+                conta.setTaxa(0.0003);
+            }else{
+                System.out.println("Nenhuma Selecionada");
+                return "cadastro";
+            }
             enderecoRepository.saveAll(Arrays.asList(endereco));
             clienteRepository.saveAll(Arrays.asList(cliente));
-            contaRepository.saveAll(Arrays.asList(conta,conta2));
+            contaRepository.saveAll(Arrays.asList(conta));
             System.out.println("Eh nois");
             return "home";
+        } catch (Exception e) {
+            return "/erro";
         }
-        else if(conta.isCorrenteBool()){
-            conta.setTipoConta(TipoConta.CORRENTE);
-            conta.setTaxa(0.0045);
-        }else if(conta.isPoupancaBool()){
-            conta.setTipoConta(TipoConta.POUPANCA);
-            conta.setTaxa(0.0003);
-        }else{
-            System.out.println("Nenhuma Selecionada");
-            return "cadastro";
-        }
-        enderecoRepository.saveAll(Arrays.asList(endereco));
-        clienteRepository.saveAll(Arrays.asList(cliente));
-        contaRepository.saveAll(Arrays.asList(conta));
-        System.out.println("Eh nois");
-        return "home";
     }
 
 
     @GetMapping(value = "/login")
     public String getLogar(Model model){
-        String login = new String();
-        String senha = new String();
-        Boolean corrente = false;
-        Boolean poupanca = false;
-        model.addAttribute("login", login);
-        model.addAttribute("senha", senha);
-        model.addAttribute("corrente", corrente);
-        model.addAttribute("poupanca", poupanca);
-        return "login";
+        try {
+            String login = new String();
+            String senha = new String();
+            Boolean corrente = false;
+            Boolean poupanca = false;
+            model.addAttribute("login", login);
+            model.addAttribute("senha", senha);
+            model.addAttribute("corrente", corrente);
+            model.addAttribute("poupanca", poupanca);
+            return "login";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping(value = "/logar")
     public String login(String login, String senha, Boolean corrente, Boolean poupanca){
-        ArrayList<Conta> list = contaRepository.findAllByClienteCpf(login);
-        if(list.isEmpty() || list == null){
-            System.out.println("Não achou nada...");
-            return "login";
-        }
-        if(corrente == null){
-            corrente = false;
-        }
-        if(poupanca == null){
-            poupanca = false;
-        }
-        Conta conta = new Conta();
-        for(Conta contaVer: list){
-            if(contaVer.getTipoConta().equals(TipoConta.CORRENTE) && corrente == true){
-                System.out.println("Achei sua conta!");
-                conta = contaVer;
-                break;
-            }else if(contaVer.getTipoConta().equals(TipoConta.POUPANCA) && poupanca == true){
-                System.out.println("Achei sua conta!");
-                conta = contaVer;
-                break;
-            }
-        }
-        if(conta == null){
-            System.out.println("Dados Incorretos!");
-            return "login";
-        }else{
-            if(conta.getSenha().equals(senha)){
-                System.out.println("Sucesso!");
-                contaLogada = conta;
-                return "redirect:/menu";
-            }else{
-                System.out.println("Dados Incorretos!");
+        try {
+            ArrayList<Conta> list = contaRepository.findAllByClienteCpf(login);
+            if(list.isEmpty() || list == null){
+                System.out.println("Não achou nada...");
                 return "login";
             }
+            if(corrente == null){
+                corrente = false;
+            }
+            if(poupanca == null){
+                poupanca = false;
+            }
+            Conta conta = new Conta();
+            for(Conta contaVer: list){
+                if(contaVer.getTipoConta().equals(TipoConta.CORRENTE) && corrente == true){
+                    System.out.println("Achei sua conta!");
+                    conta = contaVer;
+                    break;
+                }else if(contaVer.getTipoConta().equals(TipoConta.POUPANCA) && poupanca == true){
+                    System.out.println("Achei sua conta!");
+                    conta = contaVer;
+                    break;
+                }
+            }
+            if(conta == null){
+                System.out.println("Dados Incorretos!");
+                return "login";
+            }else{
+                if(conta.getSenha().equals(senha)){
+                    System.out.println("Sucesso!");
+                    contaLogada = conta;
+                    return "redirect:/menu";
+                }else{
+                    System.out.println("Dados Incorretos!");
+                    return "login";
+                }
+            }
+        } catch (Exception e) {
+            return "/erro";
         }
     }
 
     @GetMapping(value = "/menu")
     public String getLogado(ModelMap model){
-        if(contaLogada == null){
-            return "redirect:/";
-        }
-        String cpfExterno = new String();
+        try {
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            String cpfExterno = new String();
 
-        model.addAttribute("contaLogado", contaLogada);
-        model.addAttribute("cpfExterno",cpfExterno);
-        return "iniciar";
+            model.addAttribute("contaLogado", contaLogada);
+            model.addAttribute("cpfExterno",cpfExterno);
+            return "iniciar";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     // ENTRE RENDERIZAR A PÁGINA E LOGIN
@@ -164,119 +184,159 @@ public class HomeController {
 
     @GetMapping(value = "/transacoes")
     public String getTransacoes(ModelMap model){
-        String valorDeposito = new String();
-        String cpfExterno = new String();
-        Boolean corrente = false;
-        Boolean poupanca = false;
+        try {
+            String valorDeposito = new String();
+            String cpfExterno = new String();
+            Boolean corrente = false;
+            Boolean poupanca = false;
 
-        model.addAttribute("valorDeposito", valorDeposito);
-        model.addAttribute("corrente", corrente);
-        model.addAttribute("poupanca", poupanca);
-        model.addAttribute("contaLogadinha", contaLogada);
-        model.addAttribute("cpfExterno",cpfExterno);
-        if(contaLogada == null){
-            return "redirect:/";
+            model.addAttribute("valorDeposito", valorDeposito);
+            model.addAttribute("corrente", corrente);
+            model.addAttribute("poupanca", poupanca);
+            model.addAttribute("contaLogadinha", contaLogada);
+            model.addAttribute("cpfExterno",cpfExterno);
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "transacoes";
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "transacoes";
     }
 
     @PostMapping (value = "/godepositar")
     public String godepositar(Model model){
-        model.addAttribute("contasuprema",contaLogada);
-        return "depositar";
+        try {
+            model.addAttribute("contasuprema",contaLogada);
+            return "depositar";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping (value = "/gosacar")
     public String gosacar(Model model){
-        model.addAttribute("contasuprema",contaLogada);
-        return "saque";
+        try {
+            model.addAttribute("contasuprema",contaLogada);
+            return "saque";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping (value = "/gotransferir")
     public String gotransferir(Model model){
-        model.addAttribute("contasuprema",contaLogada);
-        return "transferir";
+        try {
+            model.addAttribute("contasuprema", contaLogada);
+            return "transferir";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @GetMapping(value = "/depositare")
     public String getDeposito(Conta contaLogadinha){
-        if(contaLogada == null){
-            return "redirect:/";
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            System.out.println(contaLogadinha);
+            return "depositar";
+        } catch (Exception e) {
+            return "/erro";
         }
-        System.out.println(contaLogadinha);
-        return "depositar";
     }
 
     @PostMapping (value = "/depositar")
     public String depositar(String valorDeposito, String login){
-        contaLogada.setSaldo(contaLogada.getSaldo() + Double.parseDouble(valorDeposito));
-        System.out.println(contaLogada.getSaldo());
-        contaRepository.save(contaLogada);
-        return "redirect:/menu";
+        try {
+            contaLogada.setSaldo(contaLogada.getSaldo() + Double.parseDouble(valorDeposito));
+            System.out.println(contaLogada.getSaldo());
+            contaRepository.save(contaLogada);
+            return "redirect:/menu";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @GetMapping(value = "/menu/transacoes/sacar/")
     public String getSaque(){
-        if(contaLogada == null){
-            return "redirect:/";
+        try {
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "saque";
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "saque";
     }
 
     @PostMapping(value = "/sacar")
     public String postSacar(String valorDeposito){
-        contaLogada.setSaldo(contaLogada.getSaldo() - Double.parseDouble(valorDeposito));
-        System.out.println(contaLogada.getSaldo());
-        contaRepository.save(contaLogada);
-        return "redirect:/menu";
+        try {
+            contaLogada.setSaldo(contaLogada.getSaldo() - Double.parseDouble(valorDeposito));
+            System.out.println(contaLogada.getSaldo());
+            contaRepository.save(contaLogada);
+            return "redirect:/menu";
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @GetMapping(value = "/menu/transacoes/transferir/")
     public String getTransferencia(ModelMap model){
-        if(contaLogada == null){
-            return "redirect:/";
+        try {
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            return "transferir"; // Página HTML
+        } catch (Exception e) {
+            return "/erro";
         }
-        return "transferir"; // Página HTML
     }
 
     @PostMapping(value = "/transferir")
     public String postTransferir(String valorDeposito, String cpfExterno, Boolean corrente, Boolean poupanca){
-        ArrayList<Conta> list = contaRepository.findAllByClienteCpf(cpfExterno);
-        if(list.isEmpty() || list == null){
-            System.out.println("Não achou nada...");
-            return "redirect:/menu/transacoes/transferir/";
-        }
-        if(corrente == null){
-            corrente = false;
-        }
-        if(poupanca == null){
-            poupanca = false;
-        }
-        Conta conta = new Conta();
-        for(Conta contaVer: list){
-            if(contaVer.getTipoConta().equals(TipoConta.CORRENTE) && corrente == true){
-                System.out.println("Achei sua conta!");
-                conta = contaVer;
-                break;
-            }else if(contaVer.getTipoConta().equals(TipoConta.POUPANCA) && poupanca == true){
-                System.out.println("Achei sua conta!");
-                conta = contaVer;
-                break;
+        try {
+            ArrayList<Conta> list = contaRepository.findAllByClienteCpf(cpfExterno);
+            if(list.isEmpty() || list == null){
+                System.out.println("Não achou nada...");
+                return "redirect:/menu/transacoes/transferir/";
             }
+            if(corrente == null){
+                corrente = false;
+            }
+            if(poupanca == null){
+                poupanca = false;
+            }
+            Conta conta = new Conta();
+            for(Conta contaVer: list){
+                if(contaVer.getTipoConta().equals(TipoConta.CORRENTE) && corrente == true){
+                    System.out.println("Achei sua conta!");
+                    conta = contaVer;
+                    break;
+                }else if(contaVer.getTipoConta().equals(TipoConta.POUPANCA) && poupanca == true){
+                    System.out.println("Achei sua conta!");
+                    conta = contaVer;
+                    break;
+                }
+            }
+            if(conta == null){
+                System.out.println("Dados Incorretos!");
+                return "redirect:/menu/transacoes/transferir/";
+            }
+            ContaService contaProcessos = new ContaService(contaLogada);
+            System.out.println(valorDeposito);
+            if(!contaProcessos.transferir(Double.parseDouble(valorDeposito), conta)){
+                System.out.println("Saldo Insuficiente");
+                return "redirect:/menu/transacoes/transferir/";
+            }
+            contaRepository.save(contaLogada);
+            contaRepository.save(conta);
+            return "redirect:/menu";
+        } catch (Exception e) {
+            return "/erro";
         }
-        if(conta == null){
-            System.out.println("Dados Incorretos!");
-            return "redirect:/menu/transacoes/transferir/";
-        }
-        ContaService contaProcessos = new ContaService(contaLogada);
-        System.out.println(valorDeposito);
-        if(!contaProcessos.transferir(Double.parseDouble(valorDeposito), conta)){
-            System.out.println("Saldo Insuficiente");
-            return "redirect:/menu/transacoes/transferir/";
-        }
-        contaRepository.save(contaLogada);
-        contaRepository.save(conta);
-        return "redirect:/menu";
     }
 
 
@@ -287,21 +347,6 @@ public class HomeController {
 
 
 
-
-    @GetMapping(value = "/menu/pix/")
-    public String getPix(String tipo, String valor, String operacao){
-        if(operacao == null){
-
-        }else if(operacao.equals("transferir")){
-
-        }else if(operacao.equals("cadastrar")){
-
-        }
-        if(contaLogada == null){
-            return "redirect:/";
-        }
-        return "pix";
-    }
 
     @GetMapping(value = "/menu/pix/cadastrarpix/")
     public String getCadastroPix(){
@@ -327,7 +372,7 @@ public class HomeController {
     }
 
     @PostMapping(value = "/btcadastrarpix")
-    public String btCadastrarPix(ModelMap model, String valor, Boolean cpf, Boolean email, Boolean telefone, Boolean aleatorio){
+    public String btCadastrarPix(String valor, Boolean cpf, Boolean email, Boolean telefone, Boolean aleatorio){
         if(cpf == null){
             cpf = false;
         }
@@ -341,28 +386,82 @@ public class HomeController {
             aleatorio = false;
         }
 
-
-
+        Pix aleatoria = null;
+        ArrayList<Pix> list = pixRepository.findAllByConta(contaLogada);
+        for (Pix pix: list){
+            if(pix.getChavePix().equals(TipoChavePix.ALEATORIO)){
+                aleatoria = pix;
+            }
+        }
+        System.out.println(cpf);
+        System.out.println(email);
+        System.out.println(telefone);
+        System.out.println(aleatorio);
 
         if(cpf){
-            Pix pix = new Pix(null, TipoChavePix.CPF, Double.valueOf(valor), contaLogada.getCliente().getCpf(), true, contaLogada);
-            cpf = false;
+            System.out.println("Buscando CPF");
+            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getCpf());
+            System.out.println("Buscou CPF");
+            if(pixBuscado == null){
+                System.out.println("Não Existe");
+                Pix pix = new Pix(null, TipoChavePix.CPF, Double.valueOf(valor), contaLogada.getCliente().getCpf(), true, contaLogada);
+                pixRepository.save(pix);
+                System.out.println("Salvou um novo pix - CPF");
+            }else{
+                System.out.println("Existia");
+                pixBuscado.setValor(Double.valueOf(valor));
+                pixRepository.save(pixBuscado);
+                System.out.println("Update pix - CPF");
+            }
         }
         if(email){
-            Pix pix = new Pix(null, TipoChavePix.EMAIL, Double.valueOf(valor), contaLogada.getCliente().getEmail(), true, contaLogada);
+            System.out.println("Buscando Email");
+            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getEmail());
+            System.out.println("Buscou Email");
+            if(pixBuscado == null){
+                System.out.println("Não Existe");
+                Pix pix = new Pix(null, TipoChavePix.EMAIL, Double.valueOf(valor), contaLogada.getCliente().getEmail(), true, contaLogada);
+                pixRepository.save(pix);
+                System.out.println("Salvou um novo pix - Email");
+            }else{
+                System.out.println("Existia");
+                pixBuscado.setValor(Double.valueOf(valor));
+                pixRepository.save(pixBuscado);
+                System.out.println("Update pix - Email");
+            }
         }
         if(telefone){
-            Pix pix = new Pix(null, TipoChavePix.TELEFONE, Double.valueOf(valor), contaLogada.getCliente().getTelefone(), true, contaLogada);
+            System.out.println("Buscando Telefone");
+            Pix pixBuscado = pixRepository.findByConteudoChave(contaLogada.getCliente().getTelefone());
+            System.out.println("Buscou Telefone");
+            if(pixBuscado == null){
+                System.out.println("Não Existia");
+                Pix pix = new Pix(null, TipoChavePix.TELEFONE, Double.valueOf(valor), contaLogada.getCliente().getTelefone(), true, contaLogada);
+                pixRepository.save(pix);
+                System.out.println("Salvou um novo pix - Telefone");
+            }else{
+                System.out.println("Existia");
+                pixBuscado.setValor(Double.valueOf(valor));
+                pixRepository.save(pixBuscado);
+                System.out.println("Update pix - Telefone");
+            }
         }
         if(aleatorio){
-            PixService pixService = new PixService();
-            Pix pix = new Pix(null, TipoChavePix.ALEATORIO, Double.valueOf(valor), pixService.gerarRandomNumber(), true, contaLogada);
+            if(aleatoria == null){
+                System.out.println("Não Existia");
+                PixService pixService = new PixService();
+                Pix pix = new Pix(null, TipoChavePix.ALEATORIO, Double.valueOf(valor), pixService.gerarRandomNumber(), true, contaLogada);
+                pixRepository.save(pix);
+                System.out.println("Salvou um novo pix - Aleatorio");
+            }else{
+                System.out.println("Existia");
+                PixService pixService = new PixService();
+                aleatoria.setConteudoChave(pixService.gerarRandomNumber());
+                aleatoria.setValor(Double.valueOf(valor));
+                pixRepository.save(aleatoria);
+                System.out.println("Update pix - Aleatorio");
+            }
         }
-
-        model.addAttribute("contasuprema",contaLogada);
-        model.addAttribute("tipo", "");
-        model.addAttribute("valor", "");
-        model.addAttribute("operacao","cadastrar");
         return "pix";
     }
 

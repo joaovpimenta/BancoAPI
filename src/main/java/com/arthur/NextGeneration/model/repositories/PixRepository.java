@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public interface PixRepository extends JpaRepository<Pix, Long> {
 
     ArrayList<Pix> findAllByConta(Conta conta);
+    Pix findByConteudoChave(String conteudoChave);
     Pix findByContaClienteCpf(String cpf);
     Pix findByContaClienteEmail(String cpf);
     Pix findByContaClienteTelefone(String cpf);
-    Pix findByContaClienteAleatorio(String cpf);
 }
