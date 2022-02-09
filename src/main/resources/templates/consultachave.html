@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -20,7 +20,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
 	}
 	#consultachave {
 		position: absolute;
@@ -2141,6 +2140,59 @@
 		height: 48px;
 		left: 143px;
 		top: 0px;
+	}
+	.Campo{
+		overflow: visible;
+		position: absolute;
+		width: 300px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+		fill: rgba(255,255,255,1);
+		stroke: rgba(62,62,62,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		text-indent: 20px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(18,18,18,1);
+		border-color: #121212;
+		border-style: solid;
+  		border-width: 2px;
+	}
+	.Botao{
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 200px;
+		height: 50px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#Caminho_5_p {
 		fill: transparent;
@@ -5416,6 +5468,7 @@ window.application = new Application();
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="consultachave">
+	<form th:action="@{/goconsultarpix}" method="POST">
 	<div id="METADATA_k">
 		<span>{"config":{},"type":"Artboard","theme":"Base","nodeName":"About - Desktop","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:22.509Z"}</span>
 	</div>
@@ -6025,21 +6078,10 @@ window.application = new Application();
 		<div id="Valor_da_chave_qs">
 			<span>Valor da chave:</span>
 		</div>
-		<svg class="Area_qt">
-			<rect id="Area_qt" rx="0" ry="0" x="0" y="0" width="230" height="51">
-			</rect>
-		</svg>
-		<div id="Label_qu">
-			<span>CPF</span>
-		</div>
-		<svg class="Area_qv">
-			<rect id="Area_qv" rx="0" ry="0" x="0" y="0" width="230" height="51">
-			</rect>
-		</svg>
-		<div id="Value_qw">
-			<span>111.111.111-11</span>
-		</div>
+		<input type="text" pattern="(cpf|CPF|telefone|Telefone|email|Email|Aleatório|aleatório|aleatorio|Aleatorio)" style="top: 0px; left:380px;" class="Campo" placeholder="Tipo da Chave" name="tipochave" th:value="${contasuprema.cliente.cpf}">
+		<input type="text" style="top: 156px; left:380px;" class="Campo" placeholder="Valor da Chave" name="valorchave" th:value="${contasuprema.cliente.cpf}">
 	</div>
+	</form>
 </div>
 <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6da95b133888cfe4',m:'kiTeyhEhqit7Olm6YU2bivke2xeAIMpROK5wr2fOTOU-1644370470-0-AePUZDcwNYy79x3J+mfq02A18s1aBscHQSEi4LjEQgbtBzVQC5e+K9Hdgi7ekivudBY5njha0ulRQhQ8MycyTnFDEDpO7DEtMNYvVqP7CPRIx21uCX0S1GxzXuHW1hx/CqVAa/JsXzXE9D+aBIswYQDyxG9GdkuAba4uz0J/BQqDqow5dZ/R1emndFVGTCgvmGlirhJKOwZ+nifvjRVqjLk=',s:[0x4344a51b46,0xdb81afa99c],}})();</script></body>
 </html>

@@ -282,7 +282,16 @@ public class HomeController {
 
 
     @GetMapping(value = "/menu/pix/")
-    public String getPix(){
+    public String getPix(String tipo, String valor, String operacao){
+        if(operacao.equals("consultar")){
+
+        }else if(operacao.equals("transferir")){
+
+        }else if(operacao.equals("cadastrar")){
+
+        }else{
+
+        }
         if(contaLogada == null){
             return "redirect:/";
         }
@@ -303,10 +312,30 @@ public class HomeController {
         return "cadastrapix";
     }
 
+    @PostMapping(value = "/btcadastrarpix")
+    public String btCadastrarPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        model.addAttribute("tipo", new String());
+        model.addAttribute("valor", new String());
+        model.addAttribute("operacao","cadastrar");
+        return "pix";
+    }
+
     @PostMapping(value = "/goconsultarpix")
     public String goConsultarPix(ModelMap model){
         model.addAttribute("contasuprema",contaLogada);
+        model.addAttribute("tipo", new String());
+        model.addAttribute("valor", new String());
         return "consultachave";
+    }
+
+    @PostMapping(value = "/btconsultarpix")
+    public String btConsultarPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        model.addAttribute("tipo", new String());
+        model.addAttribute("valor", new String());
+        model.addAttribute("operacao","consultar");
+        return "pix";
     }
 
     @PostMapping(value = "/gotransferirpix")
@@ -315,8 +344,18 @@ public class HomeController {
         return "tranferirpix";
     }
 
+    @PostMapping(value = "/bttransferirpix")
+    public String btTransferirPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
+        model.addAttribute("tipo", new String());
+        model.addAttribute("valor", new String());
+        model.addAttribute("operacao","transferir");
+        return "pix";
+    }
+
     @GetMapping(value = "/menu/pix/consultarchave/")
-    public String getConsultarPix(){
+    public String getConsultarPix(ModelMap model){
+        model.addAttribute("contasuprema",contaLogada);
         if(contaLogada == null){
             return "redirect:/";
         }
