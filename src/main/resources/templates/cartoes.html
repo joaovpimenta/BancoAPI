@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -20,7 +20,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
 	}
 	#cartoes {
 		position: absolute;
@@ -1544,6 +1543,32 @@
 		transform-origin: center;
 		left: 0px;
 		top: 0px;
+	}
+	.Botao{
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 318px;
+		height: 208px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#Clothes-Front {
 		fill: rgba(0,255,95,1);
@@ -4809,21 +4834,19 @@ window.application = new Application();
 			<div id="Grupo_18">
 				<div id="Grupo_5">
 					<div id="Image_">
+						<form th:action="@{/godebito}" method="POST">
 						<div id="METADATA_">
 							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 						</div>
-						<svg class="Placement_Area_ASSETsmallSIZED">
-							<rect id="Placement_Area_ASSETsmallSIZED" rx="30" ry="30" x="0" y="0" width="300" height="190">
-							</rect>
-						</svg>
+						<input type="submit" class="Botao" value="Débito">
+						<div id="Text" style="top: 20px; left: -30px;">
+							<span></span>
+						</div>
+						</form>
 					</div>
-					<div id="Text">
-						<span></span>
-					</div>
+
 				</div>
-				<div id="Dbito">
-					<span>Débito</span>
-				</div>
+
 			</div>
 			<div id="Grupo_20">
 				<div id="Grupo_5_">
@@ -4831,17 +4854,13 @@ window.application = new Application();
 						<div id="METADATA_ba">
 							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 						</div>
-						<svg class="Placement_Area_ASSETsmallSIZED_ba">
-							<rect id="Placement_Area_ASSETsmallSIZED_ba" rx="30" ry="30" x="0" y="0" width="300" height="190">
-							</rect>
-						</svg>
+						<form th:action="@{/gocredito}" method="POST">
+							<input type="submit" class="Botao" value="Crédito">
+							<div id="Text_bb" style="top: 20px; left: -30px;">
+								<span></span>
+							</div>
+						</form>
 					</div>
-					<div id="Text_bb">
-						<span></span>
-					</div>
-				</div>
-				<div id="Crdito">
-					<span>Crédito</span>
 				</div>
 			</div>
 			<div id="Grupo_17">
@@ -5113,7 +5132,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="logo.png" srcset="logo.png 1x, logo@2x.png 2x">
+	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo@2x.png 2x">
 		
 	<div id="humaaansstanding-2">
 		<div id="humaaan-8">

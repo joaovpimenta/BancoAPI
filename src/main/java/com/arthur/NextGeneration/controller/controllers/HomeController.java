@@ -588,9 +588,7 @@ public class HomeController {
                 return "redirect:/";
             }
             model.addAttribute("contasuprema",contaLogada);
-            if(contaLogada == null){
-                return "redirect:/";
-            }
+
             return "consultachave";
 
         } catch (Exception e) {
@@ -604,14 +602,70 @@ public class HomeController {
             if(contaLogada == null){
                 return "redirect:/";
             }
-            if(contaLogada == null){
-                return "redirect:/";
-            }
             return "transferirpix";
 
         } catch (Exception e) {
             return "/erro";
         }
     }
+
+
+
+    // ---------------------------------- VEM DE CARTÃO -------------------------------
+
+
+    @GetMapping(value = "/cartoes")
+    public String cartoes(){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+
+            return "cartoes";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    // --------------------------------------- Credito -----------------------------------
+
+    @PostMapping(value = "/gocredito")
+    public String goCredito(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            model.addAttribute("conta",contaLogada);
+            return "credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+
+
+
+
+
+
+    // ----------------------------------- Debito ---------------------------------------
+
+    @PostMapping(value = "/godebito")
+    public String goDebito(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            model.addAttribute("conta",contaLogada);
+            return "debito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+
 
 }
