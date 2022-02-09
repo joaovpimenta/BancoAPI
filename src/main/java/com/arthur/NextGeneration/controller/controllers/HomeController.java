@@ -1,15 +1,9 @@
 package com.arthur.NextGeneration.controller.controllers;
 
-import com.arthur.NextGeneration.model.entities.Cliente;
-import com.arthur.NextGeneration.model.entities.Conta;
-import com.arthur.NextGeneration.model.entities.Endereco;
-import com.arthur.NextGeneration.model.entities.Pix;
+import com.arthur.NextGeneration.model.entities.*;
 import com.arthur.NextGeneration.model.enums.TipoChavePix;
 import com.arthur.NextGeneration.model.enums.TipoConta;
-import com.arthur.NextGeneration.model.repositories.ClienteRepository;
-import com.arthur.NextGeneration.model.repositories.ContaRepository;
-import com.arthur.NextGeneration.model.repositories.EnderecoRepository;
-import com.arthur.NextGeneration.model.repositories.PixRepository;
+import com.arthur.NextGeneration.model.repositories.*;
 import com.arthur.NextGeneration.model.services.ContaService;
 import com.arthur.NextGeneration.model.services.PixService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +31,9 @@ public class HomeController {
 
     @Autowired
     PixRepository pixRepository;
+
+    @Autowired
+    CartaoCreditoRepository cartaoCreditoRepository;
 
     Conta contaLogada;
 
@@ -630,14 +627,110 @@ public class HomeController {
 
     // --------------------------------------- Credito -----------------------------------
 
+    @GetMapping(value = "/credito")
+    public String creditoPage(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            String statusCartao = "";
+            String iconeCadeado = "";
+            if(contaLogada.getCartaoCredito() == null){
+                statusCartao = "Opção Indisponível";
+                iconeCadeado = "\uE95F";
+            }else if(contaLogada.getCartaoCredito().isAtivo()){
+                statusCartao = "Bloquear Cartão";
+                iconeCadeado = "\uE951";
+            }else{
+                statusCartao = "Desbloquear Cartão";
+                iconeCadeado = "\uE950";
+            }
+            model.addAttribute("logo",iconeCadeado);
+            model.addAttribute("statuscartao",statusCartao);
+            return "credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
     @PostMapping(value = "/gocredito")
     public String goCredito(ModelMap model){
         try{
             if(contaLogada == null){
                 return "redirect:/";
             }
-            model.addAttribute("conta",contaLogada);
-            return "credito";
+            String statusCartao = "";
+            if(contaLogada.getCartaoCredito() == null){
+                statusCartao = "Não Possui";
+            }else if(contaLogada.getCartaoCredito().isAtivo()){
+                statusCartao = "Ativo";
+            }else{
+                statusCartao = "Bloqueado";
+            }
+            model.addAttribute("statuscartao",statusCartao);
+            return "redirect:/credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    // Transição Crédito e Solicitar Cartão
+
+    @PostMapping(value = "/gosolicitarcartaocredito")
+    public String goSolicitarCartaoCredito(ModelMap model){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+            if(contaLogada.getCartaoCredito() != null){
+                return "redirect:/credito";
+            }
+            CartaoCredito cartaoCredito = new CartaoCredito();
+            model.addAttribute("cartao",cartaoCredito);
+
+            return "solicitarcartaocredito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @PostMapping(value = "/btsolicitarcartaocredito")
+    public String btSolicitarCartaoCredito(CartaoCredito cartao){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+            cartao.setAtivo(true);
+            cartaoCreditoRepository.save(cartao);
+            contaLogada.setCartaoCredito(cartao);
+            contaRepository.save(contaLogada);
+
+            return "redirect:/credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+
+    // Transição Crédito e Bloquear Cartão
+
+    @PostMapping(value = "/btbloquearcartaocredito")
+    public String btBloquearCartaoCredito(){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+            if(contaLogada.getCartaoCredito() == null){
+            }else if(contaLogada.getCartaoCredito().isAtivo()){
+                contaLogada.getCartaoCredito().setAtivo(false);
+            }else{
+                contaLogada.getCartaoCredito().setAtivo(true);
+            }
+            return "redirect:/credito";
 
         } catch (Exception e) {
             return "/erro";

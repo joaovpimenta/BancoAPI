@@ -1,10 +1,8 @@
 package com.arthur.NextGeneration.model.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +17,23 @@ public class Compra implements Serializable {
     private String nomeProduto;
     private Date compra;
     private double valor;
+
+    @Transient
+    private String dataString;
+
+    public String getDataString() {
+        return dataString;
+    }
+
+    public void setDataString(String dataString) {
+        this.dataString = dataString;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        try {
+            this.compra = sdf.parse(dataString);
+        } catch (ParseException e) {
+            this.compra = Calendar.getInstance().getTime();
+        }
+    }
 
     public Compra() {
     }

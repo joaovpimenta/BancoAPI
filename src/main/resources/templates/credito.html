@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -20,7 +20,61 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
+	}
+	.Campo{
+		overflow: visible;
+		position: absolute;
+		width: 300px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+		fill: rgba(255,255,255,1);
+		stroke: rgba(62,62,62,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		text-indent: 20px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(18,18,18,1);
+		border-color: #121212;
+		border-style: solid;
+  		border-width: 2px;
+	}
+
+.Botao{
+    cursor: pointer;
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 200px;
+		height: 50px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#credito {
 		position: absolute;
@@ -56,7 +110,7 @@
 		top: 189.13px;
 		overflow: visible;
 	}
-	#METADATA_x {
+	#METADATA_ {
 		display: none;
 		left: -142px;
 		top: -571.437px;
@@ -94,7 +148,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_ {
+	#METADATA_bc {
 		display: none;
 		left: -0.269px;
 		top: 0px;
@@ -166,7 +220,7 @@
 		top: 201.87px;
 		overflow: visible;
 	}
-	#Grupo_5_ {
+	#Grupo_5_bh {
 		position: absolute;
 		width: 400px;
 		height: 269.875px;
@@ -174,7 +228,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#Image__ {
+	#Image__bi {
 		position: absolute;
 		width: 400px;
 		height: 269.875px;
@@ -182,7 +236,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_ba {
+	#METADATA_bj {
 		display: none;
 		left: -0.358px;
 		top: 0px;
@@ -196,15 +250,64 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Placement_Area_ASSETsmallSIZED_ {
+	#Placement_Area_ASSETsmallSIZED_bk {
 		fill: rgba(0,255,95,1);
 	}
-	.Placement_Area_ASSETsmallSIZED_ {
+	.Placement_Area_ASSETsmallSIZED_bk {
 		filter: drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.4));
 		position: absolute;
 		overflow: visible;
 		width: 424px;
 		height: 293.875px;
+		left: 0px;
+		top: 0px;
+	}
+	#Grupo_31 {
+		position: absolute;
+		width: 56px;
+		height: 37.783px;
+		left: 320px;
+		top: 124.74px;
+		overflow: visible;
+	}
+	#Grupo_5_bm {
+		position: absolute;
+		width: 56px;
+		height: 37.783px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Image__bn {
+		position: absolute;
+		width: 56px;
+		height: 37.783px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#METADATA_bo {
+		display: none;
+		left: -0.05px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 16.887px;
+		height: 13.49376106262207px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Placement_Area_ASSETsmallSIZED_bp {
+		fill: rgba(235,235,235,1);
+	}
+	.Placement_Area_ASSETsmallSIZED_bp {
+		position: absolute;
+		overflow: visible;
+		width: 56px;
+		height: 37.782px;
 		left: 0px;
 		top: 0px;
 	}
@@ -216,7 +319,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#Text_bb {
+	#Text_br {
 		left: 0px;
 		top: 0px;
 		position: absolute;
@@ -246,7 +349,7 @@
 		font-size: 45px;
 		color: rgba(0,255,95,1);
 	}
-	#Grupo_18_bd {
+	#Grupo_18_bt {
 		position: absolute;
 		width: 300px;
 		height: 190px;
@@ -254,7 +357,7 @@
 		top: 211px;
 		overflow: visible;
 	}
-	#Grupo_5_be {
+	#Grupo_5_bu {
 		position: absolute;
 		width: 300px;
 		height: 190px;
@@ -262,7 +365,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#Image__bf {
+	#Image__bv {
 		position: absolute;
 		width: 300px;
 		height: 190px;
@@ -270,7 +373,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_bg {
+	#METADATA_bw {
 		display: none;
 		left: -0.269px;
 		top: 0px;
@@ -284,7 +387,7 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Placement_Area_ASSETsmallSIZED_bh {
+	#Placement_Area_ASSETsmallSIZED_bx {
 		fill: rgba(23,23,23,1);
 		stroke: rgba(235,235,235,1);
 		stroke-width: 1px;
@@ -293,7 +396,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Placement_Area_ASSETsmallSIZED_bh {
+	.Placement_Area_ASSETsmallSIZED_bx {
 		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
 		position: absolute;
 		overflow: visible;
@@ -302,7 +405,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Text_bi {
+	#Text_by {
 		left: 15px;
 		top: 15px;
 		position: absolute;
@@ -334,6 +437,22 @@
 		font-size: 32px;
 		color: rgba(0,255,95,1);
 	}
+	#ATIVO {
+		left: 53px;
+		top: 143.13px;
+		position: absolute;
+		overflow: visible;
+		width: 233px;
+		height: 30px;
+		line-height: 54px;
+		margin-top: -15px;
+		text-align: right;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(235,235,235,1);
+	}
 	#Grupo_27 {
 		position: absolute;
 		width: 300px;
@@ -342,183 +461,7 @@
 		top: 422px;
 		overflow: visible;
 	}
-	#Grupo_5_bl {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 0px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Image__bm {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 0px;
-		top: 0px;
-		overflow: visible;
-	}
-	#METADATA_bn {
-		display: none;
-		left: -0.269px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 12.915px;
-		height: 9.5px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Placement_Area_ASSETsmallSIZED_bo {
-		fill: rgba(23,23,23,1);
-		stroke: rgba(235,235,235,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Placement_Area_ASSETsmallSIZED_bo {
-		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
-		position: absolute;
-		overflow: visible;
-		width: 318px;
-		height: 208px;
-		left: 0px;
-		top: 0px;
-	}
-	#Text_bp {
-		left: 15px;
-		top: 15px;
-		position: absolute;
-		overflow: visible;
-		width: 46px;
-		white-space: nowrap;
-		line-height: 54px;
-		margin-top: -4.5px;
-		text-align: left;
-		font-family: NextBrandIcons;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 45px;
-		color: rgba(0,255,95,1);
-	}
-	#Seguros {
-		left: 53px;
-		top: 10.13px;
-		position: absolute;
-		overflow: visible;
-		width: 233px;
-		height: 39px;
-		line-height: 54px;
-		margin-top: -11px;
-		text-align: right;
-		font-family: Bradesco Sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 32px;
-		color: rgba(0,255,95,1);
-	}
-	#Grupo_28 {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 1024px;
-		top: 211.807px;
-		overflow: visible;
-	}
-	#Grupo_5_bs {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 0px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Image__bt {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 0px;
-		top: 0px;
-		overflow: visible;
-	}
-	#METADATA_bu {
-		display: none;
-		left: -0.269px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 12.915px;
-		height: 9.5px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Placement_Area_ASSETsmallSIZED_bv {
-		fill: rgba(23,23,23,1);
-		stroke: rgba(235,235,235,1);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Placement_Area_ASSETsmallSIZED_bv {
-		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
-		position: absolute;
-		overflow: visible;
-		width: 318px;
-		height: 208px;
-		left: 0px;
-		top: 0px;
-	}
-	#Text_bw {
-		left: 15px;
-		top: 15px;
-		position: absolute;
-		overflow: visible;
-		width: 46px;
-		white-space: nowrap;
-		line-height: 54px;
-		margin-top: -4.5px;
-		text-align: left;
-		font-family: NextBrandIcons;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 45px;
-		color: rgba(0,255,95,1);
-	}
-	#Fazer___Compras {
-		left: 53px;
-		top: 10.13px;
-		position: absolute;
-		overflow: visible;
-		width: 233px;
-		height: 93px;
-		line-height: 54px;
-		margin-top: -11px;
-		text-align: right;
-		font-family: Bradesco Sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 32px;
-		color: rgba(0,255,95,1);
-	}
-	#Grupo_29 {
-		position: absolute;
-		width: 300px;
-		height: 190px;
-		left: 1345px;
-		top: 422px;
-		overflow: visible;
-	}
-	#Grupo_5_bz {
+	#Grupo_5_b {
 		position: absolute;
 		width: 300px;
 		height: 190px;
@@ -582,6 +525,182 @@
 		font-size: 45px;
 		color: rgba(0,255,95,1);
 	}
+	#Seguros {
+		left: 53px;
+		top: 10.13px;
+		position: absolute;
+		overflow: visible;
+		width: 233px;
+		height: 39px;
+		line-height: 54px;
+		margin-top: -11px;
+		text-align: right;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 32px;
+		color: rgba(0,255,95,1);
+	}
+	#Grupo_28 {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 1024px;
+		top: 211.807px;
+		overflow: visible;
+	}
+	#Grupo_5_ca {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Image__ca {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#METADATA_cb {
+		display: none;
+		left: -0.269px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 12.915px;
+		height: 9.5px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Placement_Area_ASSETsmallSIZED_cc {
+		fill: rgba(23,23,23,1);
+		stroke: rgba(235,235,235,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Placement_Area_ASSETsmallSIZED_cc {
+		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
+		position: absolute;
+		overflow: visible;
+		width: 318px;
+		height: 208px;
+		left: 0px;
+		top: 0px;
+	}
+	#Text_cd {
+		left: 15px;
+		top: 15px;
+		position: absolute;
+		overflow: visible;
+		width: 46px;
+		white-space: nowrap;
+		line-height: 54px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: NextBrandIcons;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 45px;
+		color: rgba(0,255,95,1);
+	}
+	#Fazer___Compras {
+		left: 53px;
+		top: 10.13px;
+		position: absolute;
+		overflow: visible;
+		width: 233px;
+		height: 93px;
+		line-height: 54px;
+		margin-top: -11px;
+		text-align: right;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 32px;
+		color: rgba(0,255,95,1);
+	}
+	#Grupo_29 {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 1345px;
+		top: 422px;
+		overflow: visible;
+	}
+	#Grupo_5_cg {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Image__ch {
+		position: absolute;
+		width: 300px;
+		height: 190px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#METADATA_ci {
+		display: none;
+		left: -0.269px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 12.915px;
+		height: 9.5px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Placement_Area_ASSETsmallSIZED_cj {
+		fill: rgba(23,23,23,1);
+		stroke: rgba(235,235,235,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Placement_Area_ASSETsmallSIZED_cj {
+		filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.161));
+		position: absolute;
+		overflow: visible;
+		width: 318px;
+		height: 208px;
+		left: 0px;
+		top: 0px;
+	}
+	#Text_ck {
+		left: 15px;
+		top: 15px;
+		position: absolute;
+		overflow: visible;
+		width: 46px;
+		white-space: nowrap;
+		line-height: 54px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: NextBrandIcons;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 45px;
+		color: rgba(0,255,95,1);
+	}
 	#Solicitar__Carto {
 		left: 53px;
 		top: 10.13px;
@@ -606,7 +725,7 @@
 		top: 40px;
 		overflow: visible;
 	}
-	#METADATA_ca {
+	#METADATA_cn {
 		display: none;
 		left: -1331px;
 		top: -36px;
@@ -628,7 +747,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_cb {
+	#METADATA_cp {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -676,7 +795,7 @@
 		display: none;
 		overflow: visible;
 	}
-	#METADATA_cc {
+	#METADATA_ct {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -728,7 +847,7 @@
 		top: 0px;
 		transform: matrix(1,0,0,1,0,0);
 	}
-	#Button__cg {
+	#Button__cx {
 		position: absolute;
 		width: 144px;
 		height: 48px;
@@ -736,7 +855,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_ch {
+	#METADATA_cy {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -750,7 +869,7 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Area_DISPLAY_ELEMENTSLabelSIZE_ci {
+	#Area_DISPLAY_ELEMENTSLabelSIZE_cz {
 		fill: rgba(252,252,252,0);
 		stroke: rgba(0,255,95,1);
 		stroke-width: 2px;
@@ -759,7 +878,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Area_DISPLAY_ELEMENTSLabelSIZE_ci {
+	.Area_DISPLAY_ELEMENTSLabelSIZE_cz {
 		position: absolute;
 		overflow: visible;
 		width: 144px;
@@ -767,7 +886,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Label_cj {
+	#Label_c {
 		left: 22px;
 		top: 14px;
 		position: absolute;
@@ -781,7 +900,7 @@
 		font-size: 16px;
 		color: rgba(0,255,95,1);
 	}
-	#Icon__ck {
+	#Icon__c {
 		position: absolute;
 		width: 20px;
 		height: 20px;
@@ -790,7 +909,7 @@
 		display: none;
 		overflow: visible;
 	}
-	#METADATA_cl {
+	#METADATA_c {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -804,11 +923,11 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Area_DISPLAY_ELEMENTSLabelICON_cm {
+	#Area_DISPLAY_ELEMENTSLabelICON_c {
 		opacity: 0;
 		fill: rgba(253,73,198,0.349);
 	}
-	.Area_DISPLAY_ELEMENTSLabelICON_cm {
+	.Area_DISPLAY_ELEMENTSLabelICON_c {
 		position: absolute;
 		overflow: visible;
 		width: 20px;
@@ -816,7 +935,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon_cn {
+	#Icon_c {
 		position: absolute;
 		width: 17.42px;
 		height: 15.193px;
@@ -824,7 +943,7 @@
 		top: 2.499px;
 		overflow: visible;
 	}
-	#Path_co {
+	#Path_c {
 		fill: rgba(0,0,0,0);
 		stroke: rgba(18,18,18,1);
 		stroke-width: 1.6666666269302368px;
@@ -833,7 +952,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Path_co {
+	.Path_c {
 		overflow: visible;
 		position: absolute;
 		width: 19.087px;
@@ -858,7 +977,7 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#METADATA_cr {
+	#METADATA_da {
 		display: none;
 		left: 1910px;
 		top: -2651px;
@@ -931,7 +1050,7 @@
 		top: 190.703px;
 		overflow: visible;
 	}
-	#METADATA_cx {
+	#METADATA_de {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -956,7 +1075,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon__cz {
+	#Icon__dg {
 		position: absolute;
 		width: 20px;
 		height: 20px;
@@ -964,7 +1083,7 @@
 		top: 14px;
 		overflow: visible;
 	}
-	#METADATA_c {
+	#METADATA_dh {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -990,7 +1109,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon_c {
+	#Icon_dj {
 		position: absolute;
 		width: 16.666px;
 		height: 15.833px;
@@ -998,7 +1117,7 @@
 		top: 1.667px;
 		overflow: visible;
 	}
-	#Path_c {
+	#Path_dk {
 		fill: rgba(0,0,0,0);
 		stroke: rgba(0,255,95,0.988);
 		stroke-width: 1.6666666269302368px;
@@ -1007,7 +1126,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Path_c {
+	.Path_dk {
 		overflow: visible;
 		position: absolute;
 		width: 11.666px;
@@ -1033,209 +1152,6 @@
 		left: 0px;
 		top: 5.833px;
 	}
-	#Path_da {
-		fill: rgba(0,0,0,0);
-		stroke: rgba(0,255,95,0.988);
-		stroke-width: 1.6666666269302368px;
-		stroke-linejoin: round;
-		stroke-linecap: round;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Path_da {
-		position: absolute;
-		overflow: visible;
-		width: 5px;
-		height: 5px;
-		left: 0px;
-		top: 0px;
-	}
-	#Circle_Button__c {
-		position: absolute;
-		width: 48px;
-		height: 48px;
-		left: 221px;
-		top: 190.703px;
-		overflow: visible;
-	}
-	#METADATA_da {
-		display: none;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 11px;
-		height: 10px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Area_SIZEMEDIUMSTATEDEFAULTSTY_c {
-		fill: rgba(252,252,252,0);
-	}
-	.Area_SIZEMEDIUMSTATEDEFAULTSTY_c {
-		position: absolute;
-		overflow: visible;
-		width: 48px;
-		height: 48px;
-		left: 0px;
-		top: 0px;
-	}
-	#Icon__c {
-		position: absolute;
-		width: 20px;
-		height: 20px;
-		left: 14px;
-		top: 14px;
-		overflow: visible;
-	}
-	#METADATA_db {
-		display: none;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 11px;
-		height: 10px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Area_ICONfeatheryoutubeSIZEMED {
-		opacity: 0;
-		fill: rgba(253,73,198,0.349);
-	}
-	.Area_ICONfeatheryoutubeSIZEMED {
-		position: absolute;
-		overflow: visible;
-		width: 20px;
-		height: 20px;
-		left: 0px;
-		top: 0px;
-	}
-	#Icon_dc {
-		position: absolute;
-		width: 18.335px;
-		height: 12.884px;
-		left: 0.833px;
-		top: 3.333px;
-		overflow: visible;
-	}
-	#Path_dd {
-		fill: rgba(0,0,0,0);
-		stroke: rgba(0,255,95,0.988);
-		stroke-width: 1.6666666269302368px;
-		stroke-linejoin: round;
-		stroke-linecap: round;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Path_dd {
-		overflow: visible;
-		position: absolute;
-		width: 20.002px;
-		height: 14.551px;
-		left: 0px;
-		top: 0px;
-		transform: matrix(1,0,0,1,0,0);
-	}
-	#Path_de {
-		fill: rgba(0,0,0,0);
-		stroke: rgba(0,255,95,0.988);
-		stroke-width: 1.6666666269302368px;
-		stroke-linejoin: round;
-		stroke-linecap: round;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Path_de {
-		overflow: visible;
-		position: absolute;
-		width: 6.458px;
-		height: 7.117px;
-		left: 7.292px;
-		top: 3.734px;
-		transform: matrix(1,0,0,1,0,0);
-	}
-	#Circle_Button__df {
-		position: absolute;
-		width: 48px;
-		height: 48px;
-		left: 74px;
-		top: 190.703px;
-		overflow: visible;
-	}
-	#METADATA_dg {
-		display: none;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 11px;
-		height: 10px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Area_SIZEMEDIUMSTATEDEFAULTSTY_dh {
-		fill: rgba(252,252,252,0);
-	}
-	.Area_SIZEMEDIUMSTATEDEFAULTSTY_dh {
-		position: absolute;
-		overflow: visible;
-		width: 48px;
-		height: 48px;
-		left: 0px;
-		top: 0px;
-	}
-	#Icon__di {
-		position: absolute;
-		width: 20px;
-		height: 20px;
-		left: 14px;
-		top: 14px;
-		overflow: visible;
-	}
-	#METADATA_dj {
-		display: none;
-		left: 0px;
-		top: 0px;
-		position: absolute;
-		overflow: hidden;
-		width: 11px;
-		height: 10px;
-		text-align: left;
-		font-family: Arial;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 3px;
-	}
-	#Area_ICONfeathertwitterSIZEMED {
-		opacity: 0;
-		fill: rgba(253,73,198,0.349);
-	}
-	.Area_ICONfeathertwitterSIZEMED {
-		position: absolute;
-		overflow: visible;
-		width: 20px;
-		height: 20px;
-		left: 0px;
-		top: 0px;
-	}
-	#Icon_dl {
-		position: absolute;
-		width: 18.334px;
-		height: 14.953px;
-		left: 0.833px;
-		top: 2.491px;
-		overflow: visible;
-	}
 	#Path_dm {
 		fill: rgba(0,0,0,0);
 		stroke: rgba(0,255,95,0.988);
@@ -1246,19 +1162,18 @@
 		shape-rendering: auto;
 	}
 	.Path_dm {
-		overflow: visible;
 		position: absolute;
-		width: 20px;
-		height: 16.785px;
+		overflow: visible;
+		width: 5px;
+		height: 5px;
 		left: 0px;
 		top: 0px;
-		transform: matrix(1,0,0,1,0,0);
 	}
 	#Circle_Button__dn {
 		position: absolute;
 		width: 48px;
 		height: 48px;
-		left: 0px;
+		left: 221px;
 		top: 190.703px;
 		overflow: visible;
 	}
@@ -1309,11 +1224,11 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Area_ICONfeatherfacebookSIZEME {
+	#Area_ICONfeatheryoutubeSIZEMED {
 		opacity: 0;
 		fill: rgba(253,73,198,0.349);
 	}
-	.Area_ICONfeatherfacebookSIZEME {
+	.Area_ICONfeatheryoutubeSIZEMED {
 		position: absolute;
 		overflow: visible;
 		width: 20px;
@@ -1323,10 +1238,10 @@
 	}
 	#Icon_dt {
 		position: absolute;
-		width: 9.167px;
-		height: 16.666px;
-		left: 5.833px;
-		top: 1.667px;
+		width: 18.335px;
+		height: 12.884px;
+		left: 0.833px;
+		top: 3.333px;
 		overflow: visible;
 	}
 	#Path_du {
@@ -1341,21 +1256,39 @@
 	.Path_du {
 		overflow: visible;
 		position: absolute;
-		width: 10.833px;
-		height: 18.333px;
+		width: 20.002px;
+		height: 14.551px;
 		left: 0px;
 		top: 0px;
 		transform: matrix(1,0,0,1,0,0);
 	}
-	#Circle_Button__dv {
+	#Path_dv {
+		fill: rgba(0,0,0,0);
+		stroke: rgba(0,255,95,0.988);
+		stroke-width: 1.6666666269302368px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_dv {
+		overflow: visible;
+		position: absolute;
+		width: 6.458px;
+		height: 7.117px;
+		left: 7.292px;
+		top: 3.734px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Circle_Button__dw {
 		position: absolute;
 		width: 48px;
 		height: 48px;
-		left: 295px;
+		left: 74px;
 		top: 190.703px;
 		overflow: visible;
 	}
-	#METADATA_dw {
+	#METADATA_dx {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -1369,10 +1302,10 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Area_SIZEMEDIUMSTATEDEFAULTSTY_dx {
+	#Area_SIZEMEDIUMSTATEDEFAULTSTY_dy {
 		fill: rgba(252,252,252,0);
 	}
-	.Area_SIZEMEDIUMSTATEDEFAULTSTY_dx {
+	.Area_SIZEMEDIUMSTATEDEFAULTSTY_dy {
 		position: absolute;
 		overflow: visible;
 		width: 48px;
@@ -1380,7 +1313,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon__dy {
+	#Icon__dz {
 		position: absolute;
 		width: 20px;
 		height: 20px;
@@ -1388,7 +1321,193 @@
 		top: 14px;
 		overflow: visible;
 	}
-	#METADATA_dz {
+	#METADATA_d {
+		display: none;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 11px;
+		height: 10px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Area_ICONfeathertwitterSIZEMED {
+		opacity: 0;
+		fill: rgba(253,73,198,0.349);
+	}
+	.Area_ICONfeathertwitterSIZEMED {
+		position: absolute;
+		overflow: visible;
+		width: 20px;
+		height: 20px;
+		left: 0px;
+		top: 0px;
+	}
+	#Icon_d {
+		position: absolute;
+		width: 18.334px;
+		height: 14.953px;
+		left: 0.833px;
+		top: 2.491px;
+		overflow: visible;
+	}
+	#Path_d {
+		fill: rgba(0,0,0,0);
+		stroke: rgba(0,255,95,0.988);
+		stroke-width: 1.6666666269302368px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_d {
+		overflow: visible;
+		position: absolute;
+		width: 20px;
+		height: 16.785px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Circle_Button__d {
+		position: absolute;
+		width: 48px;
+		height: 48px;
+		left: 0px;
+		top: 190.703px;
+		overflow: visible;
+	}
+	#METADATA_ea {
+		display: none;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 11px;
+		height: 10px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Area_SIZEMEDIUMSTATEDEFAULTSTY_d {
+		fill: rgba(252,252,252,0);
+	}
+	.Area_SIZEMEDIUMSTATEDEFAULTSTY_d {
+		position: absolute;
+		overflow: visible;
+		width: 48px;
+		height: 48px;
+		left: 0px;
+		top: 0px;
+	}
+	#Icon__d {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		left: 14px;
+		top: 14px;
+		overflow: visible;
+	}
+	#METADATA_eb {
+		display: none;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 11px;
+		height: 10px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Area_ICONfeatherfacebookSIZEME {
+		opacity: 0;
+		fill: rgba(253,73,198,0.349);
+	}
+	.Area_ICONfeatherfacebookSIZEME {
+		position: absolute;
+		overflow: visible;
+		width: 20px;
+		height: 20px;
+		left: 0px;
+		top: 0px;
+	}
+	#Icon_ea {
+		position: absolute;
+		width: 9.167px;
+		height: 16.666px;
+		left: 5.833px;
+		top: 1.667px;
+		overflow: visible;
+	}
+	#Path_eb {
+		fill: rgba(0,0,0,0);
+		stroke: rgba(0,255,95,0.988);
+		stroke-width: 1.6666666269302368px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_eb {
+		overflow: visible;
+		position: absolute;
+		width: 10.833px;
+		height: 18.333px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#Circle_Button__ec {
+		position: absolute;
+		width: 48px;
+		height: 48px;
+		left: 295px;
+		top: 190.703px;
+		overflow: visible;
+	}
+	#METADATA_ed {
+		display: none;
+		left: 0px;
+		top: 0px;
+		position: absolute;
+		overflow: hidden;
+		width: 11px;
+		height: 10px;
+		text-align: left;
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 3px;
+	}
+	#Area_SIZEMEDIUMSTATEDEFAULTSTY_ee {
+		fill: rgba(252,252,252,0);
+	}
+	.Area_SIZEMEDIUMSTATEDEFAULTSTY_ee {
+		position: absolute;
+		overflow: visible;
+		width: 48px;
+		height: 48px;
+		left: 0px;
+		top: 0px;
+	}
+	#Icon__ef {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		left: 14px;
+		top: 14px;
+		overflow: visible;
+	}
+	#METADATA_eg {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -1414,7 +1533,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon_d {
+	#Icon_ei {
 		position: absolute;
 		width: 16.573px;
 		height: 16.607px;
@@ -1422,7 +1541,7 @@
 		top: 1.667px;
 		overflow: visible;
 	}
-	#Path_d {
+	#Path_ej {
 		fill: rgba(0,0,0,0);
 		stroke: rgba(0,255,95,0.988);
 		stroke-width: 1.6666666269302368px;
@@ -1431,7 +1550,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Path_d {
+	.Path_ej {
 		overflow: visible;
 		position: absolute;
 		width: 18.24px;
@@ -1462,7 +1581,7 @@
 		font-size: 18px;
 		color: rgba(242,242,242,0.988);
 	}
-	#Product_STYLESTYLE3TAGUI_L_d {
+	#Product_STYLESTYLE3TAGUI_L_em {
 		left: 0px;
 		top: 196px;
 		position: absolute;
@@ -1476,7 +1595,7 @@
 		font-size: 18px;
 		color: rgba(242,242,242,0.988);
 	}
-	#Product_STYLESTYLE3TAGUI_L_ea {
+	#Product_STYLESTYLE3TAGUI_L_en {
 		left: 0px;
 		top: 132px;
 		position: absolute;
@@ -1490,7 +1609,7 @@
 		font-size: 18px;
 		color: rgba(242,242,242,0.988);
 	}
-	#Product_STYLESTYLE3TAGUI_L_eb {
+	#Product_STYLESTYLE3TAGUI_L_eo {
 		left: 0px;
 		top: 68px;
 		position: absolute;
@@ -1542,7 +1661,7 @@
 		font-size: 18px;
 		color: rgba(242,242,242,0.988);
 	}
-	#Resource_STYLESTYLE3TAGUI_L_eb {
+	#Resource_STYLESTYLE3TAGUI_L_es {
 		left: 0px;
 		top: 68px;
 		position: absolute;
@@ -1580,7 +1699,7 @@
 		top: 504px;
 		overflow: visible;
 	}
-	#METADATA_ee {
+	#METADATA_ev {
 		display: none;
 		left: 1910px;
 		top: -3148px;
@@ -1806,7 +1925,7 @@
 		top: 0px;
 		transform: matrix(1,0,0,1,0,0);
 	}
-	#AccessoriesShoeFlat-Sneaker_ey {
+	#AccessoriesShoeFlat-Sneaker_ff {
 		position: absolute;
 		width: 58px;
 		height: 20.668px;
@@ -1814,10 +1933,10 @@
 		top: 151.332px;
 		overflow: visible;
 	}
-	#shoe_ez {
+	#shoe_fg {
 		fill: rgba(228,228,228,1);
 	}
-	.shoe_ez {
+	.shoe_fg {
 		overflow: visible;
 		position: absolute;
 		width: 58px;
@@ -1834,10 +1953,10 @@
 		top: 68px;
 		overflow: visible;
 	}
-	#Skin_e {
+	#Skin_fi {
 		fill: rgba(178,139,103,1);
 	}
-	.Skin_e {
+	.Skin_fi {
 		overflow: visible;
 		position: absolute;
 		width: 209.502px;
@@ -1915,7 +2034,7 @@
 		top: 813px;
 		overflow: visible;
 	}
-	#Area_SIZEMEDIUMSTATEDEFAULTSTY_e {
+	#Area_SIZEMEDIUMSTATEDEFAULTSTY_fp {
 		fill: rgba(252,252,252,1);
 		stroke: rgba(0,255,95,1);
 		stroke-width: 2px;
@@ -1924,7 +2043,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Area_SIZEMEDIUMSTATEDEFAULTSTY_e {
+	.Area_SIZEMEDIUMSTATEDEFAULTSTY_fp {
 		position: absolute;
 		overflow: visible;
 		width: 48px;
@@ -1968,13 +2087,13 @@
 		position: absolute;
 		width: 1px;
 		height: 1px;
-		left: -9439px;
+		left: -10100px;
 		top: -1574.87px;
 		overflow: visible;
 	}
-	#METADATA_fc {
+	#METADATA_ft {
 		display: none;
-		left: 10773px;
+		left: 11434px;
 		top: 1984.87px;
 		position: absolute;
 		overflow: hidden;
@@ -1986,16 +2105,16 @@
 		font-weight: normal;
 		font-size: 3px;
 	}
-	#Icon_fd {
+	#Icon_fu {
 		position: absolute;
 		width: 18px;
 		height: 18px;
-		left: 10969px;
+		left: 11630px;
 		top: 2001.37px;
 		display: none;
 		overflow: visible;
 	}
-	#METADATA_fe {
+	#METADATA_fv {
 		display: none;
 		left: 0px;
 		top: 0px;
@@ -2021,7 +2140,7 @@
 		left: 0px;
 		top: 0px;
 	}
-	#Icon_fg {
+	#Icon_fx {
 		position: absolute;
 		width: 13.5px;
 		height: 13.5px;
@@ -2029,7 +2148,7 @@
 		top: 2.25px;
 		overflow: visible;
 	}
-	#Path_fh {
+	#Path_fy {
 		fill: rgba(0,0,0,0);
 		stroke: rgba(60,60,60,1);
 		stroke-width: 1.5px;
@@ -2038,7 +2157,7 @@
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
 	}
-	.Path_fh {
+	.Path_fy {
 		position: absolute;
 		overflow: visible;
 		width: 13.5px;
@@ -2064,9 +2183,9 @@
 		top: 10.237px;
 		transform: matrix(1,0,0,1,0,0);
 	}
-	#Label_fj {
+	#Label_f {
 		display: none;
-		left: 10773px;
+		left: 11434px;
 		top: 1960.245px;
 		position: absolute;
 		overflow: visible;
@@ -5000,144 +5119,135 @@ window.application = new Application();
 		<span>{"config":{},"type":"Artboard","theme":"Base","nodeName":"About - Desktop","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:22.509Z"}</span>
 	</div>
 	<div id="Our_Mission">
-		<div id="METADATA_x">
+		<div id="METADATA_">
 			<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Our Mission","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.377Z"}</span>
 		</div>
 		<div id="Grupo_30">
 			<div id="Grupo_5">
 				<div id="Image_">
-					<div id="METADATA_">
+					<div id="METADATA_bc">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED">
-						<rect id="Placement_Area_ASSETsmallSIZED" rx="30" ry="30" x="0" y="0" width="300" height="190">
-						</rect>
-					</svg>
+					<form th:action="@{/ENDEREÇO}" method="POST">
+					<input type="submit" class="Botao" value="Exibir Fatura" style="top: 0px; left: 0px; width: 300px; height: 190px">
+					<div id="Text" style="top: 20px; left: 10px;">
+						<span></span>
+					</div>
+					</form>
 				</div>
-				<div id="Text">
-					<span></span>
-				</div>
-			</div>
-			<div id="Exibir_Fatura">
-				<span>Exibir Fatura</span>
 			</div>
 		</div>
 		<div id="Grupo_18">
-			<div id="Grupo_5_">
-				<div id="Image__">
-					<div id="METADATA_ba">
+			<div id="Grupo_5_bh">
+				<div id="Image__bi">
+					<div id="METADATA_bj">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED_">
-						<rect id="Placement_Area_ASSETsmallSIZED_" rx="30" ry="30" x="0" y="0" width="400" height="269.875">
+					<svg class="Placement_Area_ASSETsmallSIZED_bk">
+						<rect id="Placement_Area_ASSETsmallSIZED_bk" rx="30" ry="30" x="0" y="0" width="400" height="269.875">
 						</rect>
 					</svg>
+				</div>
+			</div>
+			<div id="Grupo_31">
+				<div id="Grupo_5_bm">
+					<div id="Image__bn">
+						<div id="METADATA_bo">
+							<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
+						</div>
+						<svg class="Placement_Area_ASSETsmallSIZED_bp">
+							<rect id="Placement_Area_ASSETsmallSIZED_bp" rx="10" ry="10" x="0" y="0" width="56" height="37.783">
+							</rect>
+						</svg>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div id="Grupo_17">
-			<div id="Text_bb">
+			<div id="Text_br">
 				<span></span>
 			</div>
 			<div id="Carto_de_Crdito">
 				<span>Cartão de Crédito</span>
 			</div>
 		</div>
-		<div id="Grupo_18_bd">
-			<div id="Grupo_5_be">
-				<div id="Image__bf">
-					<div id="METADATA_bg">
-						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED_bh">
-						<rect id="Placement_Area_ASSETsmallSIZED_bh" rx="30" ry="30" x="0" y="0" width="300" height="190">
-						</rect>
-					</svg>
+		<div id="Grupo_18_bt">
+			<div id="Grupo_5_bu">
+				<div id="Image__bv">
+					<form th:action="@{/btbloquearcartaocredito}" method="POST">
+						<input type="submit" class="Botao" th:value="${statuscartao}" style="top: 0px; left: 0px; width: 300px; height: 190px">
+						<div id="Text_by" style="top: 20px; left: 10px;">
+							<span th:text="${logo}"></span>
+						</div>
+					</form>
 				</div>
-				<div id="Text_bi">
-					<span></span>
-				</div>
-			</div>
-			<div id="Bloquear_Carto">
-				<span>Bloquear Cartão</span>
 			</div>
 		</div>
 		<div id="Grupo_27">
-			<div id="Grupo_5_bl">
-				<div id="Image__bm">
-					<div id="METADATA_bn">
-						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED_bo">
-						<rect id="Placement_Area_ASSETsmallSIZED_bo" rx="30" ry="30" x="0" y="0" width="300" height="190">
-						</rect>
-					</svg>
-				</div>
-				<div id="Text_bp">
-					<span></span>
-				</div>
-			</div>
-			<div id="Seguros">
-				<span>Seguros</span>
-			</div>
-		</div>
-		<div id="Grupo_28">
-			<div id="Grupo_5_bs">
-				<div id="Image__bt">
-					<div id="METADATA_bu">
-						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
-					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED_bv">
-						<rect id="Placement_Area_ASSETsmallSIZED_bv" rx="30" ry="30" x="0" y="0" width="300" height="190">
-						</rect>
-					</svg>
-				</div>
-				<div id="Text_bw">
-					<span></span>
-				</div>
-			</div>
-			<div id="Fazer___Compras">
-				<span>Fazer   Compras</span>
-			</div>
-		</div>
-		<div id="Grupo_29">
-			<div id="Grupo_5_bz">
+			<div id="Grupo_5_b">
 				<div id="Image__b">
 					<div id="METADATA_b">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<svg class="Placement_Area_ASSETsmallSIZED_b">
-						<rect id="Placement_Area_ASSETsmallSIZED_b" rx="30" ry="30" x="0" y="0" width="300" height="190">
-						</rect>
-					</svg>
-				</div>
-				<div id="Text_b">
-					<span></span>
+					<form th:action="@{/ENDEREÇO}" method="POST">
+						<input type="submit" class="Botao" value="Seguros" style="top: 0px; left: 0px; width: 300px; height: 190px">
+						<div id="Text_b" style="top: 20px; left: 10px;">
+							<span></span>
+						</div>
+					</form>
 				</div>
 			</div>
-			<div id="Solicitar__Carto">
-				<span>Solicitar  Cartão</span>
+		</div>
+		<div id="Grupo_28">
+			<div id="Grupo_5_ca">
+				<div id="Image__ca">
+					<div id="METADATA_cb">
+						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
+					</div>
+					<form th:action="@{/ENDEREÇO}" method="POST">
+						<input type="submit" class="Botao" value="Fazer Compras" style="top: 0px; left: 0px; width: 300px; height: 190px">
+						<div id="Text_cd" style="top: 20px; left: 10px;">
+							<span></span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="Grupo_29">
+			<div id="Grupo_5_cg">
+				<div id="Image__ch">
+					<div id="METADATA_ci">
+						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
+					</div>
+					<form th:action="@{/gosolicitarcartaocredito}" method="POST">
+						<input type="submit" class="Botao" value="Solicitar Cartão" style="top: 0px; left: 0px; width: 300px; height: 190px">
+						<div id="Text_ck" style="top: 20px; left: 10px;">
+							<span></span>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div id="Header">
-		<div id="METADATA_ca">
+		<div id="METADATA_cn">
 			<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Header","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.118Z"}</span>
 		</div>
-		<a href="/">
 		<div id="Button_">
-			<div id="METADATA_cb">
+			<div id="METADATA_cp">
 				<span>{"config":{},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:26.716Z","nodeName":"Button"}</span>
 			</div>
+			<a href="/menu">
 			<svg class="Area_DISPLAY_ELEMENTSLabelSIZE">
 				<rect id="Area_DISPLAY_ELEMENTSLabelSIZE" rx="0" ry="0" x="0" y="0" width="144" height="48">
 				</rect>
 			</svg>
-			<div id="Label">
-				<span>Sair</span>
-			</div>
+				<div id="Label">
+					<span>Sair</span>
+				</div>
+			</a>
 			<div id="Icon_">
-				<div id="METADATA_cc">
+				<div id="METADATA_ct">
 					<span>{"config":{"STATE":"DEFAULT"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:26.569Z","nodeName":"Icon"}</span>
 				</div>
 				<svg class="Area_DISPLAY_ELEMENTSLabelICON">
@@ -5152,40 +5262,39 @@ window.application = new Application();
 				</div>
 			</div>
 		</div>
-		</a>
-		<a href="/">
-		<div id="Button__cg">
-			<div id="METADATA_ch">
+		<div id="Button__cx">
+			<div id="METADATA_cy">
 				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 			</div>
-			<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_ci">
-				<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_ci" rx="24" ry="24" x="0" y="0" width="144" height="48">
-				</rect>
-			</svg>
-			<div id="Label_cj">
-				<span>Trocar Conta</span>
-			</div>
-			<div id="Icon__ck">
-				<div id="METADATA_cl">
-					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
-				</div>
-				<svg class="Area_DISPLAY_ELEMENTSLabelICON_cm">
-					<rect id="Area_DISPLAY_ELEMENTSLabelICON_cm" rx="0" ry="0" x="0" y="0" width="20" height="20">
+			<a href="/menu">
+				<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_cz">
+					<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_cz" rx="24" ry="24" x="0" y="0" width="144" height="48">
 					</rect>
 				</svg>
-				<div id="Icon_cn">
-					<svg class="Path_co" viewBox="1.29 2.499 17.42 15.193">
-						<path id="Path_co" d="M 17.36700057983398 3.842000007629395 C 15.57699966430664 2.051000118255615 12.67300033569336 2.051000118255615 10.88300037384033 3.842000007629395 L 10 4.724999904632568 L 9.116999626159668 3.842000007629395 C 7.326000213623047 2.051000118255615 4.423999786376953 2.051000118255615 2.632999897003174 3.842000007629395 C 0.8429999947547913 5.631999969482422 0.8429999947547913 8.534999847412109 2.632999897003174 10.32499980926514 L 3.516999959945679 11.20800018310547 L 10 17.6919994354248 L 16.48299980163574 11.20800018310547 L 17.36700057983398 10.32499980926514 C 19.15800094604492 8.534999847412109 19.15800094604492 5.631999969482422 17.36700057983398 3.842000007629395 Z">
+				<div id="Label_c">
+					<span>Trocar Conta</span>
+				</div>
+			</a>
+			<div id="Icon__c">
+				<div id="METADATA_c">
+					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
+				</div>
+				<svg class="Area_DISPLAY_ELEMENTSLabelICON_c">
+					<rect id="Area_DISPLAY_ELEMENTSLabelICON_c" rx="0" ry="0" x="0" y="0" width="20" height="20">
+					</rect>
+				</svg>
+				<div id="Icon_c">
+					<svg class="Path_c" viewBox="1.29 2.499 17.42 15.193">
+						<path id="Path_c" d="M 17.36700057983398 3.842000007629395 C 15.57699966430664 2.051000118255615 12.67300033569336 2.051000118255615 10.88300037384033 3.842000007629395 L 10 4.724999904632568 L 9.116999626159668 3.842000007629395 C 7.326000213623047 2.051000118255615 4.423999786376953 2.051000118255615 2.632999897003174 3.842000007629395 C 0.8429999947547913 5.631999969482422 0.8429999947547913 8.534999847412109 2.632999897003174 10.32499980926514 L 3.516999959945679 11.20800018310547 L 10 17.6919994354248 L 16.48299980163574 11.20800018310547 L 17.36700057983398 10.32499980926514 C 19.15800094604492 8.534999847412109 19.15800094604492 5.631999969482422 17.36700057983398 3.842000007629395 Z">
 						</path>
 					</svg>
 				</div>
 			</div>
 		</div>
-		</a>
 	</div>
 	<div id="Componente_1__12" class="Componente_1___12">
 		<div id="Footer">
-			<div id="METADATA_cr">
+			<div id="METADATA_da">
 				<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Footer","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.312Z"}</span>
 			</div>
 			<svg class="Background_STYLESTYLE3">
@@ -5200,92 +5309,40 @@ window.application = new Application();
 					<span>Projeto Next</span>
 				</div>
 				<div id="Circle_Button_">
-					<div id="METADATA_cx">
+					<div id="METADATA_de">
 						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.421Z","nodeName":"Circle Button"}</span>
 					</div>
 					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY">
 						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY" rx="24" ry="24" x="0" y="0" width="48" height="48">
 						</rect>
 					</svg>
-					<div id="Icon__cz">
-						<div id="METADATA_c">
+					<div id="Icon__dg">
+						<div id="METADATA_dh">
 							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/linkedin"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.417Z","nodeName":"Icon"}</span>
 						</div>
 						<svg class="Area_ICONfeatherlinkedinSIZEME">
 							<rect id="Area_ICONfeatherlinkedinSIZEME" rx="0" ry="0" x="0" y="0" width="20" height="20">
 							</rect>
 						</svg>
-						<div id="Icon_c">
-							<svg class="Path_c" viewBox="8.333 6.667 10 10.833">
-								<path id="Path_c" d="M 13.33300018310547 6.666999816894531 C 16.09499931335449 6.666999816894531 18.33300018310547 8.904999732971191 18.33300018310547 11.66699981689453 L 18.33300018310547 17.5 L 15 17.5 L 15 11.66699981689453 C 15 10.74600028991699 14.25399971008301 10 13.33300018310547 10 C 12.41300010681152 10 11.66699981689453 10.74600028991699 11.66699981689453 11.66699981689453 L 11.66699981689453 17.5 L 8.333000183105469 17.5 L 8.333000183105469 11.66699981689453 C 8.333000183105469 8.904999732971191 10.57199954986572 6.666999816894531 13.33300018310547 6.666999816894531 Z">
+						<div id="Icon_dj">
+							<svg class="Path_dk" viewBox="8.333 6.667 10 10.833">
+								<path id="Path_dk" d="M 13.33300018310547 6.666999816894531 C 16.09499931335449 6.666999816894531 18.33300018310547 8.904999732971191 18.33300018310547 11.66699981689453 L 18.33300018310547 17.5 L 15 17.5 L 15 11.66699981689453 C 15 10.74600028991699 14.25399971008301 10 13.33300018310547 10 C 12.41300010681152 10 11.66699981689453 10.74600028991699 11.66699981689453 11.66699981689453 L 11.66699981689453 17.5 L 8.333000183105469 17.5 L 8.333000183105469 11.66699981689453 C 8.333000183105469 8.904999732971191 10.57199954986572 6.666999816894531 13.33300018310547 6.666999816894531 Z">
 								</path>
 							</svg>
 							<svg class="Rect">
 								<rect id="Rect" rx="0" ry="0" x="0" y="0" width="3.333" height="10">
 								</rect>
 							</svg>
-							<svg class="Path_da">
-								<ellipse id="Path_da" rx="1.6666666269302368" ry="1.6666666269302368" cx="1.6666666269302368" cy="1.6666666269302368">
+							<svg class="Path_dm">
+								<ellipse id="Path_dm" rx="1.6666666269302368" ry="1.6666666269302368" cx="1.6666666269302368" cy="1.6666666269302368">
 								</ellipse>
-							</svg>
-						</div>
-					</div>
-				</div>
-				<div id="Circle_Button__c">
-					<div id="METADATA_da">
-						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.766Z","nodeName":"Circle Button"}</span>
-					</div>
-					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_c">
-						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_c" rx="24" ry="24" x="0" y="0" width="48" height="48">
-						</rect>
-					</svg>
-					<div id="Icon__c">
-						<div id="METADATA_db">
-							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/youtube"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.759Z","nodeName":"Icon"}</span>
-						</div>
-						<svg class="Area_ICONfeatheryoutubeSIZEMED">
-							<rect id="Area_ICONfeatheryoutubeSIZEMED" rx="0" ry="0" x="0" y="0" width="20" height="20">
-							</rect>
-						</svg>
-						<div id="Icon_dc">
-							<svg class="Path_dd" viewBox="0.833 3.333 18.335 12.884">
-								<path id="Path_dd" d="M 18.78300094604492 5.349999904632568 C 18.58200073242188 4.545000076293945 17.96500015258789 3.908999919891357 17.16699981689453 3.683000087738037 C 15.73299980163574 3.33299994468689 10 3.33299994468689 10 3.33299994468689 C 10 3.33299994468689 4.267000198364258 3.33299994468689 2.83299994468689 3.717000007629395 C 2.035000085830688 3.943000078201294 1.417999982833862 4.578000068664551 1.217000007629395 5.382999897003174 C 0.9539999961853027 6.837999820709229 0.8259999752044678 8.314000129699707 0.8330000042915344 9.791999816894531 C 0.8240000009536743 11.2810001373291 0.9520000219345093 12.76799964904785 1.217000007629395 14.23299980163574 C 1.439000010490417 15.01299953460693 2.052000045776367 15.61900043487549 2.83299994468689 15.83300018310547 C 4.267000198364258 16.21699905395508 10 16.21699905395508 10 16.21699905395508 C 10 16.21699905395508 15.73299980163574 16.21699905395508 17.16699981689453 15.83300018310547 C 17.96500015258789 15.60700035095215 18.58200073242188 14.97200012207031 18.78300094604492 14.16699981689453 C 19.04400062561035 12.72299957275391 19.17200088500977 11.25899982452393 19.16699981689453 9.791999816894531 C 19.17600059509277 8.302000045776367 19.04800033569336 6.815999984741211 18.78300094604492 5.349999904632568 Z">
-								</path>
-							</svg>
-							<svg class="Path_de" viewBox="8.125 7.067 4.792 5.45">
-								<path id="Path_de" d="M 8.125 12.51700019836426 L 12.91699981689453 9.791999816894531 L 8.125 7.066999912261963 L 8.125 12.51700019836426 Z">
-								</path>
-							</svg>
-						</div>
-					</div>
-				</div>
-				<div id="Circle_Button__df">
-					<div id="METADATA_dg">
-						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.991Z","nodeName":"Circle Button"}</span>
-					</div>
-					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_dh">
-						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_dh" rx="24" ry="24" x="0" y="0" width="48" height="48">
-						</rect>
-					</svg>
-					<div id="Icon__di">
-						<div id="METADATA_dj">
-							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/twitter"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.988Z","nodeName":"Icon"}</span>
-						</div>
-						<svg class="Area_ICONfeathertwitterSIZEMED">
-							<rect id="Area_ICONfeathertwitterSIZEMED" rx="0" ry="0" x="0" y="0" width="20" height="20">
-							</rect>
-						</svg>
-						<div id="Icon_dl">
-							<svg class="Path_dm" viewBox="0.833 2.491 18.334 14.953">
-								<path id="Path_dm" d="M 19.16699981689453 2.5 C 18.36899948120117 3.062999963760376 17.48500061035156 3.493000030517578 16.54999923706055 3.775000095367432 C 15.52200031280518 2.592999935150146 13.86499977111816 2.177999973297119 12.40200042724609 2.736999988555908 C 10.9379997253418 3.296000003814697 9.979000091552734 4.709000110626221 10 6.275000095367432 L 10 7.107999801635742 C 7.026000022888184 7.184999942779541 4.210000038146973 5.76800012588501 2.5 3.33299994468689 C 2.5 3.33299994468689 -0.8330000042915344 10.83300018310547 6.666999816894531 14.16699981689453 C 4.949999809265137 15.33199977874756 2.905999898910522 15.91600036621094 0.8330000042915344 15.83300018310547 C 8.333000183105469 20 17.5 15.83300018310547 17.5 6.25 C 17.49900054931641 6.01800012588501 17.47699928283691 5.785999774932861 17.4330005645752 5.558000087738037 C 18.28400039672852 4.71999979019165 18.88400077819824 3.66100001335144 19.16699981689453 2.5 Z">
-								</path>
 							</svg>
 						</div>
 					</div>
 				</div>
 				<div id="Circle_Button__dn">
 					<div id="METADATA_do">
-						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.089Z","nodeName":"Circle Button"}</span>
+						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.766Z","nodeName":"Circle Button"}</span>
 					</div>
 					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_dp">
 						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_dp" rx="24" ry="24" x="0" y="0" width="48" height="48">
@@ -5293,39 +5350,91 @@ window.application = new Application();
 					</svg>
 					<div id="Icon__dq">
 						<div id="METADATA_dr">
+							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/youtube"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.759Z","nodeName":"Icon"}</span>
+						</div>
+						<svg class="Area_ICONfeatheryoutubeSIZEMED">
+							<rect id="Area_ICONfeatheryoutubeSIZEMED" rx="0" ry="0" x="0" y="0" width="20" height="20">
+							</rect>
+						</svg>
+						<div id="Icon_dt">
+							<svg class="Path_du" viewBox="0.833 3.333 18.335 12.884">
+								<path id="Path_du" d="M 18.78300094604492 5.349999904632568 C 18.58200073242188 4.545000076293945 17.96500015258789 3.908999919891357 17.16699981689453 3.683000087738037 C 15.73299980163574 3.33299994468689 10 3.33299994468689 10 3.33299994468689 C 10 3.33299994468689 4.267000198364258 3.33299994468689 2.83299994468689 3.717000007629395 C 2.035000085830688 3.943000078201294 1.417999982833862 4.578000068664551 1.217000007629395 5.382999897003174 C 0.9539999961853027 6.837999820709229 0.8259999752044678 8.314000129699707 0.8330000042915344 9.791999816894531 C 0.8240000009536743 11.2810001373291 0.9520000219345093 12.76799964904785 1.217000007629395 14.23299980163574 C 1.439000010490417 15.01299953460693 2.052000045776367 15.61900043487549 2.83299994468689 15.83300018310547 C 4.267000198364258 16.21699905395508 10 16.21699905395508 10 16.21699905395508 C 10 16.21699905395508 15.73299980163574 16.21699905395508 17.16699981689453 15.83300018310547 C 17.96500015258789 15.60700035095215 18.58200073242188 14.97200012207031 18.78300094604492 14.16699981689453 C 19.04400062561035 12.72299957275391 19.17200088500977 11.25899982452393 19.16699981689453 9.791999816894531 C 19.17600059509277 8.302000045776367 19.04800033569336 6.815999984741211 18.78300094604492 5.349999904632568 Z">
+								</path>
+							</svg>
+							<svg class="Path_dv" viewBox="8.125 7.067 4.792 5.45">
+								<path id="Path_dv" d="M 8.125 12.51700019836426 L 12.91699981689453 9.791999816894531 L 8.125 7.066999912261963 L 8.125 12.51700019836426 Z">
+								</path>
+							</svg>
+						</div>
+					</div>
+				</div>
+				<div id="Circle_Button__dw">
+					<div id="METADATA_dx">
+						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.991Z","nodeName":"Circle Button"}</span>
+					</div>
+					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_dy">
+						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_dy" rx="24" ry="24" x="0" y="0" width="48" height="48">
+						</rect>
+					</svg>
+					<div id="Icon__dz">
+						<div id="METADATA_d">
+							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/twitter"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:27.988Z","nodeName":"Icon"}</span>
+						</div>
+						<svg class="Area_ICONfeathertwitterSIZEMED">
+							<rect id="Area_ICONfeathertwitterSIZEMED" rx="0" ry="0" x="0" y="0" width="20" height="20">
+							</rect>
+						</svg>
+						<div id="Icon_d">
+							<svg class="Path_d" viewBox="0.833 2.491 18.334 14.953">
+								<path id="Path_d" d="M 19.16699981689453 2.5 C 18.36899948120117 3.062999963760376 17.48500061035156 3.493000030517578 16.54999923706055 3.775000095367432 C 15.52200031280518 2.592999935150146 13.86499977111816 2.177999973297119 12.40200042724609 2.736999988555908 C 10.9379997253418 3.296000003814697 9.979000091552734 4.709000110626221 10 6.275000095367432 L 10 7.107999801635742 C 7.026000022888184 7.184999942779541 4.210000038146973 5.76800012588501 2.5 3.33299994468689 C 2.5 3.33299994468689 -0.8330000042915344 10.83300018310547 6.666999816894531 14.16699981689453 C 4.949999809265137 15.33199977874756 2.905999898910522 15.91600036621094 0.8330000042915344 15.83300018310547 C 8.333000183105469 20 17.5 15.83300018310547 17.5 6.25 C 17.49900054931641 6.01800012588501 17.47699928283691 5.785999774932861 17.4330005645752 5.558000087738037 C 18.28400039672852 4.71999979019165 18.88400077819824 3.66100001335144 19.16699981689453 2.5 Z">
+								</path>
+							</svg>
+						</div>
+					</div>
+				</div>
+				<div id="Circle_Button__d">
+					<div id="METADATA_ea">
+						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.089Z","nodeName":"Circle Button"}</span>
+					</div>
+					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_d">
+						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_d" rx="24" ry="24" x="0" y="0" width="48" height="48">
+						</rect>
+					</svg>
+					<div id="Icon__d">
+						<div id="METADATA_eb">
 							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/facebook"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.080Z","nodeName":"Icon"}</span>
 						</div>
 						<svg class="Area_ICONfeatherfacebookSIZEME">
 							<rect id="Area_ICONfeatherfacebookSIZEME" rx="0" ry="0" x="0" y="0" width="20" height="20">
 							</rect>
 						</svg>
-						<div id="Icon_dt">
-							<svg class="Path_du" viewBox="5.833 1.667 9.167 16.666">
-								<path id="Path_du" d="M 15 1.66700005531311 L 12.5 1.66700005531311 C 10.19900035858154 1.66700005531311 8.333000183105469 3.532000064849854 8.333000183105469 5.833000183105469 L 8.333000183105469 8.333000183105469 L 5.833000183105469 8.333000183105469 L 5.833000183105469 11.66699981689453 L 8.333000183105469 11.66699981689453 L 8.333000183105469 18.33300018310547 L 11.66699981689453 18.33300018310547 L 11.66699981689453 11.66699981689453 L 14.16699981689453 11.66699981689453 L 15 8.333000183105469 L 11.66699981689453 8.333000183105469 L 11.66699981689453 5.833000183105469 C 11.66699981689453 5.373000144958496 12.03999996185303 5 12.5 5 L 15 5 L 15 1.66700005531311 Z">
+						<div id="Icon_ea">
+							<svg class="Path_eb" viewBox="5.833 1.667 9.167 16.666">
+								<path id="Path_eb" d="M 15 1.66700005531311 L 12.5 1.66700005531311 C 10.19900035858154 1.66700005531311 8.333000183105469 3.532000064849854 8.333000183105469 5.833000183105469 L 8.333000183105469 8.333000183105469 L 5.833000183105469 8.333000183105469 L 5.833000183105469 11.66699981689453 L 8.333000183105469 11.66699981689453 L 8.333000183105469 18.33300018310547 L 11.66699981689453 18.33300018310547 L 11.66699981689453 11.66699981689453 L 14.16699981689453 11.66699981689453 L 15 8.333000183105469 L 11.66699981689453 8.333000183105469 L 11.66699981689453 5.833000183105469 C 11.66699981689453 5.373000144958496 12.03999996185303 5 12.5 5 L 15 5 L 15 1.66700005531311 Z">
 								</path>
 							</svg>
 						</div>
 					</div>
 				</div>
-				<div id="Circle_Button__dv">
-					<div id="METADATA_dw">
+				<div id="Circle_Button__ec">
+					<div id="METADATA_ed">
 						<span>{"config":{"STYLE":"STYLE3"},"type":"CircleButton","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.205Z","nodeName":"Circle Button"}</span>
 					</div>
-					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_dx">
-						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_dx" rx="24" ry="24" x="0" y="0" width="48" height="48">
+					<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_ee">
+						<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_ee" rx="24" ry="24" x="0" y="0" width="48" height="48">
 						</rect>
 					</svg>
-					<div id="Icon__dy">
-						<div id="METADATA_dz">
+					<div id="Icon__ef">
+						<div id="METADATA_eg">
 							<span>{"config":{"STYLE":"STYLE3","STATE":"DEFAULT","ICON":"feather/phone"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:28.198Z","nodeName":"Icon"}</span>
 						</div>
 						<svg class="Area_ICONfeatherphoneSIZEMEDIU">
 							<rect id="Area_ICONfeatherphoneSIZEMEDIU" rx="0" ry="0" x="0" y="0" width="20" height="20">
 							</rect>
 						</svg>
-						<div id="Icon_d">
-							<svg class="Path_d" viewBox="1.76 1.667 16.573 16.607">
-								<path id="Path_d" d="M 18.33300018310547 14.10000038146973 L 18.33300018310547 16.60000038146973 C 18.33499908447266 17.06900024414062 18.13899993896484 17.51799964904785 17.79299926757812 17.83499908447266 C 17.44799995422363 18.15200042724609 16.98399925231934 18.30900001525879 16.51700019836426 18.26700019836426 C 13.95199966430664 17.98800086975098 11.48900032043457 17.11199951171875 9.324999809265137 15.70800018310547 C 7.311999797821045 14.42899990081787 5.604000091552734 12.72200012207031 4.324999809265137 10.70800018310547 C 2.91700005531311 8.534000396728516 2.039999961853027 6.059000015258789 1.766999959945679 3.483000040054321 C 1.725000023841858 3.016999959945679 1.879999995231628 2.555000066757202 2.196000099182129 2.210000038146973 C 2.510999917984009 1.863999962806702 2.957000017166138 1.66700005531311 3.424999952316284 1.66700005531311 L 5.925000190734863 1.66700005531311 C 6.76200008392334 1.657999992370605 7.474999904632568 2.272000074386597 7.592000007629395 3.099999904632568 C 7.697000026702881 3.900000095367432 7.89300012588501 4.685999870300293 8.175000190734863 5.441999912261963 C 8.404000282287598 6.051000118255615 8.258000373840332 6.736999988555908 7.800000190734863 7.199999809265137 L 6.742000102996826 8.258000373840332 C 7.927999973297119 10.34500026702881 9.654999732971191 12.07199954986572 11.74199962615967 13.25800037384033 L 12.80000019073486 12.19999980926514 C 13.26299953460693 11.74199962615967 13.94900035858154 11.5959997177124 14.55799961090088 11.82499980926514 C 15.31400012969971 12.10700035095215 16.10000038146973 12.30300045013428 16.89999961853027 12.40799999237061 C 17.73800086975098 12.52700042724609 18.35400009155273 13.25399971008301 18.33300018310547 14.10000038146973 Z">
+						<div id="Icon_ei">
+							<svg class="Path_ej" viewBox="1.76 1.667 16.573 16.607">
+								<path id="Path_ej" d="M 18.33300018310547 14.10000038146973 L 18.33300018310547 16.60000038146973 C 18.33499908447266 17.06900024414062 18.13899993896484 17.51799964904785 17.79299926757812 17.83499908447266 C 17.44799995422363 18.15200042724609 16.98399925231934 18.30900001525879 16.51700019836426 18.26700019836426 C 13.95199966430664 17.98800086975098 11.48900032043457 17.11199951171875 9.324999809265137 15.70800018310547 C 7.311999797821045 14.42899990081787 5.604000091552734 12.72200012207031 4.324999809265137 10.70800018310547 C 2.91700005531311 8.534000396728516 2.039999961853027 6.059000015258789 1.766999959945679 3.483000040054321 C 1.725000023841858 3.016999959945679 1.879999995231628 2.555000066757202 2.196000099182129 2.210000038146973 C 2.510999917984009 1.863999962806702 2.957000017166138 1.66700005531311 3.424999952316284 1.66700005531311 L 5.925000190734863 1.66700005531311 C 6.76200008392334 1.657999992370605 7.474999904632568 2.272000074386597 7.592000007629395 3.099999904632568 C 7.697000026702881 3.900000095367432 7.89300012588501 4.685999870300293 8.175000190734863 5.441999912261963 C 8.404000282287598 6.051000118255615 8.258000373840332 6.736999988555908 7.800000190734863 7.199999809265137 L 6.742000102996826 8.258000373840332 C 7.927999973297119 10.34500026702881 9.654999732971191 12.07199954986572 11.74199962615967 13.25800037384033 L 12.80000019073486 12.19999980926514 C 13.26299953460693 11.74199962615967 13.94900035858154 11.5959997177124 14.55799961090088 11.82499980926514 C 15.31400012969971 12.10700035095215 16.10000038146973 12.30300045013428 16.89999961853027 12.40799999237061 C 17.73800086975098 12.52700042724609 18.35400009155273 13.25399971008301 18.33300018310547 14.10000038146973 Z">
 								</path>
 							</svg>
 						</div>
@@ -5336,13 +5445,13 @@ window.application = new Application();
 				<div id="Product_STYLESTYLE3TAGUI_L">
 					<span>falanext@next.b.br</span>
 				</div>
-				<div id="Product_STYLESTYLE3TAGUI_L_d">
+				<div id="Product_STYLESTYLE3TAGUI_L_em">
 					<span>Ouvidoria<br/>0800 688 6398</span>
 				</div>
-				<div id="Product_STYLESTYLE3TAGUI_L_ea">
+				<div id="Product_STYLESTYLE3TAGUI_L_en">
 					<span>SAC<br/>0800 722 6398</span>
 				</div>
-				<div id="Product_STYLESTYLE3TAGUI_L_eb">
+				<div id="Product_STYLESTYLE3TAGUI_L_eo">
 					<span>Central de Atendimento<br/>0800 275 6398</span>
 				</div>
 				<div id="Products_STYLESTYLE3TAGH5">
@@ -5353,7 +5462,7 @@ window.application = new Application();
 				<div id="Resource_STYLESTYLE3TAGUI_L">
 					<span>Sobre o next</span>
 				</div>
-				<div id="Resource_STYLESTYLE3TAGUI_L_eb">
+				<div id="Resource_STYLESTYLE3TAGUI_L_es">
 					<span>Notícias</span>
 				</div>
 				<div id="Resources_STYLESTYLE3TAGH5">
@@ -5362,7 +5471,7 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Footer_Strip">
-			<div id="METADATA_ee">
+			<div id="METADATA_ev">
 				<span>{"config":{},"type":"Group","theme":"Base","nodeName":"Footer Strip","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T12:30:26.930Z"}</span>
 			</div>
 			<svg class="Background_STYLESTYLE2">
@@ -5380,7 +5489,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="logo.png" srcset="logo.png 1x, logo@2x.png 2x">
+	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo@2x.png 2x">
 		
 	<div id="humaaanssitting-4">
 		<div id="A-HumanSitting">
@@ -5421,16 +5530,16 @@ window.application = new Application();
 						</path>
 					</svg>
 				</div>
-				<div id="AccessoriesShoeFlat-Sneaker_ey">
-					<svg class="shoe_ez" viewBox="0 0 58 20.668">
-						<path id="shoe_ez" d="M 1.678129911422729 6.069913864135742 C 0.559380054473877 9.056413650512695 0 11.29101371765137 0 12.77371406555176 C 0 14.57701301574707 0.3004100322723389 17.20841407775879 0.9012399911880493 20.66801261901855 C 2.9931800365448 20.66801261901855 21.79380035400391 20.66801261901855 57.3031005859375 20.66801261901855 C 58.76869964599609 15.82251167297363 57.92269897460938 13.20661354064941 54.76480102539062 12.82021141052246 C 51.60699844360352 12.43391418457031 48.98369979858398 12.08501434326172 46.89500045776367 11.77371406555176 L 20.68000030517578 0.0869140625 C 20.17560005187988 -0.1379852294921875 19.58429908752441 0.08861541748046875 19.35950088500977 0.5931148529052734 C 19.35560035705566 0.601715087890625 19.35190010070801 0.6104145050048828 19.34830093383789 0.6191139221191406 L 17.66320037841797 4.706714630126953 C 14.73989963531494 6.070714950561523 12.36439990997314 6.752614974975586 10.53670024871826 6.752614974975586 C 9.051699638366699 6.752614974975586 7.00098991394043 6.152914047241211 4.384479999542236 4.953514099121094 L 4.384479999542236 4.953414916992188 C 3.380380153656006 4.493114471435547 2.193259954452515 4.934015274047852 1.732959985733032 5.938114166259766 C 1.713119983673096 5.981414794921875 1.694829940795898 6.025314331054688 1.678129911422729 6.069913864135742 Z">
+				<div id="AccessoriesShoeFlat-Sneaker_ff">
+					<svg class="shoe_fg" viewBox="0 0 58 20.668">
+						<path id="shoe_fg" d="M 1.678129911422729 6.069913864135742 C 0.559380054473877 9.056413650512695 0 11.29101371765137 0 12.77371406555176 C 0 14.57701301574707 0.3004100322723389 17.20841407775879 0.9012399911880493 20.66801261901855 C 2.9931800365448 20.66801261901855 21.79380035400391 20.66801261901855 57.3031005859375 20.66801261901855 C 58.76869964599609 15.82251167297363 57.92269897460938 13.20661354064941 54.76480102539062 12.82021141052246 C 51.60699844360352 12.43391418457031 48.98369979858398 12.08501434326172 46.89500045776367 11.77371406555176 L 20.68000030517578 0.0869140625 C 20.17560005187988 -0.1379852294921875 19.58429908752441 0.08861541748046875 19.35950088500977 0.5931148529052734 C 19.35560035705566 0.601715087890625 19.35190010070801 0.6104145050048828 19.34830093383789 0.6191139221191406 L 17.66320037841797 4.706714630126953 C 14.73989963531494 6.070714950561523 12.36439990997314 6.752614974975586 10.53670024871826 6.752614974975586 C 9.051699638366699 6.752614974975586 7.00098991394043 6.152914047241211 4.384479999542236 4.953514099121094 L 4.384479999542236 4.953414916992188 C 3.380380153656006 4.493114471435547 2.193259954452515 4.934015274047852 1.732959985733032 5.938114166259766 C 1.713119983673096 5.981414794921875 1.694829940795898 6.025314331054688 1.678129911422729 6.069913864135742 Z">
 						</path>
 					</svg>
 				</div>
 			</div>
 			<div id="BodyJacket">
-				<svg class="Skin_e" viewBox="0 0 209.502 92.034">
-					<path id="Skin_e" d="M 159.8812408447266 0 L 188.209228515625 27.63550567626953 C 196.4522399902344 31.15050506591797 203.2052307128906 35.03350067138672 208.4702301025391 39.28150177001953 C 209.6542358398438 40.70949554443359 210.9422302246094 43.44548797607422 205.3722381591797 42.22148895263672 C 199.8022308349609 40.99649810791016 193.8882293701172 39.95949554443359 192.8412322998047 41.77149200439453 C 191.7942352294922 43.58249664306641 194.8792419433594 46.35849761962891 192.9442291259766 48.72949981689453 C 191.6542358398438 50.30950164794922 187.3162384033203 45.28249359130859 179.9302368164062 33.64749908447266 L 150.4732360839844 16.27950286865234 L 159.8812408447266 0 Z M 34.14513397216797 3.89739990234375 L 55.04253387451172 3.979598999023438 C 42.13933563232422 45.63349151611328 35.17353820800781 67.73448944091797 34.14513397216797 70.28350067138672 C 31.83123779296875 76.01749420166016 36.72783660888672 84.75148773193359 38.82183074951172 89.44449615478516 C 32.00173187255859 92.49649810791016 32.72843170166016 81.19449615478516 24.1251335144043 85.19649505615234 C 16.27243423461914 88.85050201416016 10.29893493652344 95.46949005126953 1.226234436035156 89.87149810791016 C 0.1108360290527344 89.18349456787109 -1.111465454101562 86.59249114990234 1.841835021972656 84.56749725341797 C 9.199535369873047 79.52249908447266 19.80253601074219 70.69249725341797 21.23513412475586 67.78549957275391 C 23.18883514404297 63.82250213623047 27.49213409423828 42.52649688720703 34.14513397216797 3.89739990234375 Z">
+				<svg class="Skin_fi" viewBox="0 0 209.502 92.034">
+					<path id="Skin_fi" d="M 159.8812408447266 0 L 188.209228515625 27.63550567626953 C 196.4522399902344 31.15050506591797 203.2052307128906 35.03350067138672 208.4702301025391 39.28150177001953 C 209.6542358398438 40.70949554443359 210.9422302246094 43.44548797607422 205.3722381591797 42.22148895263672 C 199.8022308349609 40.99649810791016 193.8882293701172 39.95949554443359 192.8412322998047 41.77149200439453 C 191.7942352294922 43.58249664306641 194.8792419433594 46.35849761962891 192.9442291259766 48.72949981689453 C 191.6542358398438 50.30950164794922 187.3162384033203 45.28249359130859 179.9302368164062 33.64749908447266 L 150.4732360839844 16.27950286865234 L 159.8812408447266 0 Z M 34.14513397216797 3.89739990234375 L 55.04253387451172 3.979598999023438 C 42.13933563232422 45.63349151611328 35.17353820800781 67.73448944091797 34.14513397216797 70.28350067138672 C 31.83123779296875 76.01749420166016 36.72783660888672 84.75148773193359 38.82183074951172 89.44449615478516 C 32.00173187255859 92.49649810791016 32.72843170166016 81.19449615478516 24.1251335144043 85.19649505615234 C 16.27243423461914 88.85050201416016 10.29893493652344 95.46949005126953 1.226234436035156 89.87149810791016 C 0.1108360290527344 89.18349456787109 -1.111465454101562 86.59249114990234 1.841835021972656 84.56749725341797 C 9.199535369873047 79.52249908447266 19.80253601074219 70.69249725341797 21.23513412475586 67.78549957275391 C 23.18883514404297 63.82250213623047 27.49213409423828 42.52649688720703 34.14513397216797 3.89739990234375 Z">
 					</path>
 				</svg>
 				<svg class="Coat-Back" viewBox="0 0 95 130.564">
@@ -5458,34 +5567,36 @@ window.application = new Application();
 	</div>
 	<a href="/menu">
 	<div id="Grupo_21">
-		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_e">
-			<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_e" rx="24" ry="24" x="0" y="0" width="48" height="48">
-			</rect>
-		</svg>
-		<svg class="Caminho_5" viewBox="2.25 6.75 14 10">
-			<path id="Caminho_5" d="M 6.250000476837158 6.75 L 2.25 11.75 L 6.250000476837158 16.75 M 2.25 11.75 L 16.25000190734863 11.75">
-			</path>
-		</svg>
-		<div id="Voltar">
-			<span>Voltar</span>
-		</div>
+		<a href="/cartoes">
+			<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_fp">
+				<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_fp" rx="24" ry="24" x="0" y="0" width="48" height="48">
+				</rect>
+			</svg>
+			<svg class="Caminho_5" viewBox="2.25 6.75 14 10">
+				<path id="Caminho_5" d="M 6.250000476837158 6.75 L 2.25 11.75 L 6.250000476837158 16.75 M 2.25 11.75 L 16.25000190734863 11.75">
+				</path>
+			</svg>
+			<div id="Voltar">
+				<span>Voltar</span>
+			</div>
+		</a>
 	</div>
 	</a>
 	<div id="Input">
-		<div id="METADATA_fc">
+		<div id="METADATA_ft">
 			<span>{"config":{},"type":"Input","theme":"Base","nodeName":"Input","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-08T13:49:03.806Z"}</span>
 		</div>
-		<div id="Icon_fd">
-			<div id="METADATA_fe">
+		<div id="Icon_fu">
+			<div id="METADATA_fv">
 				<span>{"config":{"ICON":"Feather/Search"},"type":"Icon","theme":"Base","nodeName":"Icon","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-08T13:49:03.441Z"}</span>
 			</div>
 			<svg class="Area">
 				<rect id="Area" rx="0" ry="0" x="0" y="0" width="18" height="18">
 				</rect>
 			</svg>
-			<div id="Icon_fg">
-				<svg class="Path_fh">
-					<ellipse id="Path_fh" rx="6" ry="6" cx="6" cy="6">
+			<div id="Icon_fx">
+				<svg class="Path_fy">
+					<ellipse id="Path_fy" rx="6" ry="6" cx="6" cy="6">
 					</ellipse>
 				</svg>
 				<svg class="Line" viewBox="0 0 3.262 3.262">
@@ -5494,10 +5605,10 @@ window.application = new Application();
 				</svg>
 			</div>
 		</div>
-		<div id="Label_fj">
+		<div id="Label_f">
 			<span>Label</span>
 		</div>
 	</div>
 </div>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6da95b2aed8bcfe4',m:'eNUCwZX8aeV8.qthiT6R3ho_YufZIjd0IVKRnqxGjhA-1644370474-0-AYLhkEkHrW+ZCaT2ogyDTNybjy6k5nzUMf8bkG1Qx11A6X47nQtVl6s4WPpsMlw/Q9ZQQikLh69GTR7wkURbAh8zQCqTPEBIwTxq0a4vJGvTrBjYvTVaRssx6+kC8NOuGQ049yjPYgdl7forsYTY/+xAsBmpvRxIEXi3WPRmwM31oI5adSlTTN4d1wkMgSiGVw==',s:[0x5a9556a840,0x8d8a13d09f],}})();</script></body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6daff7d61e9e79c6',m:'iwiYprteaSGxcpGo5wg9ZQA985G7sQ4f5O_EvKbUqlw-1644439806-0-AdX5LCutZ7Z+fHwaL6mJxsuTZSi8xmBncGXgFV+XZtyjkA91KJzhwb4IuaNsWAgJGLSO/qyJwNK6xBLoJ94puxFEUrmCmMq4tbEay6ZN1wk72lS3o4amY0ptu2cRhgy4sIAYbH8nlbSLGjsGO6AVQilN1hpckUK1eyNQHK4ABXNbHjRen0IqY6j79xXnt6nVyA==',s:[0x21ce76d639,0x99d874a3d9],}})();</script></body>
 </html>

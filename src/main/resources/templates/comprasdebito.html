@@ -20,7 +20,61 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		border: none;
+	}
+.Campo{
+		overflow: visible;
+		position: absolute;
+		width: 300px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+		fill: rgba(255,255,255,1);
+		stroke: rgba(62,62,62,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		text-indent: 20px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(18,18,18,1);
+		border-color: #121212;
+		border-style: solid;
+  		border-width: 2px;
+	}
+
+.Botao{
+    cursor: pointer;
+		fill: rgba(23,23,23,1);;
+		stroke: rgba(0,255,95,1);
+		stroke-width: 2px;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		position: absolute;
+		overflow: visible;
+		width: 200px;
+		height: 50px;
+		left: -55px;
+		top: 10px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(0,255,95,1);
+		background-color: rgba(23,23,23,1);
+		border-color: rgba(0,255,95,1);
+		border-width: 2px;
+		border-radius: 10px;
 	}
 	#comprasdebito {
 		position: absolute;
@@ -4994,7 +5048,7 @@ var Application = function() {
 
 window.application = new Application();
 </script>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="comprasdebito">
 	<div id="METADATA">
@@ -5084,31 +5138,7 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Button_">
-			<div id="METADATA_b">
-				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
-			</div>
-			<svg class="Area_DISPLAY_ELEMENTSLabelSIZE">
-				<rect id="Area_DISPLAY_ELEMENTSLabelSIZE" rx="25" ry="25" x="0" y="0" width="200" height="50">
-				</rect>
-			</svg>
-			<div id="Label_b">
-				<span>Pagar</span>
-			</div>
-			<div id="Icon_">
-				<div id="METADATA_ca">
-					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
-				</div>
-				<svg class="Area_DISPLAY_ELEMENTSLabelICON">
-					<rect id="Area_DISPLAY_ELEMENTSLabelICON" rx="0" ry="0" x="0" y="0" width="28.924" height="28.924">
-					</rect>
-				</svg>
-				<div id="Icon">
-					<svg class="Path" viewBox="1.29 2.499 25.193 21.973">
-						<path id="Path" d="M 24.54045867919922 4.441368103027344 C 21.95174598693848 1.851210474967957 17.7519588470459 1.851210474967957 15.16324710845947 4.441368103027344 L 13.88624477386475 5.718369483947754 L 12.60924339294434 4.441368103027344 C 10.01908588409424 1.851210474967957 5.82219123840332 1.851210474967957 3.232033729553223 4.441368103027344 C 0.6433220505714417 7.03007984161377 0.6433220505714417 11.22842025756836 3.232033729553223 13.81713199615479 L 4.510481357574463 15.0941333770752 L 13.88624477386475 24.47134399414062 L 23.26201057434082 15.0941333770752 L 24.54045867919922 13.81713199615479 C 27.13061714172363 11.22842025756836 27.13061714172363 7.03007984161377 24.54045867919922 4.441368103027344 Z">
-						</path>
-					</svg>
-				</div>
-			</div>
+			<input type="submit" class="Botao" value="Pagar">
 		</div>
 	</div>
 	<div id="Header">
@@ -5512,5 +5542,5 @@ window.application = new Application();
 		</div>
 	</div>
 </div>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6daf41df98b451f8',m:'Q9YyAn1nnXmoUz8CUrZ3VmB7UtR0N3fq_HQpMo3yyeY-1644432353-0-AaXQZPKt9oyOFHQn2u71mCzNwS4g+vJ8UOevKDgqVGTdkYQFwe/A3K4pBa3DN0NuYVePbrkzufZFv3hNrBpFPw984yqnloeoAsSccxMYPSE/pY2gw+aSZI5grnn+u8/npAcrWnDb+nlgTSfMChTuG4YeN0ZjESm4uonYzDawm63Uwk0vpP2J3zRDZXf9j5vl1+rHZkohqjY1eLsk1sUjjW0=',s:[0x6fd7e9c5ae,0x25895e6aa6],}})();</script></body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6daf41df98b451f8',m:'Q9YyAn1nnXmoUz8CUrZ3VmB7UtR0N3fq_HQpMo3yyeY-1644432353-0-AaXQZPKt9oyOFHQn2u71mCzNwS4g+vJ8UOevKDgqVGTdkYQFwe/A3K4pBa3DN0NuYVePbrkzufZFv3hNrBpFPw984yqnloeoAsSccxMYPSE/pY2gw+aSZI5grnn+u8/npAcrWnDb+nlgTSfMChTuG4YeN0ZjESm4uonYzDawm63Uwk0vpP2J3zRDZXf9j5vl1+rHZkohqjY1eLsk1sUjjW0=',s:[0x6fd7e9c5ae,0x25895e6aa6],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafda78c8df7a61',m:'jhJ6rtOPPDfmQ03pH0OL9ZB5XM0wsNbuvdd5VpTUk0g-1644438603-0-AdJ4jJxL/seeNTDSleOoAKkLJRKcblfPdzP1D9TfNcv9mr4/BiTobZooVq7bywjwsV9lZNr2QCywE/4Lz38ySEGUTwnf5QcGVQDApG9ZFeXDnmFmPlc8T4D1lubbjov8YBEedPZNHLc743ybX42403DeEVHF9Fs+mrdGxNKJp1R6L4xo03ExzE09DLtj2GxJKE6DS7DBGETdhUpoUEda7fI=',s:[0xc23a4f029c,0x8ae6a5f0a7],}})();</script></body>
 </html>

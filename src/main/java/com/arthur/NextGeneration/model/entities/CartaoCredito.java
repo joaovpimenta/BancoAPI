@@ -1,6 +1,7 @@
 package com.arthur.NextGeneration.model.entities;
 
 import javax.persistence.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,6 +19,23 @@ public class CartaoCredito extends Cartao {
     @OneToMany
     @JoinColumn(name = "apolice_id")
     private List<Apolice> apolices = new ArrayList<>();
+
+    @Transient
+    private String dataString;
+
+    public String getDataString() {
+        return dataString;
+    }
+
+    public void setDataString(String dataString) {
+        this.dataString = dataString;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        try {
+            this.dataVencimento = sdf.parse(dataString);
+        } catch (ParseException e) {
+            this.dataVencimento = Calendar.getInstance().getTime();
+        }
+    }
 
     public CartaoCredito() {
     }

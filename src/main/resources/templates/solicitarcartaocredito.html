@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,59 +21,61 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
+	.Campo{
+		overflow: visible;
+		position: absolute;
+		width: 300px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+		fill: rgba(255,255,255,1);
+		stroke: rgba(62,62,62,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+		text-indent: 20px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Bradesco Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		color: rgba(18,18,18,1);
+		border-color: #121212;
+		border-style: solid;
+		border-width: 2px;
+		}
+
 	.Botao{
-        fill: rgba(23,23,23,1);;
-        stroke: rgba(0,255,95,1);
-        stroke-width: 2px;
-        stroke-linejoin: round;
-        stroke-linecap: round;
-        stroke-miterlimit: 4;
-        shape-rendering: auto;
-        position: absolute;
-        overflow: visible;
-        width: 200px;
-        height: 50px;
-        left: -55px;
-        top: 10px;
-        white-space: nowrap;
-        text-align: center;
-        font-family: Bradesco Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 24px;
-        color: rgba(0,255,95,1);
-        background-color: rgba(23,23,23,1);
-        border-color: rgba(0,255,95,1);
-        border-width: 2px;
-        border-radius: 10px;
-    }
-.Campo{
-        overflow: visible;
-        position: absolute;
-        width: 300px;
-        height: 51px;
-        left: 0px;
-        top: 0px;
-        transform: matrix(1,0,0,1,0,0);
-        fill: rgba(255,255,255,1);
-        stroke: rgba(62,62,62,1);
-        stroke-width: 2px;
-        stroke-linejoin: miter;
-        stroke-linecap: butt;
-        stroke-miterlimit: 4;
-        shape-rendering: auto;
-        text-indent: 20px;
-        white-space: nowrap;
-        text-align: left;
-        font-family: Bradesco Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 24px;
-        color: rgba(18,18,18,1);
-        border-color: #121212;
-        border-style: solid;
-          border-width: 2px;
-    }
+		cursor: pointer;
+			fill: rgba(23,23,23,1);;
+			stroke: rgba(0,255,95,1);
+			stroke-width: 2px;
+			stroke-linejoin: round;
+			stroke-linecap: round;
+			stroke-miterlimit: 4;
+			shape-rendering: auto;
+			position: absolute;
+			overflow: visible;
+			width: 200px;
+			height: 50px;
+			left: -55px;
+			top: 10px;
+			white-space: nowrap;
+			text-align: center;
+			font-family: Bradesco Sans;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 24px;
+			color: rgba(0,255,95,1);
+			background-color: rgba(23,23,23,1);
+			border-color: rgba(0,255,95,1);
+			border-width: 2px;
+			border-radius: 30px;
+		}
 	#solicitarcartaocredito {
 		position: absolute;
 		width: 1920px;
@@ -4942,9 +4944,10 @@ var Application = function() {
 
 window.application = new Application();
 </script>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="solicitarcartaocredito">
+	<form th:action="@{/btsolicitarcartaocredito}" method="POST">
 	<div id="METADATA_bdb">
 		<span>{"config":{},"type":"Artboard","theme":"Base","nodeName":"About - Desktop","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:22.509Z"}</span>
 	</div>
@@ -5009,39 +5012,15 @@ window.application = new Application();
 			<div id="Senha_bdz">
 				<span>Senha:</span>
 			</div>
-			<svg class="Area_bd">
-				<rect id="Area_bd" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Label_bd">
-				<span>01/01/2022</span>
-			</div>
-			<svg class="Area_bea">
-				<rect id="Area_bea" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<svg class="Area_beb">
-				<rect id="Area_beb" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Value_bd">
-				<span>****</span>
-			</div>
-			<div id="Value_bea">
-				<span>Ex: Visa, Elo, Mastercard</span>
-			</div>
+			<input type="date" style="top: 0px; left:456px;" class="Campo" name="dataString" th:value="${cartao.dataString}">
+			<input type="text" style="top: 76px; left:456px;" class="Campo" pattern="[a-zA-Z ]*" placeholder="Ex: Visa, Mastercard..." name="bandeira" th:value="${cartao.bandeira}">
+			<input type="text" maxlength="6" style="top: 152px; left:456px;" pattern="[0-9]{4,6}" class="Campo" placeholder="000000" name="senha" th:value="${cartao.senha}">
 		</div>
 		<div id="Button__bd">
 			<div id="METADATA_bea">
 				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 			</div>
-			<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_bd">
-				<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_bd" rx="25" ry="25" x="0" y="0" width="200" height="50">
-				</rect>
-			</svg>
-			<div id="Label_bea">
-				<span>Solicitar</span>
-			</div>
+			<input style="left: -5px;" type="submit" class="Botao" value="Solicitar">
 			<div id="Icon__bea">
 				<div id="METADATA_beb">
 					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -5319,7 +5298,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo_bgt" src="logo_bgt.png" srcset="logo_bgt.png 1x, logo_bgt@2x.png 2x">
+	<img id="logo_bgt" src="/image/logo_bgt.png" srcset="/image/logo_bgt.png 1x, /image/logo_bgt@2x.png 2x">
 	<a href="/menu">
 	<div id="Grupo_21_bgu">
 		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_bgv">
@@ -5428,6 +5407,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
+	</form>
 </div>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dae5d770c7751d1',m:'TNtO1QZK.Q8PrN3pWxez6Reo.Yc0IJJ.PWoMWjc8laQ-1644422997-0-AUTJNK+2Zhby8IpJxiub8HFAPw83fuZ0tbyMBGwmeSF37bq7hn2HuIKac9M+9NxDgw437dEhpCG9slEcd6VekAsM8lkac94HkrzzshyE0QiZKrXwFhXj7nkPPAGn+1t3kCOY+25JIgvYvEhHC4xkkWCSeGB6e4VjgPIztnkhc9qVlZ9VXkvqh1XH8WQ18zDnSmqF0WLAqH227TqT+RwJqF8=',s:[0x3680163e46,0x8d8a13d09f],}})();</script></body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dae5d770c7751d1',m:'TNtO1QZK.Q8PrN3pWxez6Reo.Yc0IJJ.PWoMWjc8laQ-1644422997-0-AUTJNK+2Zhby8IpJxiub8HFAPw83fuZ0tbyMBGwmeSF37bq7hn2HuIKac9M+9NxDgw437dEhpCG9slEcd6VekAsM8lkac94HkrzzshyE0QiZKrXwFhXj7nkPPAGn+1t3kCOY+25JIgvYvEhHC4xkkWCSeGB6e4VjgPIztnkhc9qVlZ9VXkvqh1XH8WQ18zDnSmqF0WLAqH227TqT+RwJqF8=',s:[0x3680163e46,0x8d8a13d09f],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafd9aeb81a7a61',m:'B3Uq16wsc8AH.vu6AcTZ7BwrY1JIVt4R0fPyUwTSrH0-1644438571-0-AcqFBb39wwD7cKz+ndBcBMpO3cW1/nWDGokZMYVw/pElFgn8l3ZUlrGL3U0E/TzPuqZe8/gihYk3W/F0N+aQb7nu6JXnDy8e36TNd3K+MFxC1yRrQFsbeJAfUUf9bCNe0bMUYGKnAog7JEZ7eEME5tCmLMuWKvUWBTsJVr95T9ssDOvQqMqkGEdxCC50cE4aHJogrdbotu9b0tOB8c5cvbc=',s:[0xbb02d088cd,0x2f53019840],}})();</script></body>
 </html>

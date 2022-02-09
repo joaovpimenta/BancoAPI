@@ -2,6 +2,9 @@ package com.arthur.NextGeneration.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +22,40 @@ public class Apolice implements Serializable {
     private Seguro seguro = new Seguro();
     private Date DataAssinatura;
     private Date DataCarencia;
+
+    @Transient
+    private String dataString1;
+
+    public String getDataString1() {
+        return dataString1;
+    }
+
+    public void setDataString1(String dataString) {
+        this.dataString1 = dataString;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        try {
+            this.DataAssinatura = sdf.parse(dataString);
+        } catch (ParseException e) {
+            this.DataAssinatura = Calendar.getInstance().getTime();
+        }
+    }
+
+    @Transient
+    private String dataString2;
+
+    public String getDataString2() {
+        return dataString2;
+    }
+
+    public void setDataString2(String dataString) {
+        this.dataString2 = dataString;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+        try {
+            this.DataCarencia = sdf.parse(dataString);
+        } catch (ParseException e) {
+            this.DataCarencia = Calendar.getInstance().getTime();
+        }
+    }
 
     public Apolice() {
     }
