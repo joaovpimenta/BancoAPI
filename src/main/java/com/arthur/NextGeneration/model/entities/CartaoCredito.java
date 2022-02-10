@@ -122,4 +122,8 @@ public class CartaoCredito extends Cartao {
     public void setValorFatura(double valorFatura) {
         this.valorFatura = valorFatura;
     }
+
+    public void removeApolice(Apolice apolice){
+        apolices.remove(apolice);
+    }
 }

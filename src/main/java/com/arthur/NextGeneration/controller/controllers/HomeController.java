@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 public class HomeController {
@@ -40,6 +42,9 @@ public class HomeController {
 
     @Autowired
     SeguroRepository seguroRepository;
+
+    @Autowired
+    ApoliceRepository apoliceRepository;
 
     Conta contaLogada;
 
@@ -849,6 +854,9 @@ public class HomeController {
     }
 
 
+
+
+
     // ---------------------------------- Seguros -----------------------------------
 
     @PostMapping(value = "/goseguros")
@@ -969,7 +977,49 @@ public class HomeController {
 
     @PostMapping(value = "/contratarinvalidez")
     public String contratarInvalidez(){
-        return null;
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+
+            Seguro seguro = seguroRepository.findById(3L).orElse(null);
+            if(seguro == null){
+                System.out.println("Seguro Não Existe...");
+                throw new Exception("Seguro Não Existe...");
+            }
+            ContaService cs = new ContaService(contaLogada);
+            for(Apolice apolice : contaLogada.getCartaoCredito().getApolices()){
+                if(apolice.getSeguro().equals(seguro)){
+                    cs.depositar(apolice.getValorApolice());
+                    contaLogada.getCartaoCredito().removeApolice(apolice);
+                    cartaoCreditoRepository.save(contaLogada.getCartaoCredito());
+                    contaRepository.save(contaLogada);
+                    return "redirect:/seguros";
+                }
+            }
+                Calendar calendar = Calendar.getInstance();
+                calendar.add(Calendar.DAY_OF_YEAR,15 );
+                Apolice apolice = new Apolice(null,
+                        seguro.getValorAno(),
+                        seguro.getRegras(),
+                        seguro,
+                        Calendar.getInstance().getTime(),
+                        calendar.getTime());
+
+
+                if(!cs.sacar(seguro.getValorAno())){
+                    throw new Exception("Saldo Insuficiente");
+                }
+
+                apoliceRepository.save(apolice);
+                contaLogada.getCartaoCredito().addApolice(apolice);
+                cartaoCreditoRepository.save(contaLogada.getCartaoCredito());
+                contaRepository.save(contaLogada);
+                return "redirect:/seguros";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
     }
 
     @PostMapping(value = "/contratarvida")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -74,7 +74,7 @@
 		background-color: rgba(23,23,23,1);
 		border-color: rgba(0,255,95,1);
 		border-width: 2px;
-		border-radius: 30px;
+		border-radius: 10px;
 	}
 	#comprasdebito {
 		position: absolute;
@@ -5048,7 +5048,7 @@ var Application = function() {
 
 window.application = new Application();
 </script>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="comprasdebito">
 	<div id="METADATA">
@@ -5106,36 +5106,18 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Grupo_25">
-			<div id="Data">
+			<div id="Data_bdx">
 				<span>Data:</span>
 			</div>
-			<div id="Descrio_Produto">
-				<span>Descrição Produto:</span>
+			<div id="Descricao_bdy">
+				<span>Descrição:</span>
 			</div>
-			<div id="Preo">
+			<div id="Preco_bdz">
 				<span>Preço:</span>
 			</div>
-			<svg class="Area">
-				<rect id="Area" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Label">
-				<span>01/01/2022</span>
-			</div>
-			<svg class="Area_bx">
-				<rect id="Area_bx" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<svg class="Area_by">
-				<rect id="Area_by" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Value">
-				<span>R$0,00</span>
-			</div>
-			<div id="Value_b">
-				<span>Ex: Pote Nescau 01un.</span>
-			</div>
+			<input type="date" style="top: 0px; left:456px;" class="Campo" name="dataString" th:value="${compra.dataString}">
+			<input type="text" style="top: 76px; left:456px;" class="Campo" pattern="[a-zA-Z ]*" placeholder="Ex: Chocolate, Água..." name="produto" th:value="${compras.nomeProduto}">
+			<input type="text" maxlength="6" style="top: 152px; left:456px;" pattern="[0-9]{4,6}" class="Campo" placeholder="0,00" name="preco" th:value="${compras.valor}">
 		</div>
 		<div id="Button_">
 			<input type="submit" class="Botao" value="Pagar">
@@ -5351,7 +5333,7 @@ window.application = new Application();
 			</div>
 			<div id="Grupo_3">
 				<div id="Product_STYLESTYLE3TAGUI_L">
-					<span>falanext@next.com.br</span>
+					<span>falanext@next.b.br</span>
 				</div>
 				<div id="Product_STYLESTYLE3TAGUI_L_ea">
 					<span>Ouvidoria<br/>0800 688 6398</span>
@@ -5397,7 +5379,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo.png 2x">
+	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo@2x.png 2x">
 		
 	<div id="Grupo_21">
 		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_eq">
@@ -5542,5 +5524,5 @@ window.application = new Application();
 		</div>
 	</div>
 </div>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6daf41df98b451f8',m:'Q9YyAn1nnXmoUz8CUrZ3VmB7UtR0N3fq_HQpMo3yyeY-1644432353-0-AaXQZPKt9oyOFHQn2u71mCzNwS4g+vJ8UOevKDgqVGTdkYQFwe/A3K4pBa3DN0NuYVePbrkzufZFv3hNrBpFPw984yqnloeoAsSccxMYPSE/pY2gw+aSZI5grnn+u8/npAcrWnDb+nlgTSfMChTuG4YeN0ZjESm4uonYzDawm63Uwk0vpP2J3zRDZXf9j5vl1+rHZkohqjY1eLsk1sUjjW0=',s:[0x6fd7e9c5ae,0x25895e6aa6],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafda78c8df7a61',m:'jhJ6rtOPPDfmQ03pH0OL9ZB5XM0wsNbuvdd5VpTUk0g-1644438603-0-AdJ4jJxL/seeNTDSleOoAKkLJRKcblfPdzP1D9TfNcv9mr4/BiTobZooVq7bywjwsV9lZNr2QCywE/4Lz38ySEGUTwnf5QcGVQDApG9ZFeXDnmFmPlc8T4D1lubbjov8YBEedPZNHLc743ybX42403DeEVHF9Fs+mrdGxNKJp1R6L4xo03ExzE09DLtj2GxJKE6DS7DBGETdhUpoUEda7fI=',s:[0xc23a4f029c,0x8ae6a5f0a7],}})();</script></body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6daf41df98b451f8',m:'Q9YyAn1nnXmoUz8CUrZ3VmB7UtR0N3fq_HQpMo3yyeY-1644432353-0-AaXQZPKt9oyOFHQn2u71mCzNwS4g+vJ8UOevKDgqVGTdkYQFwe/A3K4pBa3DN0NuYVePbrkzufZFv3hNrBpFPw984yqnloeoAsSccxMYPSE/pY2gw+aSZI5grnn+u8/npAcrWnDb+nlgTSfMChTuG4YeN0ZjESm4uonYzDawm63Uwk0vpP2J3zRDZXf9j5vl1+rHZkohqjY1eLsk1sUjjW0=',s:[0x6fd7e9c5ae,0x25895e6aa6],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafda78c8df7a61',m:'jhJ6rtOPPDfmQ03pH0OL9ZB5XM0wsNbuvdd5VpTUk0g-1644438603-0-AdJ4jJxL/seeNTDSleOoAKkLJRKcblfPdzP1D9TfNcv9mr4/BiTobZooVq7bywjwsV9lZNr2QCywE/4Lz38ySEGUTwnf5QcGVQDApG9ZFeXDnmFmPlc8T4D1lubbjov8YBEedPZNHLc743ybX42403DeEVHF9Fs+mrdGxNKJp1R6L4xo03ExzE09DLtj2GxJKE6DS7DBGETdhUpoUEda7fI=',s:[0xc23a4f029c,0x8ae6a5f0a7],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6db5343b395acfe8',m:'toAgmFdy2cprYIrdVhVA7KWpEXHix3L1Srdx5dByH.4-1644494709-0-AerH1WjUDYIvr7eBP+aNixG8L/PcsPonTgMeQe1wi1YNRmUXBlz20DTxuqy8MRjRSHuWqBJefQj8Jh6CxhMDAZ8A0mZ0JFmCGEmkA9vVqdnit4LgeT/CbQBwl2bG+Ha0+M4OU8Svpm+CAXmHqwnb9aWb2rwoTuLqhC1o0cP7vb5h+6OH0Rr7EpQ4Nzkw01aZ4I19Gu14NBV7HN+YYK8NjUc=',s:[0xc7decea728,0xa835ff1679],}})();</script></body>
 </html>

@@ -74,7 +74,7 @@
 		background-color: rgba(23,23,23,1);
 		border-color: rgba(0,255,95,1);
 		border-width: 2px;
-		border-radius: 30px;
+		border-radius: 10px;
 	}
 	.Botao{
     cursor: pointer;
@@ -4998,7 +4998,7 @@ var Application = function() {
 
 window.application = new Application();
 </script>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="solicitarcartaodebito">
 	<div id="METADATA">
@@ -5056,36 +5056,18 @@ window.application = new Application();
 			</div>
 		</div>
 		<div id="Grupo_25">
-			<div id="Vencimento">
+			<div id="Vencimento_bdx">
 				<span>Vencimento:</span>
 			</div>
-			<div id="Bandeira">
+			<div id="Bandeira_bdy">
 				<span>Bandeira:</span>
 			</div>
-			<div id="Senha">
+			<div id="Senha_bdz">
 				<span>Senha:</span>
 			</div>
-			<svg class="Area">
-				<rect id="Area" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Label">
-				<span>01/01/2022</span>
-			</div>
-			<svg class="Area_bv">
-				<rect id="Area_bv" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<svg class="Area_bw">
-				<rect id="Area_bw" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Value">
-				<span>****</span>
-			</div>
-			<div id="Value_by">
-				<span>Ex: Visa, Elo, Mastercard</span>
-			</div>
+			<input type="date" style="top: 0px; left:456px;" class="Campo" name="dataString" th:value="${cartao.dataString}">
+			<input type="text" style="top: 76px; left:456px;" class="Campo" pattern="[a-zA-Z ]*" placeholder="Ex: Visa, Mastercard..." name="bandeira" th:value="${cartao.bandeira}">
+			<input type="text" maxlength="6" style="top: 152px; left:456px;" pattern="[0-9]{4,6}" class="Campo" placeholder="000000" name="senha" th:value="${cartao.senha}">
 		</div>
 		<div id="Button_">
 			<input type="submit" class="Botao" value="Solicitar">
@@ -5305,7 +5287,7 @@ window.application = new Application();
 			</div>
 			<div id="Grupo_3">
 				<div id="Product_STYLESTYLE3TAGUI_L">
-					<span>falanext@next.com.br</span>
+					<span>falanext@next.b.br</span>
 				</div>
 				<div id="Product_STYLESTYLE3TAGUI_L_d">
 					<span>Ouvidoria<br/>0800 688 6398</span>
@@ -5351,7 +5333,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="logo.png" srcset="logo.png 1x, logo.png 2x">
+	<img id="logo" src="logo.png" srcset="logo.png 1x, logo@2x.png 2x">
 	<a href="/menu">
 	<div id="Grupo_21">
 		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_eo">
@@ -5461,5 +5443,5 @@ window.application = new Application();
 		</div>
 	</div>
 </div>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dae5d930da051d1',m:'afUyfYjlGYPlwLsW.mWosU8ItV5hr8cKpsuYDF1Fij0-1644423002-0-AWOlziy2kkqi+l1FkJoALjDHzRjUxLIRmgEXNE/gITCR9Dho8lu6am2wRdlAsza2IymYbJq8VT79ufI54xp8WLNNTEP5m+11zwFyIl1ZA005HXL3I/6U5+Y+WJM2eBOUREJk98g6w4NCUg3U3ns6sTaA0qed6VbDb9STOpBICY/41dR/UCN77TlpFZ7baIAkz84FBlj1ay8NANS0MhaUAvE=',s:[0x13f2d4b66d,0xe6549416fb],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafd990fe0b7a61',m:'FJzkUCdBfbDmg_xNPEewmo2uhWWDNDSKe2fRzYinhAA-1644438566-0-Ac9hpLPWBrMMFeZnHx0kT199dbNMB0xHmoowrTSiijykincIhsLYCShOmSSEXrAp5gmdE9bT0paDHTApK+y0AFvTgSlR3nxYXZXjxu2zbmXR4rCxyVoIXL5/thYO5VCK8nnqnFbs8nZg3dpMJ+XH8icrhIuVc6mNTi67pA+9OCdwM0dOcndgYgs0vBVCHGhoM4p5YTcV99lC5L0ylTQeUb8=',s:[0x2d0d22c6fd,0xb6291293e6],}})();</script></body>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dae5d930da051d1',m:'afUyfYjlGYPlwLsW.mWosU8ItV5hr8cKpsuYDF1Fij0-1644423002-0-AWOlziy2kkqi+l1FkJoALjDHzRjUxLIRmgEXNE/gITCR9Dho8lu6am2wRdlAsza2IymYbJq8VT79ufI54xp8WLNNTEP5m+11zwFyIl1ZA005HXL3I/6U5+Y+WJM2eBOUREJk98g6w4NCUg3U3ns6sTaA0qed6VbDb9STOpBICY/41dR/UCN77TlpFZ7baIAkz84FBlj1ay8NANS0MhaUAvE=',s:[0x13f2d4b66d,0xe6549416fb],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafd990fe0b7a61',m:'FJzkUCdBfbDmg_xNPEewmo2uhWWDNDSKe2fRzYinhAA-1644438566-0-Ac9hpLPWBrMMFeZnHx0kT199dbNMB0xHmoowrTSiijykincIhsLYCShOmSSEXrAp5gmdE9bT0paDHTApK+y0AFvTgSlR3nxYXZXjxu2zbmXR4rCxyVoIXL5/thYO5VCK8nnqnFbs8nZg3dpMJ+XH8icrhIuVc6mNTi67pA+9OCdwM0dOcndgYgs0vBVCHGhoM4p5YTcV99lC5L0ylTQeUb8=',s:[0x2d0d22c6fd,0xb6291293e6],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6db534d59d63cfe8',m:'2l9n5rs3jSn3_A7eGhWwMZO4GlEK2PvnmTDFFCtSPHA-1644494733-0-AcHNoshyELxWe+18kuzYQBt7Ac1oED4R86C4ZxnY8YBTsNvD66O1WGyiPc5nlhJnlbdYn/HdDRHcNwPN23GzwOH1BMWjp+KZ2Xl+YqiSoNJpAN6ywvbApKPBJwZzxFqUZYyriAjP9X/PL3jZ1maFQGtYLzK5UpvquVCU8ExS05HDmkBgZQLfmyWGAcYwtXl8m96jWHEaVDpIKZbuy3C2al8=',s:[0xb84617eb24,0xbf0154ccdb],}})();</script></body>
 </html>

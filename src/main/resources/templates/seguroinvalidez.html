@@ -5061,7 +5061,9 @@ window.application = new Application();
 			<div id="METADATA_bm">
 				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 			</div>
-			<input type="submit" class="Botao" th:value="${contratado}">
+			<form th:action="@{/contratarinvalidez}" method="POST">
+				<input type="submit" class="Botao" th:value="${contratado}">
+			</form>
 			<div id="Icon_">
 				<div id="METADATA_bq">
 					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -5086,7 +5088,7 @@ window.application = new Application();
 				<span>Eu, </span><span th:text="${conta.cliente.nome}"></span><span>, Inscrito no CPF </span><span th:text="${conta.cliente.cpf}"></span><span>, residente na </span><span th:text="${conta.cliente.endereco.logradouro}"></span>, <span th:text="${conta.cliente.endereco.numero}"></span><span>, na cidade de </span><span th:text="${conta.cliente.endereco.cidade}"></span>, no estado de <span th:text="${conta.cliente.endereco.estado}"></span><span>, concordo com os termos para o contrato do SEGURO INVALIDEZ no valor de R$ 36,00 reais, da Next Seguros, com o CNPJ 12.123.456/0001-12, na data de 10/02/2022.<br></span><span style="font-style:normal;font-weight:bold;"><br>VANTAGENS:</span><br/><span><br/>•	Aqui na Next, Você não precisa ter uma alta renda para encontra os melhores planos para toda a sua família, venha conferir os nossos seguros, leva apenas 5 minutos.<br/><br/>•	Planos anuais com valores mais baixos, venha conferir aqui mesmo em nosso site, e a gente te explica o passo a passo.<br/><br/>•	Se não gostar dos planos, devolvemos todo o seu dinheiro após 15 dias de carência.</span>
 			</div>
 			<div id="COBERTURA__Invalidez_parcial_o">
-				<span style="text-transform:capitalize;">COBERTURA:</span><br/><span style="font-style:normal;font-weight:normal;text-transform:capitalize;"><br/>•	Invalidez parcial: ocorre quando há uma perda parcial das funções. Por exemplo, uma pessoa que sofre um acidente e perda a visão em um só dos olhos.<br/><br/>•	Invalidez total: ocorre quando há uma perda total das funções. Intuitivamente, um bom exemplo seria o caso onde a pessoa sofre um a</span><span style="text-transform:capitalize;">cidente e perde a visão em ambos os olhos.<br/><br/>O valor do seguro individual é de R$26,00 ao ano, podendo sem cancelado depois de 15 dias de vigência.</span><br/>
+				<span style="text-transform:capitalize;">COBERTURA:</span><br/><span style="font-style:normal;font-weight:normal;text-transform:capitalize;"><br/>•	Invalidez parcial: ocorre quando há uma perda parcial das funções. Por exemplo, uma pessoa que sofre um acidente e perda a visão em um só dos olhos.<br/><br/>•	Invalidez total: ocorre quando há uma perda total das funções. Intuitivamente, um bom exemplo seria o caso onde a pessoa sofre um a</span><span style="text-transform:capitalize;">cidente e perde a visão em ambos os olhos.<br/><br/>O valor do seguro individual é de R$36,00 ao ano, podendo sem cancelado depois de 15 dias de vigência.</span><br/>
 			</div>
 		</div>
 	</div>
