@@ -35,6 +35,12 @@ public class HomeController {
     @Autowired
     CartaoCreditoRepository cartaoCreditoRepository;
 
+    @Autowired
+    CompraRepository compraRepository;
+
+    @Autowired
+    SeguroRepository seguroRepository;
+
     Conta contaLogada;
 
     @GetMapping(value = "/")
@@ -635,16 +641,32 @@ public class HomeController {
             }
             String statusCartao = "";
             String iconeCadeado = "";
+            String fatura = "";
+            String seguros = "";
+            String compras = "";
             if(contaLogada.getCartaoCredito() == null){
+                compras = "Opção Indisponível";
                 statusCartao = "Opção Indisponível";
+                fatura = "Opção Indisponível";
+                seguros = "Opção Indisponível";
                 iconeCadeado = "\uE95F";
             }else if(contaLogada.getCartaoCredito().isAtivo()){
+                compras = "Fazer Compras";
                 statusCartao = "Bloquear Cartão";
+                seguros = "Seguros";
+                fatura = "Pagar Fatura: R$ "+contaLogada.getCartaoCredito().getValorFatura();
                 iconeCadeado = "\uE951";
             }else{
+                compras = "Compras Bloqueadas";
+                seguros = "Seguros Bloqueados";
                 statusCartao = "Desbloquear Cartão";
+                fatura = "Pagamento Bloqueado";
                 iconeCadeado = "\uE950";
             }
+
+            model.addAttribute("compras",compras);
+            model.addAttribute("seguros",seguros);
+            model.addAttribute("fatura", fatura);
             model.addAttribute("logo",iconeCadeado);
             model.addAttribute("statuscartao",statusCartao);
             return "credito";
@@ -654,21 +676,33 @@ public class HomeController {
         }
     }
 
-    @PostMapping(value = "/gocredito")
-    public String goCredito(ModelMap model){
+    @PostMapping(value = "/goback")
+    public String goBack(){
         try{
             if(contaLogada == null){
                 return "redirect:/";
             }
-            String statusCartao = "";
-            if(contaLogada.getCartaoCredito() == null){
-                statusCartao = "Não Possui";
-            }else if(contaLogada.getCartaoCredito().isAtivo()){
-                statusCartao = "Ativo";
-            }else{
-                statusCartao = "Bloqueado";
+            if(!contaLogada.getCartaoCredito().isAtivo()){
+                return "redirect:/credito";
             }
-            model.addAttribute("statuscartao",statusCartao);
+            if(!contaLogada.getCartaoCredito().pagarFatura(contaLogada)){
+                throw new Exception("Saldo Insuficiente...");
+            }
+
+            return "redirect:/menu";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @PostMapping(value = "/refreshsaldo")
+    public String refreshSaldo(){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+
             return "redirect:/credito";
 
         } catch (Exception e) {
@@ -730,6 +764,7 @@ public class HomeController {
             }else{
                 contaLogada.getCartaoCredito().setAtivo(true);
             }
+            cartaoCreditoRepository.save(contaLogada.getCartaoCredito());
             return "redirect:/credito";
 
         } catch (Exception e) {
@@ -738,9 +773,63 @@ public class HomeController {
     }
 
 
+    // FAZER COMPRAS NO CARTÃO DE CRÉDITO
+
+    @PostMapping(value = "/gocomprarcartaocredito")
+    public String goComprarCartaoCredito(ModelMap model){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+            if(!contaLogada.getCartaoCredito().isAtivo() || contaLogada.getCartaoCredito() == null){
+                return "redirect:/credito";
+            }
+            Compra compra = new Compra();
+            model.addAttribute("compra",compra);
+
+            return "compras";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @PostMapping(value = "/btcomprarcartaocredito")
+    public String btComprarCartaoCredito(Compra compra){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+
+            compraRepository.save(compra);
+            contaLogada.getCartaoCredito().addCompra(compra);
+            cartaoCreditoRepository.save(contaLogada.getCartaoCredito());
+            return "redirect:/credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
 
 
+    //
 
+
+    @PostMapping(value = "/btpagarfaturacartaocredito")
+    public String btPagarFaturaCartaoCredito(){
+        try{
+            if(contaLogada == null) {
+                return "redirect:/";
+            }
+            if(!contaLogada.getCartaoCredito().isAtivo() || contaLogada.getCartaoCredito() == null){
+                return "redirect:/credito";
+            }
+            return "redirect:/credito";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
 
 
     // ----------------------------------- Debito ---------------------------------------
@@ -757,6 +846,105 @@ public class HomeController {
         } catch (Exception e) {
             return "/erro";
         }
+    }
+
+
+    // ---------------------------------- Seguros -----------------------------------
+
+    @PostMapping(value = "/goseguros")
+    public String goSeguros(){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            if(!contaLogada.getCartaoCredito().isAtivo() || contaLogada.getCartaoCredito() == null){
+                return "redirect:/credito";
+            }
+            return "seguros";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @GetMapping(value = "/seguros")
+    public String seguros(){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            if(!contaLogada.getCartaoCredito().isAtivo() || contaLogada.getCartaoCredito() == null){
+                return "redirect:/credito";
+            }
+            return "seguros";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+
+    @GetMapping(value = "/gosegurovida")
+    public String goSeguroVida(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+
+            model.addAttribute("conta",contaLogada);
+
+            return "segurodevida";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @GetMapping(value = "/gosegurodesemprego")
+    public String goSeguroDesemprego(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+
+            model.addAttribute("conta",contaLogada);
+            return "segurodesemprego";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @GetMapping(value = "/goseguroinvalidez")
+    public String goSeguroInvalidez(ModelMap model){
+        try{
+            if(contaLogada == null){
+                return "redirect:/";
+            }
+            String contratado = "Contratar";
+            Seguro seguro = seguroRepository.findById(3L).orElse(null);
+            if(seguro == null){
+                System.out.println("Seguro Não Existe...");
+                throw new Exception("Seguro Não Existe...");
+            }
+            for(Apolice apolice : contaLogada.getCartaoCredito().getApolices()){
+                if(apolice.getSeguro().equals(seguro)){
+                    contratado = "Resgatar";
+                }
+            }
+            model.addAttribute("contratado", contratado);
+            model.addAttribute("conta",contaLogada);
+
+            return "seguroinvalidez";
+
+        } catch (Exception e) {
+            return "/erro";
+        }
+    }
+
+    @PostMapping(value = "/contratarinvalidez")
+    public String contratarInvalidez(){
+        return null;
     }
 
 

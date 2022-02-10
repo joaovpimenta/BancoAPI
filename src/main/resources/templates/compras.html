@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -74,7 +74,7 @@
 		background-color: rgba(23,23,23,1);
 		border-color: rgba(0,255,95,1);
 		border-width: 2px;
-		border-radius: 10px;
+		border-radius: 30px;
 	}
 	.Botao{
     cursor: pointer;
@@ -5105,6 +5105,7 @@ window.application = new Application();
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
 <body>
 <div id="compras">
+	<form th:action="@{/btcomprarcartaocredito}" method="POST">
 	<div id="METADATA_bhu">
 		<span>{"config":{},"type":"Artboard","theme":"Base","nodeName":"About - Desktop","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:22.509Z"}</span>
 	</div>
@@ -5169,39 +5170,15 @@ window.application = new Application();
 			<div id="Preo">
 				<span>Preço:</span>
 			</div>
-			<svg class="Area_bij">
-				<rect id="Area_bij" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Label_bik">
-				<span>01/01/2022</span>
-			</div>
-			<svg class="Area_bil">
-				<rect id="Area_bil" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<svg class="Area_bim">
-				<rect id="Area_bim" rx="0" ry="0" x="0" y="0" width="230" height="51">
-				</rect>
-			</svg>
-			<div id="Value_bin">
-				<span>R$0,00</span>
-			</div>
-			<div id="Value_bio">
-				<span>Ex: Pote Nescau 01un.</span>
-			</div>
+			<input type="date" style="top: 0px; left:456px;" class="Campo" name="dataString" th:value="${compra.dataString}">
+			<input type="text" style="top: 76px; left:456px;" class="Campo" placeholder="Ex: Pote de Nescau" name="nomeProduto" th:value="${compra.nomeProduto}">
+			<input type="text" style="top: 152px; left:456px;" pattern="[0-9.]*" class="Campo" placeholder="00.00" name="valor" th:value="${compra.valor}">
 		</div>
 		<div id="Button__bip">
 			<div id="METADATA_biq">
 				<span>{"config":{"STYLE":"STYLE3"},"type":"Button","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:28.060Z","nodeName":"Button"}</span>
 			</div>
-			<svg class="Area_DISPLAY_ELEMENTSLabelSIZE_bir">
-				<rect id="Area_DISPLAY_ELEMENTSLabelSIZE_bir" rx="25" ry="25" x="0" y="0" width="200" height="50">
-				</rect>
-			</svg>
-			<div id="Label_bis">
-				<span>Pagar</span>
-			</div>
+			<input style="left: -5px;" type="submit" class="Botao" value="Pagar">
 			<div id="Icon__bit">
 				<div id="METADATA_biu">
 					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -5433,7 +5410,7 @@ window.application = new Application();
 			</div>
 			<div id="Grupo_3_bkw">
 				<div id="Product_STYLESTYLE3TAGUI_L_bkx">
-					<span>falanext@next.b.br</span>
+					<span>falanext@next.com.br</span>
 				</div>
 				<div id="Product_STYLESTYLE3TAGUI_L_bky">
 					<span>Ouvidoria<br/>0800 688 6398</span>
@@ -5479,8 +5456,8 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo_blc" src="logo_blc.png" srcset="logo_blc.png 1x, logo_blc@2x.png 2x">
-	<a href="/menu">
+	<img id="logo_blc" src="logo.png" srcset="logo.png 1x, logo.png 2x">
+	<a href="/credito">
 	<div id="Grupo_21_bld">
 		<svg class="Area_SIZEMEDIUMSTATEDEFAULTSTY_ble">
 			<rect id="Area_SIZEMEDIUMSTATEDEFAULTSTY_ble" rx="24" ry="24" x="0" y="0" width="48" height="48">
@@ -5624,6 +5601,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
+	</form>
 </div>
 <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dae5b439f6951d1',m:'j1JRzQW4iGudWuHiJCLnF525S8Q.FsZiU7kgBOxYsqs-1644422907-0-AaaXkkHSqYXkiL5HAprMRpMkAZUh8QuGogEBP03rE0WFrQp1R5rBRQZib4UcDsx4cLIIzNkziPZ7c5TA+cNtLpqFGGPqz8YhWLOw3SKoWHL8uJFmNNw1+DPjKg9eOgBI6A1cVyKVfl2iX0hFCrQJkUe75DPNaIuTNeAi6sJVqIMsyIh61IQSueqNYXTESpRcdw==',s:[0xc03bcc8d71,0x83fb634004],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dafda95dfe47a61',m:'LToE_FYxb4vScWrarB_P4X3d4CQuGBULn4OLwfJLURk-1644438608-0-AcWW1KNQRtmvcgZncLCcRCc2nAMvswD+rv3XNb89OX83oSZduCu2CakgT9lfvwp6Yl3xBpsBXw8k769Fqc+fcyNcw8SAcKeCqiLp64Att5C8Q3ZPuP6FUFIJRyUuImb8vp2OuSTHpoP5Ht++g5F4gm21XLe+9P6ZiRY8T/33pAie2YYrWwJeIXn/DdQ38x1xtg==',s:[0x03bc475d03,0xeea345e4e4],}})();</script></body>
 </html>

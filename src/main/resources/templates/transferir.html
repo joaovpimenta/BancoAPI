@@ -2007,7 +2007,7 @@
 		background-color: rgba(23,23,23,1);
 		border-color: rgba(0,255,95,1);
 		border-width: 2px;
-		border-radius: 10px;
+		border-radius: 30px;
 	}
 	#CPF_da_Conta {
 		left: 227px;
@@ -5233,7 +5233,7 @@ window.application = new Application();
 				</div>
 				<div id="Grupo_3_y">
 					<div id="Product_STYLESTYLE3TAGUI_L_y">
-						<span>falanext@next.b.br</span>
+						<span>falanext@next.com.br</span>
 					</div>
 					<div id="Product_STYLESTYLE3TAGUI_L_za">
 						<span>Ouvidoria<br/>0800 688 6398</span>
@@ -5439,7 +5439,7 @@ window.application = new Application();
 			</a>
 		</div>
 		<div id="Button__x">
-			<input type="submit" class="Botao" value="Transferir">
+			<input type="submit" class="Botao" value="Transferir" onclick="if(!this.form.corrente.checked && !this.form.poupanca.checked){alert('Selecione Pelo Menos UM Tipo de Conta');return false}">
 			<div id="Icon__">
 				<div id="METADATA_a">
 					<span>{"config":{"STATE":"DEFAULT","STYLE":"STYLE3"},"type":"Icon","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:27.936Z","nodeName":"Icon"}</span>
@@ -5470,8 +5470,8 @@ window.application = new Application();
 			<div id="Valor">
 				<span>Valor:</span>
 			</div>
-			<input type="text" class="Campo" style="top: 0px; left: 200px;" placeholder="000.000.000-00" name="cpfExterno" th:value="${cpfExterno}">
-			<input type="text" class="Campo" style="top: 107px; left: 200px;" placeholder="00.00" name="valorDeposito" th:value="${valorDeposito}">
+			<input type="text" class="Campo" pattern="[0-9]{3}(.)[0-9]{3}(.)[0-9]{3}(-)[0-9]{2}" style="top: 0px; left: 200px;" name="cpfExterno" th:value="${cpfExterno}">
+			<input type="text" class="Campo" pattern="[0-9]+[0-9.]*" style="top: 107px; left: 200px;" name="valorDeposito" th:value="${valorDeposito}">
 		</div>
 	</form>
 </div>

@@ -108,16 +108,22 @@ public class DBInserts implements CommandLineRunner {
         Pix pix = new Pix(null, TipoChavePix.CPF, 100.0, cliente1.getCpf(), true, conta1);
         Pix pix2 = new Pix(null, TipoChavePix.CPF, 100.0, cliente2.getCpf(), true, conta2);
 
-        if(contaRepository.count() == 0) {
-            seguroRepository.saveAll(Arrays.asList(seguro));
-            apoliceRepository.saveAll(Arrays.asList(ap));
-            cartaoCreditoRepository.saveAll(Arrays.asList(cc, cc2));
-            cartaoDebitoRepository.saveAll(Arrays.asList(cd, cd2));
-            enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
-            clienteRepository.saveAll(Arrays.asList(cliente1, cliente2));
-            contaRepository.saveAll(Arrays.asList(conta1, conta2));
-            pixRepository.saveAll(Arrays.asList(pix, pix2));
-        }
+//        if(contaRepository.count() == 0) {
+//            seguroRepository.saveAll(Arrays.asList(seguro));
+//            apoliceRepository.saveAll(Arrays.asList(ap));
+//            cartaoCreditoRepository.saveAll(Arrays.asList(cc, cc2));
+//            cartaoDebitoRepository.saveAll(Arrays.asList(cd, cd2));
+//            enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
+//            clienteRepository.saveAll(Arrays.asList(cliente1, cliente2));
+//            contaRepository.saveAll(Arrays.asList(conta1, conta2));
+//            pixRepository.saveAll(Arrays.asList(pix, pix2));
+//        }
+//        if(seguroRepository.count() == 0) {
+//            Seguro seguro1 = new Seguro(null,"Seguro de Vida", "Indenização por despesas médico-hospitalares, ou por perda parcial ou total do funcionamento dos membros ou órgãos;",36.00);
+//            Seguro seguro2 = new Seguro(null,"Seguro Invalidez", "Indenização por despesas médico-hospitalares, ou por perda parcial ou total do funcionamento dos membros ou órgãos;",36.00);
+//            Seguro seguro3 = new Seguro(null,"Seguro Desemprego", "Indenização por despesas médico-hospitalares, ou por perda parcial ou total do funcionamento dos membros ou órgãos;",36.00);
+//            seguroRepository.saveAll(Arrays.asList(seguro1,seguro2,seguro3));
+//        }
     }
 
     private void deleteAll(){

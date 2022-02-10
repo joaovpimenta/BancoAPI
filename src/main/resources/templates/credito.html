@@ -74,7 +74,7 @@
 		background-color: rgba(23,23,23,1);
 		border-color: rgba(0,255,95,1);
 		border-width: 2px;
-		border-radius: 10px;
+		border-radius: 30px;
 	}
 	#credito {
 		position: absolute;
@@ -5128,8 +5128,8 @@ window.application = new Application();
 					<div id="METADATA_bc">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<form th:action="@{/ENDEREÇO}" method="POST">
-					<input type="submit" class="Botao" value="Exibir Fatura" style="top: 0px; left: 0px; width: 300px; height: 190px">
+					<form th:action="@{/goback}" method="POST">
+					<input type="submit" class="Botao" th:value="${fatura}" style="top: 0px; left: 0px; width: 300px; height: 190px">
 					<div id="Text" style="top: 20px; left: 10px;">
 						<span></span>
 					</div>
@@ -5189,8 +5189,8 @@ window.application = new Application();
 					<div id="METADATA_b">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<form th:action="@{/ENDEREÇO}" method="POST">
-						<input type="submit" class="Botao" value="Seguros" style="top: 0px; left: 0px; width: 300px; height: 190px">
+					<form th:action="@{/goseguros}" method="POST">
+						<input type="submit" class="Botao" th:value="${seguros}" style="top: 0px; left: 0px; width: 300px; height: 190px">
 						<div id="Text_b" style="top: 20px; left: 10px;">
 							<span></span>
 						</div>
@@ -5204,8 +5204,8 @@ window.application = new Application();
 					<div id="METADATA_cb">
 						<span>{"config":{"ASSET":"small","ASSET_ID":"35cc479761601be986b3f8891766eec2"},"type":"Image","theme":"Base","__plugin":"Mockup","__version":"1.4.13","__lastUpdate":"2022-02-07T13:00:25.424Z","nodeName":"Image"}</span>
 					</div>
-					<form th:action="@{/ENDEREÇO}" method="POST">
-						<input type="submit" class="Botao" value="Fazer Compras" style="top: 0px; left: 0px; width: 300px; height: 190px">
+					<form th:action="@{/gocomprarcartaocredito}" method="POST">
+						<input type="submit" class="Botao" th:value="${compras}" style="top: 0px; left: 0px; width: 300px; height: 190px">
 						<div id="Text_cd" style="top: 20px; left: 10px;">
 							<span></span>
 						</div>
@@ -5443,7 +5443,7 @@ window.application = new Application();
 			</div>
 			<div id="Grupo_3">
 				<div id="Product_STYLESTYLE3TAGUI_L">
-					<span>falanext@next.b.br</span>
+					<span>falanext@next.com.br</span>
 				</div>
 				<div id="Product_STYLESTYLE3TAGUI_L_em">
 					<span>Ouvidoria<br/>0800 688 6398</span>
@@ -5489,7 +5489,7 @@ window.application = new Application();
 			</div>
 		</div>
 	</div>
-	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo@2x.png 2x">
+	<img id="logo" src="/image/logo.png" srcset="/image/logo.png 1x, /image/logo.png 2x">
 		
 	<div id="humaaanssitting-4">
 		<div id="A-HumanSitting">
