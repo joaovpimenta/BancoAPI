@@ -891,6 +891,18 @@ public class HomeController {
                 return "redirect:/";
             }
 
+            String contratado = "Contratar";
+            Seguro seguro = seguroRepository.findById(2L).orElse(null);
+            if(seguro == null){
+                System.out.println("Seguro Não Existe...");
+                throw new Exception("Seguro Não Existe...");
+            }
+            for(Apolice apolice : contaLogada.getCartaoCredito().getApolices()){
+                if(apolice.getSeguro().equals(seguro)){
+                    contratado = "Resgatar";
+                }
+            }
+            model.addAttribute("contratado", contratado);
             model.addAttribute("conta",contaLogada);
 
             return "segurodevida";
@@ -907,7 +919,20 @@ public class HomeController {
                 return "redirect:/";
             }
 
+            String contratado = "Contratar";
+            Seguro seguro = seguroRepository.findById(4L).orElse(null);
+            if(seguro == null){
+                System.out.println("Seguro Não Existe...");
+                throw new Exception("Seguro Não Existe...");
+            }
+            for(Apolice apolice : contaLogada.getCartaoCredito().getApolices()){
+                if(apolice.getSeguro().equals(seguro)){
+                    contratado = "Resgatar";
+                }
+            }
+            model.addAttribute("contratado", contratado);
             model.addAttribute("conta",contaLogada);
+
             return "segurodesemprego";
 
         } catch (Exception e) {
@@ -944,6 +969,16 @@ public class HomeController {
 
     @PostMapping(value = "/contratarinvalidez")
     public String contratarInvalidez(){
+        return null;
+    }
+
+    @PostMapping(value = "/contratarvida")
+    public String contratarVida(){
+        return null;
+    }
+
+    @PostMapping(value = "/contratardesemprego")
+    public String contratarDesemprego(){
         return null;
     }
 
