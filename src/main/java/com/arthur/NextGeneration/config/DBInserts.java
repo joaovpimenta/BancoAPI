@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 @Configuration
-@Profile("test")
+@Profile("db")
 public class DBInserts implements CommandLineRunner {
 
     @Autowired
