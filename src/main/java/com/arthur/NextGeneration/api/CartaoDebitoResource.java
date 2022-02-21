@@ -1,8 +1,8 @@
-package com.arthur.NextGeneration.controller.resources;
+package com.arthur.NextGeneration.api;
 
 
-import com.arthur.NextGeneration.model.entities.Pix;
-import com.arthur.NextGeneration.model.services.PixService;
+import com.arthur.NextGeneration.model.entities.CartaoDebito;
+import com.arthur.NextGeneration.model.services.CartaoDebitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/pixs")
-public class PixResource {
+@RequestMapping(value = "/api/cartaodebitos")
+public class CartaoDebitoResource {
 
     @Autowired
-    private PixService service;
+    private CartaoDebitoService service;
 
     @GetMapping
-    public ResponseEntity<List<Pix>> findAll() {
-        List<Pix> list = service.findAll();
+    public ResponseEntity<List<CartaoDebito>> findAll() {
+        List<CartaoDebito> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Pix> findById(@PathVariable Long id) {
-        Pix obj = service.findById(id);
+    public ResponseEntity<CartaoDebito> findById(@PathVariable Long id) {
+        CartaoDebito obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }

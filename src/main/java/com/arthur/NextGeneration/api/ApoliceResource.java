@@ -1,8 +1,8 @@
-package com.arthur.NextGeneration.controller.resources;
+package com.arthur.NextGeneration.api;
 
 
-import com.arthur.NextGeneration.model.entities.Seguro;
-import com.arthur.NextGeneration.model.services.SeguroService;
+import com.arthur.NextGeneration.model.entities.Apolice;
+import com.arthur.NextGeneration.model.services.ApoliceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/segurosDados")
-public class SeguroResource {
+@RequestMapping(value = "/api/apolices")
+public class ApoliceResource {
 
     @Autowired
-    private SeguroService service;
+    private ApoliceService service;
 
     @GetMapping
-    public ResponseEntity<List<Seguro>> findAll() {
-        List<Seguro> list = service.findAll();
+    public ResponseEntity<List<Apolice>> findAll() {
+        List<Apolice> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Seguro> findById(@PathVariable Long id) {
-        Seguro obj = service.findById(id);
+    public ResponseEntity<Apolice> findById(@PathVariable Long id) {
+        Apolice obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }

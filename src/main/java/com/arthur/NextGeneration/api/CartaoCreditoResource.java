@@ -1,8 +1,8 @@
-package com.arthur.NextGeneration.controller.resources;
+package com.arthur.NextGeneration.api;
 
 
-import com.arthur.NextGeneration.model.entities.Apolice;
-import com.arthur.NextGeneration.model.services.ApoliceService;
+import com.arthur.NextGeneration.model.entities.CartaoCredito;
+import com.arthur.NextGeneration.model.services.CartaoCreditoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/apolices")
-public class ApoliceResource {
+@RequestMapping(value = "/api/cartaocreditos")
+public class CartaoCreditoResource {
 
     @Autowired
-    private ApoliceService service;
+    private CartaoCreditoService service;
 
     @GetMapping
-    public ResponseEntity<List<Apolice>> findAll() {
-        List<Apolice> list = service.findAll();
+    public ResponseEntity<List<CartaoCredito>> findAll() {
+        List<CartaoCredito> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Apolice> findById(@PathVariable Long id) {
-        Apolice obj = service.findById(id);
+    public ResponseEntity<CartaoCredito> findById(@PathVariable Long id) {
+        CartaoCredito obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }

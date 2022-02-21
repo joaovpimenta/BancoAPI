@@ -1,4 +1,4 @@
-package com.arthur.NextGeneration.controller.controllers;
+package com.arthur.NextGeneration.controller;
 
 import com.arthur.NextGeneration.model.entities.*;
 import com.arthur.NextGeneration.model.enums.TipoChavePix;

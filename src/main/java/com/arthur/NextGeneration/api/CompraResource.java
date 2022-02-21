@@ -1,4 +1,4 @@
-package com.arthur.NextGeneration.controller.resources;
+package com.arthur.NextGeneration.api;
 
 
 import com.arthur.NextGeneration.model.entities.Compra;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/compras")
+@RequestMapping(value = "/api/compras")
 public class CompraResource {
 
     @Autowired
