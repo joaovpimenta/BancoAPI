@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/enderecos")
-public class EnderecoResource {
+public class EnderecoResource implements Serializable {
 
     @Autowired
     private EnderecoService service;

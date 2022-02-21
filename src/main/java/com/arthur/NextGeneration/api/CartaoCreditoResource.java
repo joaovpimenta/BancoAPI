@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/cartaocreditos")
-public class CartaoCreditoResource {
+public class CartaoCreditoResource implements Serializable {
 
     @Autowired
     private CartaoCreditoService service;

@@ -72,4 +72,8 @@ public class ClienteService {
         cliente.setTelefone(telefone);
     }
 
+    public Cliente createCliente(Cliente cliente){
+        return repository.save(cliente);
+    }
+
 }

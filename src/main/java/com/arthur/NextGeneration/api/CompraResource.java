@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/compras")
-public class CompraResource {
+public class CompraResource implements Serializable {
 
     @Autowired
     private CompraService service;
